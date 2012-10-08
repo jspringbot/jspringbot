@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.jspringbot</groupId>
+  <artifactId>jspringbot</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <packaging>jar</packaging>
+  <name>jspringbot</name>
+
+  <repositories>
+    <repository>
+      <id>dist.wso2.org</id>
+      <url>http://dist.wso2.org/maven2/</url>
+    </repository>
+    <repository>
+      <id>mvnsearch</id>
+      <url>http://www.mvnsearch.org/maven2</url>
+    </repository>
+    <repository>
+      <id>jboss</id>
+      <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+    </repository>
+    <repository>
+      <id>codehaus.org</id>
+      <url>http://repository.codehaus.org/</url>
+    </repository>
+    <repository>
+      <id>sonatype-releases</id>
+      <name>Sonatype Releases Repository</name>
+      <url>http://oss.sonatype.org/content/repositories/releases/</url>
+    </repository>
+  </repositories>
+
+  <properties>
+    <spring.version>3.1.0.RELEASE</spring.version>
+    <hibernate.version>3.3.2.GA</hibernate.version>
+    <junit.version>4.8.1</junit.version>
+  </properties>
+
+  <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+  </build>
+
+  <!-- Dependencies calculated by AppFuse when running full-source plugin -->
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.16</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.5.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.5.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.robotframework</groupId>
+      <artifactId>robotframework</artifactId>
+      <version>2.7.3</version>
+    </dependency>
+  </dependencies>
+</project>
