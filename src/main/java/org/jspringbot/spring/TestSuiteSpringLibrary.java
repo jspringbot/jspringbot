@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012. JSpringBot Shiela D. Buitizon. All Rights Reserved.
+ * Copyright (c) 2012. JSpringBot. All Rights Reserved.
  *
  * See the NOTICE file distributed with
  * this work for additional information regarding copyright ownership.
