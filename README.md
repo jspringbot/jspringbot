@@ -17,11 +17,8 @@ All libraries were built using [Java](http://www.java.com/en/) and [Spring Frame
 
 ## License
 
-Founder & Main Developer : Shiela D. Buitizon
-
-Contributors:
-    [Alvin R. de Leon](https://github.com/alvinrdeleon/)
+Founder & Main Developer : [Shiela D. Buitizon](https://github.com/badong2210/)
+Contributor: [Alvin R. de Leon](https://github.com/alvinrdeleon/)
 
 Copyright 2012 JSpringBot
-
-Licensed under the MIT License
+Licensed under the Apache License 2.0
