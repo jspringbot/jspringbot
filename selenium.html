@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Libraries · jSpringBot</title>
+    <title>Selenium Library · jSpringBot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -76,8 +76,8 @@
 ================================================== -->
 <header class="jumbotron subhead" id="overview">
   <div class="container">
-    <h1>Libraries</h1>
-    <p class="lead">Fundamental HTML elements styled and enhanced with extensible classes.</p>
+    <h1>Selenium Library</h1>
+    <p class="lead">Robot framework library for automating web browsers across many platforms.</p>
   </div>
 </header>
 
@@ -89,7 +89,7 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav">
-          <li><a href="#typography"><i class="icon-chevron-right"></i> Typography</a></li>
+          <li><a href="#overview-selenium"><i class="icon-chevron-right"></i> Overview</a></li>
           <li><a href="#code"><i class="icon-chevron-right"></i> Code</a></li>
           <li><a href="#tables"><i class="icon-chevron-right"></i> Tables</a></li>
           <li><a href="#forms"><i class="icon-chevron-right"></i> Forms</a></li>
@@ -104,44 +104,39 @@
 
         <!-- Typography
         ================================================== -->
-        <section id="typography">
+        <section id="overview-selenium">
           <div class="page-header">
-            <h1>Typography</h1>
+            <h1>Overview</h1>
           </div>
 
-          <h2 id="headings">Headings</h2>
-          <p>All HTML headings, <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> are available.</p>
-          <div class="bs-docs-example">
-            <h1>h1. Heading 1</h1>
-            <h2>h2. Heading 2</h2>
-            <h3>h3. Heading 3</h3>
-            <h4>h4. Heading 4</h4>
-            <h5>h5. Heading 5</h5>
-            <h6>h6. Heading 6</h6>
+          <h2 id="what-selenium">What is Selenium?</h2>
+          <p><em>Selenium automates browsers</em>. That's it. What you do with that power is entirely up to you. Primarily it is for automating web applications for testing purposes, but is certainly not limited to just that. Boring web-based administration tasks can (and should!) also be automated as well.<p>
+          <p>Selenium has the support of some of the largest browser vendors who have taken (or are taking) steps to make Selenium a native part of their browser. It is also the core technology in countless other browser automation tools, APIs and frameworks.</p>
+
+          <h2 id="test-automation">Web Application Test Automation</h2>
+          <p>In an era of highly interactive and responsive software processes where many organizations are using some form of Agile methodology, test automation is frequently becoming a requirement for software projects. Test automation is often the answer. Test automation means using a software tool to run repeatable tests against the application to be tested. For regression testing this provides that responsiveness.</p>
+          <p>There are many advantages to test automation. Most are related to the repeatability of the tests and the speed at which the tests can be executed. There are a number of commercial and open source tools available for assisting with the development of test automation. Selenium is possibly the most widely-used open source solution.</p>
+          <p>Test automation has specific advantages for improving the long-term efficiency of a software team’s testing processes. Test automation supports:</p>
+          <ul>
+              <li>Frequent regression testing</li>
+              <li>Rapid feedback to developers</li>
+              <li>Virtually unlimited iterations of test case execution</li>
+              <li>Support for Agile and extreme development methodologies</li>
+              <li>Disciplined documentation of test cases</li>
+              <li>Customized defect reporting</li>
+              <li>Finding defects missed by manual testing</li>
+          </ul>
+
+          <h2 id="automate-or-not">To Automate or Not to Automate?</h2>
+          <p>Is automation always advantageous? When should one decide to automate test cases?</p>
+          <p>It is not always advantageous to automate test cases. There are times when manual testing may be more appropriate. For instance, if the application’s user interface will change considerably in the near future, then any automation might need to be rewritten anyway. Also, sometimes there simply is not enough time to build test automation. For the short term, manual testing may be more effective. If an application has a very tight deadline, there is currently no test automation available, and it’s imperative that the testing get done within that time frame, then manual testing is the best solution.</p>
+
+          <div class="alert alert-info">
+              <strong>Heads up!</strong>
+              Please also see selenium documentation from this link <a href="http://seleniumhq.org/docs/index.html">http://seleniumhq.org/docs/index.html</a>.
           </div>
-
-          <h2 id="body-copy">Body copy</h2>
-          <p>jSpringBot's global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height</code> of <strong>20px</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their line-height (10px by default).</p>
-          <div class="bs-docs-example">
-            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-          </div>
-          <pre class="prettyprint">&lt;p&gt;...&lt;/p&gt;</pre>
-
-          <h3>Lead body copy</h3>
-          <p>Make a paragraph stand out by adding <code>.lead</code>.</p>
-          <div class="bs-docs-example">
-            <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
-          </div>
-          <pre class="prettyprint">&lt;p class="lead"&gt;...&lt;/p&gt;</pre>
-
-          <h3>Built with Less</h3>
-          <p>The typographic scale is based on two LESS variables in <strong>variables.less</strong>: <code>@baseFontSize</code> and <code>@baseLineHeight</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and jSpringBot adapts.</p>
-
 
           <hr class="bs-docs-separator">
-
 
           <h2 id="emphasis">Emphasis</h2>
           <p>Make use of HTML's default emphasis tags with lightweight styles.</p>
