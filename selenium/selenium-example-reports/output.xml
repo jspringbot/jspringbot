@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 2.7.2 (Jython 2.5.2 on java1.6.0_37)" generated="20121123 19:31:18.742">
+<suite source="/Users/adeleon/github/selenium-example/src/test/robotframework/acceptance" id="s1" name="Acceptance">
+<metadata>
+</metadata>
+<suite source="/Users/adeleon/github/selenium-example/src/test/robotframework/acceptance/google-search.txt" id="s1-s1" name="Google-Search">
+<metadata>
+</metadata>
+<test id="s1-s1-t1" timeout="" name="Google Search for jSpringBot">
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Navigate To">
+<doc>Navigate To</doc>
+<arguments>
+<arg>http://www.google.com/</arg>
+</arguments>
+<msg timestamp="20121123 19:31:33.632" html="yes" level="INFO">[SeleniumHelper] Navigated to &lt;a href='http://www.google.com/'&gt;http://www.google.com/&lt;/a&gt;</msg>
+<status status="PASS" endtime="20121123 19:31:33.634" starttime="20121123 19:31:28.726"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Input Text">
+<doc>Types the given text into text field identified by locator.</doc>
+<arguments>
+<arg>css=input[name='q']</arg>
+<arg>jSpringBot</arg>
+</arguments>
+<msg timestamp="20121123 19:31:34.069" level="INFO">[SeleniumHelper] Typing text 'jSpringBot' into text field 'css=input[name='q']'</msg>
+<status status="PASS" endtime="20121123 19:31:34.070" starttime="20121123 19:31:33.637"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Click Button">
+<doc>Clicks a button identified by locator.</doc>
+<arguments>
+<arg>css=button#gbqfb</arg>
+</arguments>
+<msg timestamp="20121123 19:31:34.274" level="INFO">[SeleniumHelper] Clicking button 'css=button#gbqfb'.</msg>
+<status status="PASS" endtime="20121123 19:31:34.274" starttime="20121123 19:31:34.072"></status>
+</kw>
+<kw type="kw" timeout="" name="selenium-resources.Wait For Element">
+<doc>Polls every 500 or half a second and will fail when timeout is reached (10000 millis or 10 secs).</doc>
+<arguments>
+<arg>css=div#search</arg>
+</arguments>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Wait Till Element Found">
+<doc>Waits until element specified with locator appears on current page or timeout expires.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${POLL_MILLIS}</arg>
+<arg>${TIMEOUT_MILLIS}</arg>
+</arguments>
+<status status="PASS" endtime="20121123 19:31:34.801" starttime="20121123 19:31:34.281"></status>
+</kw>
+<status status="PASS" endtime="20121123 19:31:34.803" starttime="20121123 19:31:34.276"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Capture Screenshot">
+<doc>Takes a screenshot of the entire screen and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20121123 19:31:34.952" html="yes" level="INFO">[SeleniumHelper] Screen captured (1): &lt;br /&gt; &lt;img src='screen_capture_1353670288128_1.png'/&gt;</msg>
+<status status="PASS" endtime="20121123 19:31:34.953" starttime="20121123 19:31:34.805"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Css Should Match X Times">
+<doc>Verifies that the page contains the given number of elements located by the given css.</doc>
+<arguments>
+<arg>div#search ol li</arg>
+<arg>4</arg>
+</arguments>
+<msg timestamp="20121123 19:31:34.965" level="INFO">[SeleniumHelper] Matching css count for 'div#search ol li' is '4'</msg>
+<status status="PASS" endtime="20121123 19:31:34.966" starttime="20121123 19:31:34.954"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>all</tag>
+<tag>google-search</tag>
+</tags>
+<status status="PASS" critical="yes" endtime="20121123 19:31:34.967" starttime="20121123 19:31:28.712"></status>
+</test>
+<doc></doc>
+<status status="PASS" endtime="20121123 19:31:34.970" starttime="20121123 19:31:19.202"></status>
+</suite>
+<suite source="/Users/adeleon/github/selenium-example/src/test/robotframework/acceptance/jspringbot-navigate.txt" id="s1-s2" name="Jspringbot-Navigate">
+<metadata>
+</metadata>
+<test id="s1-s2-t1" timeout="" name="Navigate Menus on jSpringBot">
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Navigate To">
+<doc>Navigate To</doc>
+<arguments>
+<arg>http://badong2210.github.com/jspringbot/</arg>
+</arguments>
+<msg timestamp="20121123 19:31:38.847" html="yes" level="INFO">[SeleniumHelper] Navigated to &lt;a href='http://badong2210.github.com/jspringbot/'&gt;http://badong2210.github.com/jspringbot/&lt;/a&gt;</msg>
+<status status="PASS" endtime="20121123 19:31:38.848" starttime="20121123 19:31:35.010"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Capture Screenshot">
+<doc>Takes a screenshot of the entire screen and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20121123 19:31:39.180" html="yes" level="INFO">[SeleniumHelper] Screen captured (2): &lt;br /&gt; &lt;img src='screen_capture_1353670288128_2.png'/&gt;</msg>
+<status status="PASS" endtime="20121123 19:31:39.182" starttime="20121123 19:31:38.851"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Element Text Should Be">
+<doc>Verifies element identified by `locator` exactly contains text `expected`</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>jSpringBot</arg>
+</arguments>
+<msg timestamp="20121123 19:31:39.201" level="INFO">[SeleniumHelper] Verifying element css=h1 contains exactly text jSpringBot</msg>
+<status status="PASS" endtime="20121123 19:31:39.202" starttime="20121123 19:31:39.184"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Click Link">
+<doc>Click Link.</doc>
+<arguments>
+<arg>text=Getting started</arg>
+</arguments>
+<msg timestamp="20121123 19:31:44.925" level="INFO">[SeleniumHelper] Clicking link 'text=Getting started'.</msg>
+<status status="PASS" endtime="20121123 19:31:44.926" starttime="20121123 19:31:39.204"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Capture Screenshot">
+<doc>Takes a screenshot of the entire screen and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20121123 19:31:45.513" html="yes" level="INFO">[SeleniumHelper] Screen captured (3): &lt;br /&gt; &lt;img src='screen_capture_1353670288128_3.png'/&gt;</msg>
+<status status="PASS" endtime="20121123 19:31:45.514" starttime="20121123 19:31:44.928"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Element Text Should Be">
+<doc>Verifies element identified by `locator` exactly contains text `expected`</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Getting started</arg>
+</arguments>
+<msg timestamp="20121123 19:31:45.536" level="INFO">[SeleniumHelper] Verifying element css=h1 contains exactly text Getting started</msg>
+<status status="PASS" endtime="20121123 19:31:45.536" starttime="20121123 19:31:45.517"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Click Link">
+<doc>Click Link.</doc>
+<arguments>
+<arg>text=Tutorials</arg>
+</arguments>
+<msg timestamp="20121123 19:31:45.683" level="INFO">[SeleniumHelper] Clicking link 'text=Tutorials'.</msg>
+<status status="PASS" endtime="20121123 19:31:45.684" starttime="20121123 19:31:45.538"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Capture Screenshot">
+<doc>Takes a screenshot of the entire screen and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20121123 19:31:47.731" html="yes" level="INFO">[SeleniumHelper] Screen captured (4): &lt;br /&gt; &lt;img src='screen_capture_1353670288128_4.png'/&gt;</msg>
+<status status="PASS" endtime="20121123 19:31:47.733" starttime="20121123 19:31:45.685"></status>
+</kw>
+<kw type="kw" timeout="" name="org.jspringbot.spring.GlobalSpringLibrary.Element Text Should Be">
+<doc>Verifies element identified by `locator` exactly contains text `expected`</doc>
+<arguments>
+<arg>css=h1</arg>
+<arg>Tutorials</arg>
+</arguments>
+<msg timestamp="20121123 19:31:47.752" level="INFO">[SeleniumHelper] Verifying element css=h1 contains exactly text Tutorials</msg>
+<status status="PASS" endtime="20121123 19:31:47.753" starttime="20121123 19:31:47.735"></status>
+</kw>
+<doc></doc>
+<tags>
+<tag>all</tag>
+<tag>jspringbot-navigation</tag>
+</tags>
+<status status="PASS" critical="yes" endtime="20121123 19:31:47.756" starttime="20121123 19:31:35.004"></status>
+</test>
+<doc></doc>
+<status status="PASS" endtime="20121123 19:31:47.758" starttime="20121123 19:31:34.974"></status>
+</suite>
+<doc></doc>
+<status status="PASS" endtime="20121123 19:31:47.762" starttime="20121123 19:31:18.744"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" info="" doc="" combined="" fail="0" links="">all</stat>
+<stat pass="1" info="" doc="" combined="" fail="0" links="">google-search</stat>
+<stat pass="1" info="" doc="" combined="" fail="0" links="">jspringbot-navigation</stat>
+</tag>
+<suite>
+<stat pass="2" id="s1" fail="0" name="Acceptance">Acceptance</stat>
+<stat pass="1" id="s1-s1" fail="0" name="Google-Search">Acceptance.Google-Search</stat>
+<stat pass="1" id="s1-s2" fail="0" name="Jspringbot-Navigate">Acceptance.Jspringbot-Navigate</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

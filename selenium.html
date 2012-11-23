@@ -181,29 +181,83 @@
             <h1>Setting Up a Project</h1>
           </div>
 
-          <h2>Inline</h2>
-          <p>Wrap inline snippets of code with <code>&lt;code&gt;</code>.</p>
-<div class="bs-docs-example">
-  For example, <code>&lt;section&gt;</code> should be wrapped as inline.
-</div>
-<pre class="prettyprint linenums">
-For example, &lt;code&gt;&lt;section&gt;&lt;/code&gt; should be wrapped as inline.
+          <p class="lead">A selenium jSpringBot project is a simple java maven project. The link below provides a download for a jSpringBot Selenium base project.</p>
+          <a class="btn btn-large btn-primary" href="./selenium/selenium-example.zip" >Download jSpringBot Selenium Project</a>
+
+          <h2>File Structure</h2>
+          <p>The following shows the example jSpringBot Selenium project structure.</p>
+<pre>
+  selenium-example/
+   ├── src/
+   │   └── test/
+   │       ├── resources/
+   │       │   └── spring/
+   │       │       ├── spring-selenium.xml
+   │       │       └── spring-global.xml
+   │       └── robotframework/
+   │           ├── acceptance/
+   │           │   ├── google-search.txt
+   │           │   └── jspringbot-pages.txt
+   │           └── selenium-resources.txt
+   └── pom.xml
 </pre>
 
-          <h2>Basic block</h2>
-          <p>Use <code>&lt;pre&gt;</code> for multiple lines of code. Be sure to escape any angle brackets in the code for proper rendering.</p>
-<div class="bs-docs-example">
-  <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
-</div>
-<pre class="prettyprint linenums" style="margin-bottom: 9px;">
-&lt;pre&gt;
-  &amp;lt;p&amp;gt;Sample text here...&amp;lt;/p&amp;gt;
-&lt;/pre&gt;
+
+            <h2>Execution</h2>
+          <p>To execute, use terminal and go to the <code>selenium-example</code> directory and run <code>mvn integration-test</code>.</p>
+          <p>Executing will provide these output:</p>
+<pre>
+[INFO] --- robotframework-maven-plugin:3.0.0-SNAPSHOT:run (default) @ selenium-example ---
+==============================================================================
+Acceptance
+==============================================================================
+log4j:WARN No appenders could be found for logger (org.springframework.core.env.StandardEnvironment).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
+Acceptance.Google-Search
+==============================================================================
+Google Search for jSpringBot                                          | PASS |
+------------------------------------------------------------------------------
+Acceptance.Google-Search                                              | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Acceptance.Jspringbot-Navigate
+==============================================================================
+Navigate Menus on jSpringBot                                          | PASS |
+------------------------------------------------------------------------------
+Acceptance.Jspringbot-Navigate                                        | PASS |
+1 critical test, 1 passed, 0 failed
+1 test total, 1 passed, 0 failed
+==============================================================================
+Acceptance                                                            | PASS |
+2 critical tests, 2 passed, 0 failed
+2 tests total, 2 passed, 0 failed
+==============================================================================
+Output:  /Users/jspringbot/github/selenium-example/target/robotframework-reports/output.xml
+XUnit:   /Users/jspringbot/github/selenium-example/target/robotframework-reports/TEST-acceptance.xml
+Log:     /Users/jspringbot/github/selenium-example/target/robotframework-reports/log.html
+Report:  /Users/jspringbot/github/selenium-example/target/robotframework-reports/report.html
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 38.733s
+[INFO] Finished at: Fri Nov 23 19:20:24 PHT 2012
+[INFO] Final Memory: 25M/81M
+[INFO] ------------------------------------------------------------------------
 </pre>
-          <p><span class="label label-info">Heads up!</span> Be sure to keep code within <code>&lt;pre&gt;</code> tags as close to the left as possible; it will render all tabs.</p>
-          <p>You may optionally add the <code>.pre-scrollable</code> class which will set a max-height of 350px and provide a y-axis scrollbar.</p>
+
+        <div class="alert alert-success">
+            <strong>Success!</strong> When you see these results then you can now start your own selenium test case.
+        </div>
+
+        <h2>Reports</h2>
+        <p class="lead">Robot framework provides a good execution reports and logs. Please see the reports generated from the example execution done above.</p>
+
+        <a class="btn btn-large btn-primary" href="./selenium/selenium-example-reports/report.html" >Robotframework Report</a>
+        <a class="btn btn-large" href="./selenium/selenium-example-reports/log.html" style="margin-left: 5px;" >Robotframework Logs</a>
         </section>
-
 
 
         <!-- Tables

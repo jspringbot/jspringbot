@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" skip="0" tests="2" name="Acceptance">
+<testcase classname="Acceptance.Google-Search" time="6" name="Google Search for jSpringBot">
+</testcase>
+<testcase classname="Acceptance.Jspringbot-Navigate" time="13" name="Navigate Menus on jSpringBot">
+</testcase>
+</testsuite>
