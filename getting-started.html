@@ -89,10 +89,9 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav">
-          <li><a href="#download-bootstrap"><i class="icon-chevron-right"></i> Overview</a></li>
-          <li><a href="#file-structure"><i class="icon-chevron-right"></i> File structure</a></li>
-          <li><a href="#contents"><i class="icon-chevron-right"></i> What's included</a></li>
-          <li><a href="#html-template"><i class="icon-chevron-right"></i> HTML template</a></li>
+          <li><a href="#robot-overview"><i class="icon-chevron-right"></i> Overview</a></li>
+          <li><a href="#robot-objectives"><i class="icon-chevron-right"></i> Objectives</a></li>
+          <li><a href="#supported-testing"><i class="icon-chevron-right"></i> Supported Testing</a></li>
           <li><a href="#examples"><i class="icon-chevron-right"></i> Examples</a></li>
           <li><a href="#what-next"><i class="icon-chevron-right"></i> What next?</a></li>
         </ul>
@@ -101,35 +100,84 @@
 
 
 
-        <!-- Download
+        <!-- Overview
         ================================================== -->
-        <section id="download-bootstrap">
+        <section id="robot-overview">
           <div class="page-header">
             <h1>1. Overview</h1>
           </div>
-          <p class="lead">Before downloading, be sure to have a code editor (we recommend <a href="http://sublimetext.com/2">Sublime Text 2</a>) and some working knowledge of HTML and CSS. We won't walk through the source files here, but they are available for download. We'll focus on getting started with the compiled jSpringBot files.</p>
+          <p class="lead">
+              jSpringBot allows you to easily create java based robot framework libraries.
+              This also leverages the use of spring and maven for setup and dependency management.
+              Spring lets you define your robot framework keywords as beans while maven lets you create your library
+              and run your tests with ease since dependencies are fetched and managed automatically.
+          </p>
 
-          <div class="row-fluid">
-            <div class="span6">
-              <h2>Download compiled</h2>
-              <p><strong>Fastest way to get started:</strong> get the compiled and minified versions of our CSS, JS, and images. No docs or original source files.</p>
-              <p><a class="btn btn-large btn-primary" href="assets/bootstrap.zip" >Download jSpringBot</a></p>
+        <h2 id="robotframework">Robot Framework</h2>
+        <p>
+            Robot Framework is a generic test automation framework for acceptance testing and acceptance test-driven
+            development (ATDD). It has easy-to-use tabular test data syntax and utilizes the keyword-driven testing
+            approach. Its testing capabilities can be extended by test libraries implemented either with Python or Java,
+            and users can create new keywords from existing ones using the same syntax that is used for creating test cases.
+        </p>
+
+            <ul>
+                <li>Enables easy-to-use tabular syntax for <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#creating-test-cases">creating test cases</a> in a uniform way.</li>
+                <li>Allows using <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#different-test-case-styles">keyword-driven, data-driven and behavior-driven (BDD)</a> approaches.</li>
+                <li>Provides ability to create reusable <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#creating-user-keywords">higher-level keywords</a> from the existing keywords.</li>
+                <li>Provides easy-to-read <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#created-outputs">reports and logs</a> in HTML format.</li>
+                <li>Is platform and application independent.</li>
+                <li>The <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#high-level-architecture">modular architecture</a> supports creating tests even for applications with several diverse interfaces.</li>
+                <li>Provides a simple <a rel="nofollow"
+                                         href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#creating-test-libraries">library
+                    API</a> for creating customized test libraries.
+                </li>
+                <li>Provides a <a rel="nofollow"
+                                  href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#executing-test-cases">command
+                    line interface and XML based outputs</a> for integration into existing build infrastructure
+                    (continuous integration systems).
+                </li>
+                <li><a rel="nofollow"
+                       href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#remote-library-interface">Remote
+                    library interface</a> enables distributed testing and implementing test libraries in any programming
+                    language.
+                </li>
+                <li>Provides <a rel="nofollow"
+                                href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#tagging-test-cases">tagging</a>
+                    to categorize and select test cases to be executed.
+                </li>
+                <li>Has built-in support for <a rel="nofollow"
+                                                href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#variables">variables</a>,
+                    practical particularly for testing in different environments.
+                </li>
+            </ul>
+
+            <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            Please also see <a href="https://code.google.com/p/robotframework/wiki/UserGuide">Robot Framework User Guide</a>.
             </div>
-            <div class="span6">
-              <h2>Download source</h2>
-              <p>Get the original files for all CSS and JavaScript, along with a local copy of the docs by downloading the latest version directly from GitHub.</p>
-              <p><a class="btn btn-large" href="https://github.com/twitter/bootstrap/zipball/master" >Download jSpringBot source</a></p>
-            </div>
-          </div>
+
         </section>
+
+        <!-- Overview
+       ================================================== -->
+        <section id="robot-objectives">
+            <div class="page-header">
+                <h1>2. Objectives</h1>
+            </div>
+            <p class="lead">
+                Here are some objectives .
+            </p>
+        </section>
+
 
 
 
         <!-- File structure
         ================================================== -->
-        <section id="file-structure">
+        <section id="supported-testing">
           <div class="page-header">
-            <h1>2. File structure</h1>
+            <h1>3. Supported Testing</h1>
           </div>
           <p class="lead">Within the download you'll find the following file structure and contents, logically grouping common assets and providing both compiled and minified variations.</p>
           <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) jSpringBot. You'll see something like this:</p>
@@ -149,98 +197,11 @@
           <p>Please note that all JavaScript plugins require jQuery to be included.</p>
         </section>
 
-
-
-        <!-- Contents
-        ================================================== -->
-        <section id="contents">
-          <div class="page-header">
-            <h1>3. What's included</h1>
-          </div>
-          <p class="lead">jSpringBot comes equipped with HTML, CSS, and JS for all sorts of things, but they can be summarized with a handful of categories visible at the top of the <a href="http://getbootstrap.com">jSpringBot documentation</a>.</p>
-
-          <h2>Docs sections</h2>
-          <h4><a href="http://twitter.github.com/bootstrap/scaffolding.html">Scaffolding</a></h4>
-          <p>Global styles for the body to reset type and background, link styles, grid system, and two simple layouts.</p>
-          <h4><a href="http://twitter.github.com/bootstrap/base-css.html">Base CSS</a></h4>
-          <p>Styles for common HTML elements like typography, code, tables, forms, and buttons. Also includes <a href="http://glyphicons.com">Glyphicons</a>, a great little icon set.</p>
-          <h4><a href="http://twitter.github.com/bootstrap/components.html">Components</a></h4>
-          <p>Basic styles for common interface components like tabs and pills, navbar, alerts, page headers, and more.</p>
-          <h4><a href="http://twitter.github.com/bootstrap/javascript.html">JavaScript plugins</a></h4>
-          <p>Similar to Components, these JavaScript plugins are interactive components for things like tooltips, popovers, modals, and more.</p>
-
-          <h2>List of components</h2>
-          <p>Together, the <strong>Components</strong> and <strong>JavaScript plugins</strong> sections provide the following interface elements:</p>
-          <ul>
-            <li>Button groups</li>
-            <li>Button dropdowns</li>
-            <li>Navigational tabs, pills, and lists</li>
-            <li>Navbar</li>
-            <li>Labels</li>
-            <li>Badges</li>
-            <li>Page headers and hero unit</li>
-            <li>Thumbnails</li>
-            <li>Alerts</li>
-            <li>Progress bars</li>
-            <li>Modals</li>
-            <li>Dropdowns</li>
-            <li>Tooltips</li>
-            <li>Popovers</li>
-            <li>Accordion</li>
-            <li>Carousel</li>
-            <li>Typeahead</li>
-          </ul>
-          <p>In future guides, we may walk through these components individually in more detail. Until then, look for each of these in the documentation for information on how to utilize and customize them.</p>
-        </section>
-
-
-
-        <!-- HTML template
-        ================================================== -->
-        <section id="html-template">
-          <div class="page-header">
-            <h1>4. Basic HTML template</h1>
-          </div>
-          <p class="lead">With a brief intro into the contents out of the way, we can focus on putting jSpringBot to use. To do that, we'll utilize a basic HTML template that includes everything we mentioned in the <a href="#file-structure">File structure</a>.</p>
-          <p>Now, here's a look at a <strong>typical HTML file</strong>:</p>
-<pre class="prettyprint linenums">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;jSpringBot 101 Template&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello, world!&lt;/h1&gt;
-    &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-          <p>To make this <strong>a jSpringBotped template</strong>, just include the appropriate CSS and JS files:</p>
-<pre class="prettyprint linenums">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;jSpringBot 101 Template&lt;/title&gt;
-    &lt;!-- jSpringBot --&gt;
-    &lt;link href="css/bootstrap.min.css" rel="stylesheet" media="screen"&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;Hello, world!&lt;/h1&gt;
-    &lt;script src="http://code.jquery.com/jquery-latest.js"&gt;&lt;/script&gt;
-    &lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</pre>
-          <p><strong>And you're set!</strong> With those two files added, you can begin to develop any site or application with jSpringBot.</p>
-        </section>
-
-
-
         <!-- Examples
         ================================================== -->
         <section id="examples">
           <div class="page-header">
-            <h1>5. Examples</h1>
+            <h1>4. Examples</h1>
           </div>
           <p class="lead">Move beyond the base template with a few example layouts. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
           <ul class="thumbnails bootstrap-examples">
