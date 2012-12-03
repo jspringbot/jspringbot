@@ -28,7 +28,8 @@ body > .navbar {
 /* Change the docs' brand */
 
 body > .navbar .brand {
-  padding-right: 0;
+  background:  url("../img/jsb-blackframeless.png") no-repeat scroll 110px 0 transparent;
+  padding-right: 50px;
   padding-left: 0;
   margin-left: 20px;
   float: right;

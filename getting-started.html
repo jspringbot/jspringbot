@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <title>Getting Started · jSpringBot</title>
@@ -93,7 +93,6 @@
           <li><a href="#robot-objectives"><i class="icon-chevron-right"></i> Objectives</a></li>
           <li><a href="#supported-testing"><i class="icon-chevron-right"></i> Supported Testing</a></li>
           <li><a href="#examples"><i class="icon-chevron-right"></i> Examples</a></li>
-          <li><a href="#what-next"><i class="icon-chevron-right"></i> What next?</a></li>
         </ul>
       </div>
       <div class="span9">
@@ -166,12 +165,16 @@
                 <h1>2. Objectives</h1>
             </div>
             <p class="lead">
-                Here are some objectives .
+                Here are jSpringBot goals and objectives.
             </p>
+
+            <ul class="lead">
+                <li>To have a pure java based library</li>
+                <li>To have a rich library accessible to java developers</li>
+                <li>For simple creation of dynamic libraries integrated in Spring and Maven</li>
+                <li>To easily create custom keywords</li>
+            </ul>
         </section>
-
-
-
 
         <!-- File structure
         ================================================== -->
@@ -179,22 +182,21 @@
           <div class="page-header">
             <h1>3. Supported Testing</h1>
           </div>
-          <p class="lead">Within the download you'll find the following file structure and contents, logically grouping common assets and providing both compiled and minified variations.</p>
-          <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) jSpringBot. You'll see something like this:</p>
-<pre class="prettyprint">
-  bootstrap/
-  ├── css/
-  │   ├── bootstrap.css
-  │   ├── bootstrap.min.css
-  ├── js/
-  │   ├── bootstrap.js
-  │   ├── bootstrap.min.js
-  └── img/
-      ├── glyphicons-halflings.png
-      └── glyphicons-halflings-white.png
-</pre>
-          <p>This is the most basic form of jSpringBot: compiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>), as well as compiled and minified CSS and JS (<code>bootstrap.min.*</code>). The image files are compressed using <a href="http://imageoptim.com/">ImageOptim</a>, a Mac app for compressing PNGs.</p>
-          <p>Please note that all JavaScript plugins require jQuery to be included.</p>
+          <p class="lead">JSpringBot provides support for the following:</p>
+          <h4>Web Application Testing</h4>
+          <p>Web Application Testing is supported using JSpringBot <a href="./selenium.html">SeleniumLibrary</a>.</p>
+          <h4>Restful Services Testing</h4>
+          <p>Restful Services Testing is supported using <a href="./http.html">Http</a>, <a href="./xml.html">XML</a> and <a href="./json.html">JSON</a> Libraries.</p>
+          <h4>Database Validation</h4>
+          <p>Database Validation is supported using <a href="./db.html">DBLibrary</a>.</p>
+          <h4>Config Support</h4>
+          <p>Contains support to access values in properties file using <a href="./config.html">ConfigLibrary</a>.</p>
+          <h4>SSH Support</h4>
+          <p>Enables support to access and execute command on a remote machine over an SSH connection using <a href="./ssh.html">SSHLibrary</a>.</p>
+          <h4>CSV Support</h4>
+          <p>Contains support to parse and query a CSV string or resource using <a href="./csv.html">CSVLibrary</a>.</p>
+          <h4>Other Utilities</h4>
+          <p>Other utilities like <a href="./test-data.html">TestDataLibrary</a> that enable create of test-data on a csv file.</p>
         </section>
 
         <!-- Examples
@@ -206,76 +208,57 @@
           <p class="lead">Move beyond the base template with a few example layouts. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
           <ul class="thumbnails bootstrap-examples">
             <li class="span3">
-              <a class="thumbnail" href="examples/starter-template.html">
-                <img src="assets/img/examples/bootstrap-example-starter.jpg" alt="">
-              </a>
-              <h4>Starter template</h4>
+              <h4>Selenium Google Search</h4>
               <p>A barebones HTML document with all the jSpringBot CSS and JavaScript included.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
             </li>
             <li class="span3">
-              <a class="thumbnail" href="examples/hero.html">
-                <img src="assets/img/examples/bootstrap-example-hero.jpg" alt="">
-              </a>
-              <h4>Basic marketing site</h4>
+              <h4>Selenium Forms</h4>
               <p>Featuring a hero unit for a primary message and three supporting elements.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
             </li>
             <li class="span3">
-              <a class="thumbnail" href="examples/fluid.html">
-                <img src="assets/img/examples/bootstrap-example-fluid.jpg" alt="">
-              </a>
-              <h4>Fluid layout</h4>
+              <h4>Selenium Upload Download</h4>
               <p>Uses our new responsive, fluid grid system to create a seamless liquid layout.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
             </li>
-
             <li class="span3">
-              <a class="thumbnail" href="examples/marketing-narrow.html">
-                <img src="assets/img/examples/bootstrap-example-marketing-narrow.png" alt="">
-              </a>
-              <h4>Narrow marketing</h4>
+              <h4>Http Restful Services</h4>
               <p>Slim, lightweight marketing template for small projects or teams.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+              <li class="span3">
+                  <h4>JSON Parsing</h4>
+                  <p>Slim, lightweight marketing template for small projects or teams.</p>
+                  <a href="" class="btn btn-small">More &raquo;</a>
+              </li>
+            <li class="span3">
+              <h4>XML Parsing</h4>
+              <p>Slim, lightweight marketing template for small projects or teams.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
             </li>
             <li class="span3">
-              <a class="thumbnail" href="examples/signin.html">
-                <img src="assets/img/examples/bootstrap-example-signin.png" alt="">
-              </a>
-              <h4>Sign in</h4>
+              <h4>Config Properties</h4>
               <p>Barebones sign in form with custom, larger form controls and a flexible layout.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
             </li>
             <li class="span3">
-              <a class="thumbnail" href="examples/sticky-footer.html">
-                <img src="assets/img/examples/bootstrap-example-sticky-footer.png" alt="">
-              </a>
-              <h4>Sticky footer</h4>
+              <h4>Database</h4>
               <p>Pin a fixed-height footer to the bottom of the user's viewport.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
             </li>
-
             <li class="span3">
-              <a class="thumbnail" href="examples/carousel.html">
-                <img src="assets/img/examples/bootstrap-example-carousel.png" alt="">
-              </a>
-              <h4>Carousel jumbotron</h4>
+              <h4>CSV</h4>
+              <p>Pin a fixed-height footer to the bottom of the user's viewport.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>SSH Connection</h4>
               <p>A more interactive riff on the basic marketing site featuring a prominent carousel.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
             </li>
           </ul>
         </section>
-
-
-
-
-        <!-- Next
-        ================================================== -->
-        <section id="what-next">
-          <div class="page-header">
-            <h1>What next?</h1>
-          </div>
-          <p class="lead">Head to the docs for information, examples, and code snippets, or take the next leap and customize jSpringBot for any upcoming project.</p>
-          <a class="btn btn-large btn-primary" href="./scaffolding.html" >Visit the jSpringBot docs</a>
-          <a class="btn btn-large" href="./customize.html" style="margin-left: 5px;" >Customize jSpringBot</a>
-        </section>
-
-
-
-
       </div>
     </div>
 
