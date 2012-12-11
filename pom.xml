@@ -24,6 +24,12 @@
 
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
   <groupId>org.jspringbot</groupId>
   <artifactId>jspringbot</artifactId>
   <version>1.0-SNAPSHOT</version>
@@ -31,29 +37,31 @@
   <packaging>jar</packaging>
   <name>jspringbot</name>
 
-  <repositories>
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+
+  <distributionManagement>
     <repository>
-      <id>dist.wso2.org</id>
-      <url>http://dist.wso2.org/maven2/</url>
+      <id>sonatype-nexus-staging</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
-    <repository>
-      <id>mvnsearch</id>
-      <url>http://www.mvnsearch.org/maven2</url>
-    </repository>
-    <repository>
-      <id>jboss</id>
-      <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-    </repository>
-    <repository>
-      <id>codehaus.org</id>
-      <url>http://repository.codehaus.org/</url>
-    </repository>
-    <repository>
-      <id>sonatype-releases</id>
-      <name>Sonatype Releases Repository</name>
-      <url>http://oss.sonatype.org/content/repositories/releases/</url>
-    </repository>
-  </repositories>
+    <snapshotRepository>
+      <id>sonatype-nexus-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+  <scm>
+    <connection>scm:git:https://github.com/jspringbot/jspringbot.git</connection>
+    <url>scm:git:https://github.com/jspringbot/jspringbot.git</url>
+    <developerConnection>scm:git:https://github.com/jspringbot/jspringbot.git</developerConnection>
+  </scm>
 
   <properties>
     <spring.version>3.1.0.RELEASE</spring.version>
@@ -68,6 +76,21 @@
         <filtering>true</filtering>
       </testResource>
     </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.1.2</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 
   <!-- Dependencies calculated by AppFuse when running full-source plugin -->
