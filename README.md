@@ -1,4 +1,4 @@
-jSpringBot [![Build Status](https://buildhive.cloudbees.com/job/badong2210/job/jspringbot/badge/icon)](https://buildhive.cloudbees.com/job/badong2210/job/jspringbot/)
+jSpringBot [![Build Status](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot/badge/icon)](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot/)
 =======
 
 ### Introduction
