@@ -77,7 +77,7 @@ class SpringRobotLibrary implements DynamicRobotLibrary {
         try {
             return ((Keyword) context.getBean(keywordToBeanMap.get(keyword))).execute(params);
         } catch(Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(System.out);
             throw new IllegalStateException(e.getMessage(), e);
         }
     }
