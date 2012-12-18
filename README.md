@@ -5,7 +5,7 @@ jSpringBot [![Build Status](https://buildhive.cloudbees.com/job/jspringbot/job/j
 
 For end-to-end acceptance testing using Robot Framework with Java, Spring and Maven.
 
-For details please see: http://badong2210.github.com/jspringbot/
+For details please see: http://jspringbot.org/
 
 ### Robotframework, GitHub
 
