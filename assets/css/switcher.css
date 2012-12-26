@@ -1,0 +1,126 @@
+#switcher-switcher, #switcher-settings > a, #switcher-colors > li > a {
+  font-size: 21px;
+  height: 36px;
+  text-align: center;
+  text-decoration: none;
+  width: 36px;
+}
+#switcher-switcher > i, #switcher-settings > a > i, #switcher-colors > li > a > i {
+  line-height: 1;
+  padding-top: 10px;
+}
+#switcher-switcher > i::before, #switcher-settings > a > i::before, #switcher-colors > li > a > i::before {
+  display: block;
+}
+@media (max-width: 420px) {
+  #switcher-switcher, #switcher-settings > a, #switcher-colors > li > a {
+    width: 32px;
+  }
+}
+
+#switcher {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 6px;
+  float: right;
+}
+#switcher.active {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin-left: 10px;
+}
+@media (max-width: 420px) {
+  #switcher.active {
+    position: absolute;
+    right: 0;
+  }
+}
+
+#switcher-switcher {
+  color: #777777;
+  float: right;
+}
+#switcher-switcher:hover {
+  color: #333333;
+}
+.navbar-inverse #switcher-switcher {
+  color: #cccccc;
+}
+.navbar-inverse #switcher-switcher:hover {
+  color: white;
+}
+#switcher.active #switcher-switcher {
+  border-left: 1px solid #eee;
+  color: #444;
+}
+
+#switcher-settings {
+  display: none;
+  float: left;
+}
+#switcher.active #switcher-settings {
+  display: block;
+}
+#switcher-settings > a {
+  border-right: 1px solid #eee;
+  color: #aaa;
+  float: left;
+}
+#switcher-settings > a.active {
+  color: #444;
+}
+
+#switcher-colors {
+  float: left;
+  list-style: none;
+  margin: 0;
+  padding: 0 4px;
+}
+#switcher-colors > li {
+  float: left;
+}
+#switcher-colors > .active a {
+  cursor: default;
+}
+#switcher-colors > li > a {
+  display: block;
+  width: 27px;
+}
+@media (max-width: 420px) {
+  #switcher-colors > li > a {
+    width: 25px;
+  }
+}
+
+#switcher-colors-default > a {
+  color: #078ed3;
+}
+
+#switcher-colors-rose > a {
+  color: #d55360;
+}
+
+#switcher-colors-green > a {
+  color: #7eb216;
+}
+
+.has-navbar-fixed-top {
+  margin-top: 96px;
+}
+.has-navbar-fixed-top .jumbotron {
+  margin-top: -48px;
+}
+
+@media (max-width: 979px) {
+  .has-navbar-fixed-top {
+    margin-top: 0;
+  }
+  .has-navbar-fixed-top .jumbotron {
+    margin-top: -23px;
+  }
+}

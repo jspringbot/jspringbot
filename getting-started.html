@@ -7,15 +7,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
-      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-      <link href="assets/css/responsive.min.css" rel="stylesheet">
-      <link href="assets/css/docs.css" rel="stylesheet">
+    <!-- Exclude IE7 becuase it may renders web fonts blurry -->
+    <!--[if !(IE 7)]><!-->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700'>
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="assets/css-rose/bootstrap.css">
+    <link rel="stylesheet" href="assets/css-rose/bootstrap-responsive.css">
+    <link rel="stylesheet" href="assets/css/switcher.css">
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.css">
+    <![endif]-->
+
+    <link href="assets/css/docs.css" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
     <!-- Le fav and touch icons -->
@@ -40,9 +50,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="brand" href="./index.html">jSpringBot</a>
-                <div class="nav-collapse collapse">
-                    <ul class="nav">
+              <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
+              <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
+              <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
                         <li class="">
                             <a href="./index.html">Home</a>
                         </li>
@@ -80,6 +91,7 @@
     <p class="lead">Overview of the project, its contents, and how to get started with a simple template.</p>
   </div>
 </header>
+
 
 
   <div class="container">

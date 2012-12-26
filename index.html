@@ -7,9 +7,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- Le styles -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/responsive.min.css" rel="stylesheet">
+    <!-- Exclude IE7 becuase it may renders web fonts blurry -->
+    <!--[if !(IE 7)]><!-->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700'>
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="assets/css-rose/bootstrap.css">
+    <link rel="stylesheet" href="assets/css-rose/bootstrap-responsive.css">
+    <link rel="stylesheet" href="assets/css/switcher.css">
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.css">
+    <![endif]-->
+
     <link href="assets/css/docs.css" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
 
@@ -25,6 +35,18 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
+    <style>
+      .hero-unit {
+        margin-top: 80px;
+        background-color: #EEEEEE;
+        color: inherit;
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 31.5px;
+        margin-bottom: 30px;
+        padding: 60px;
+      }
+    </style>
   </head>
 
   <body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -39,22 +61,23 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="./index.html">jSpringBot</a>
+          <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
+          <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
           <div class="nav-collapse collapse">
-            <ul class="nav">
+            <ul class="nav pull-right">
               <li class="active">
                 <a href="./index.html">Home</a>
               </li>
               <li class="">
-                <a href="./getting-started.html">Getting started</a>
+                <a href="#">Getting started</a>
               </li>
               <li class="">
-                <a href="./tutorials.html">Tutorials</a>
+                <a href="#">Tutorials</a>
               </li>
               <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Libraries <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="./selenium.html">Selenium Library</a></li>
+                    <li><a href="#">Selenium Library</a></li>
                     <li><a href="./http.html">HTTP Library</a></li>
                     <li><a href="./xml.html">XML Library</a></li>
                     <li><a href="./json.html">JSON Library</a></li>
@@ -70,90 +93,97 @@
         </div>
       </div>
     </div>
-
-<div class="jumbotron masthead">
-  <div class="container">
-    <h1>jSpringBot</h1>
-    <p>For end-to-end acceptance testing using Robot Framework with Java, Spring and Maven.</p>
-    <p>
-      <a href="./getting-started.html" class="btn btn-large" >Getting Started</a>
-    </p>
-    <ul class="masthead-links">
-      <li>
-        <a href="https://github.com/badong2210/jspringbot">GitHub project</a>
-      </li>
-      <li>
-        <a href="https://github.com/badong2210/jspringbot-samples">Examples</a>
-      </li>
-      <li>
-        Version 1.0-SNAPSHOT
-      </li>
-    </ul>
-  </div>
-</div>
-
 <div class="container">
 
-  <div class="marketing">
-      <hr class="soften">
+  <div class="hero-unit">
+    <h1 id="hero_logo">
+      <span class="icon">Welcome!</span>
 
+      <span class="pull-right">
+      <img src="assets/img/jsb-122-darkframe.png">
+        </span>
+    </h1>
+    <p>jSpringBot is a framework built on top of Robot Framework with Java and Spring. This also allows you to run end to end testing with ease using Maven.</p>
 
-      <h1>Introducing jSpringBot</h1>
-    <p class="marketing-byline">One stop shop for Java based Robotframework libraries.</p>
+    <div class="pull-right">
+      <iframe src="http://ghbtns.com/github-btn.html?user=jspringbot&repo=jspringbot&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="85px" height="20px"></iframe>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=jspringbot&repo=jspringbot&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+      <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=jspringbot&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="20px"></iframe>
+    </div>
+    <p>
+      <a class="btn btn-primary btn-large" href="#">Get Started &raquo;</a>
+    </p>
+  </div>
 
-      <div class="row-fluid">
-          <div class="span1">&nbsp;</div>
-          <div class="span2">
-              <img src="./assets/img/robot-logo2.png" alt="">
-          </div>
-          <div class="span2">
-              <img src="./assets/img/github-logo.png" alt="">
-          </div>
-          <div class="span2">
-              <img src="./assets/img/java_logo1.jpg" alt="">
-          </div>
-          <div class="span2">
-              <img src="./assets/img/spring-log.png" alt="">
-          </div>
-          <div class="span2">
-              <img src="./assets/img/maven-logo.png" alt="">
-          </div>
-          <div class="span1">&nbsp;</div>
+  <div class="row about">
+    <div class="span8">
+      <div class="row about">
+        <div class="span4">
+          <h3>Rich Libraries</h3>
+          <p>jSpringBot supports a rich set of libraries for Web application testing, web and rest-ful services testing, DB testing, and many more.</p>
+        </div>
+        <div class="span4">
+          <h3>Easy to Setup</h3>
+          <p>Setting up a jSpringBot test project is simple and easy. This is a Maven project that runs using the <code>mvn integration-test</code>.</p>
+        </div>
+        <div class="span4">
+          <h3>Open Source</h3>
+          <p>Piraso are licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> and maintained by the community on <a href="https://github.com/jspringbot" target="_blank">GitHub</a>.</p>
+        </div>
+        <div class="span4">
+          <h3>Extendable</h3>
+          <p>Developers could implement their own libraries with Java and Spring support.</p>
+        </div>
+        <div class="span4">
+          <h3>Continuous Integration</h3>
+          <p>Support for continuous integration with Jenkins, please see tutorials for details.</p>
+        </div>
       </div>
+    </div>
+    <div class="span4">
+      <h3>Technologies</h3>
 
-      <div class="row-fluid">
-      <div class="span6">
-        <h2>Robotframework, GitHub</h2>
-        <p>Built for <a href="https://code.google.com/p/robotframework/">Robotframework</a>, and is managed through <a href="http://github.com">GitHub</a> to help open source community.</p>
-      </div>
-      <div class="span6">
-        <h2>Java, Maven, Spring</h2>
-        <p>All libraries were build using <a href="http://www.java.com/en/">Java</a> and <a href="http://www.springsource.org/spring-framework">Spring Framework</a>. Dependencies and test execution are done through <a href="http://maven.apache.org/">Maven</a>.</p>
-      </div>
+      <h5><a href="http://code.google.com/p/robotframework/">Robot Framework</a></h5>
+      <p>jSpringBot is built on top of Robot Framework, and this is a generic test automation framework for acceptance testing and acceptance test-driven development (ATDD).</p>
+
+      <h5><a href="http://www.java.com/en/">Java</a></h5>
+      <p>All jSpringBot robot framework libraries are pure Java. This takes advantage of all the APIs available to java and expose it to Robot Framework.</p>
+
+      <h5><a href="http://www.springsource.org/spring-framework">Spring Framework</a></h5>
+      <p>Spring Framework simplifies configuration and jSpringBot library integration.</p>
+
+      <h5><a href="http://maven.apache.org/">Maven</a></h5>
+      <p>Dependencies and test execution are done through Maven.</p>
     </div>
   </div>
 
-</div>
+  <hr class="soften">
 
-
-
-    <!-- Footer
-    ================================================== -->
-    <footer class="footer">
-      <div class="container">
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>Designed and built by <a href="https://github.com/badong2210" target="_blank">Shiela Buitizon</a>.</p>
-        <p>Contributor: <a href="https://github.com/alvinrdeleon" target="_blank">Alvin R. de Leon</a>.</p>
-        <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>.</p>
-        <ul class="footer-links">
-          <li><a href="https://github.com/badong2210/jspringbot/">GitHub</a></li>
-          <li class="muted">&middot;</li>
-          <li><a href="https://github.com/badong2210/jspringbot/issues?state=open">Issues</a></li>
-          <li class="muted">&middot;</li>
-          <li><a href="https://github.com/badong2210/jspringbot/wiki">Wiki</a></li>
+  <footer>
+    <div class="row">
+      <div class="span6">
+        <h3>Contact</h3>
+        <ul class="icons">
+          <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Shiela Buitizon</a></li>
+          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22">http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22</a></li>
+          <li><i class="icon-wrench"></i> Work: QA Automation Engineer @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix</a></li>
+        </ul>
+        <h3>Contributor</h3>
+        <ul class="icons">
+          <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Alvin R. de Leon</a></li>
+          <li><i class="icon-linkedin"></i> Linkedin: <a onclick="_gaq.push(['_trackEvent', 'Contact', 'Links', 'LinkedIn']);" target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
         </ul>
       </div>
-    </footer>
+      <div class="span6">
+        <h3>Special Thanks</h3>
+        Special thanks to <a target="_blank" href="https://github.com/ashier">@ashier</a>,
+        <a target="_blank" href="https://github.com/badong2210">@badong2210</a>, <a href="https://www.facebook.com/jctmendoza">@jctmendoza</a>, and <a href="https://twitter.com/bernardlago">@bernardlago</a> for design
+        review, advice, and some help.
+      </div>
+    </div>
+  </footer>
+
+</div>
 
     <!-- Le javascript
     ================================================== -->
