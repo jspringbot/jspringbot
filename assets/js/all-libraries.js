@@ -25,11 +25,24 @@ $(function() {
       window.prettyPrint && prettyPrint();
     };
 
+    var _createTooltip = function(keyword) {
+      var $dummy = $("#dummy");
+
+      if(!$dummy.length) {
+        $(document.body).append("<div id='dummy' class='hide'></div>");
+        $dummy = $("#dummy");
+      }
+
+      $dummy.html(keyword.doc);
+      return $dummy.find("p").first().text();
+    };
+
     var _initShortcuts = function(search) {
       if(!$shortcuts.length) {
         return;
       }
 
+      var titles = [];
       var match = 0;
       var buf = "<ul class='all'>";
       for(var prop in _libraries) {
@@ -39,13 +52,14 @@ $(function() {
         for(var i = 0; i < data.keywords.length; i++) {
           var keyword = data.keywords[i];
           if(!search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
-            match++;
             if(!withHeader) {
               buf += "<li class='nav-header quick-link'>" + prop + "</li>";
               withHeader = true;
             }
 
-            buf += "<li><a href='#" + keyword.name + "'>" + keyword.name + "</a></li>";
+            buf += "<li><a id='shortcut-" + match + "' href='#" + keyword.name + "' data-placement='left' rel='tooltip'>" + keyword.name + "</a></li>";
+            titles[match] = _createTooltip(keyword);
+            match++;
           }
         }
       }
@@ -56,6 +70,13 @@ $(function() {
       }
 
       $shortcuts.html(buf);
+
+      // add tooltips
+      for(i = 0; i < titles.length; i++) {
+        var $shortcut = $('#shortcut-' + i);
+        $shortcut.attr("title", titles[i]);
+        $shortcut.tooltip();
+      }
     };
 
     var _initKeywords = function(search) {

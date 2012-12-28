@@ -688,3 +688,9 @@ table.table td pre, #robot-library-docs pre {
 #robot-library-docs, #robot-library-keywords, #robot-library-shortcuts, #robot-library-shortcuts a {
     font-size: 12px;
 }
+
+#robot-library-shortcuts .tooltip-inner {
+    font-size: 11px;
+    text-align: left;
+    max-width: 300px;
+}
