@@ -18,11 +18,15 @@
 
 package org.jspringbot.spring;
 
+import org.apache.commons.io.IOUtils;
 import org.jspringbot.Keyword;
 import org.jspringbot.KeywordInfo;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.annotation.AnnotationUtils;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceEditor;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,7 +90,24 @@ public class KeywordUtils {
     public static String getDescription(String keyword, ApplicationContext context, Map<String, String> beanMap) {
         KeywordInfo keywordInfo = getKeywordInfo(keyword, context, beanMap);
 
-        return keywordInfo == null ? "" : keywordInfo.description();
+        if(keywordInfo == null) {
+            return "";
+        }
+
+        String desc = keywordInfo.description();
+
+        if(desc.startsWith("classpath:")) {
+            try {
+                ResourceEditor editor = new ResourceEditor();
+                editor.setAsText(desc);
+                Resource r = (Resource) editor.getValue();
+
+                return IOUtils.toString(r.getInputStream());
+            } catch (Exception ignored) {
+            }
+        }
+
+        return desc;
     }
 
     /**
