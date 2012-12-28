@@ -61,7 +61,7 @@ $(function() {
     var _filterSubmit = function(event) {
       var $input = $filter.find("input");
 
-      var value = $input.val();
+      var value = $.trim($input.val());
       _initKeywords(value);
       _initShortcuts(value);
 
