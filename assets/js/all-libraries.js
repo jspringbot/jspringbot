@@ -11,6 +11,7 @@ $(function() {
     var $shortcuts = $("#robot-library-shortcuts");
     var $filter = $("#search-form");
     var $input = $filter.find("input");
+    var $filterCount = $("#robot-library-filter-count");
 
     var _libraries = {};
     var _keywordNames = [];
@@ -20,6 +21,7 @@ $(function() {
         return;
       }
 
+      var match = 0;
       var buf = "<ul class='all'>";
       for(var prop in _libraries) {
         var data = _libraries[prop];
@@ -28,6 +30,7 @@ $(function() {
         for(var i = 0; i < data.keywords.length; i++) {
           var keyword = data.keywords[i];
           if(!search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
+            match++;
             if(!withHeader) {
               buf += "<li class='nav-header quick-link'>" + prop + "</li>";
               withHeader = true;
@@ -38,6 +41,11 @@ $(function() {
         }
       }
       buf += "</ul>";
+
+      if($filterCount.length) {
+        $filterCount.text(match);
+      }
+
       $shortcuts.html(buf);
     };
 

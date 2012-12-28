@@ -138,20 +138,28 @@ $(function() {
     var $version = $("#robot-library-version");
     var $name = $("#robot-library-name");
     var $filter = $("#robot-library-filter");
+    var $filterCount = $("#robot-library-filter-count");
 
     var _initShortcuts = function(search) {
       if(!$shortcuts.length) {
         return;
       }
 
+      var match = 0;
       var buf = "<ul>";
       for(var i = 0; i < data.keywords.length; i++) {
         var keyword = data.keywords[i];
         if(!search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
+          match++;
           buf += "<li><a href='#" + keyword.name + "'>" + keyword.name + "</a></li>";
         }
       }
       buf += "</ul>";
+
+      if($filterCount.length) {
+        $filterCount.text(match);
+      }
+
       $shortcuts.html(buf);
     };
 
