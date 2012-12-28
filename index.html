@@ -37,7 +37,6 @@
 
     <style>
       .hero-unit {
-        margin-top: 80px;
         background-color: #EEEEEE;
         color: inherit;
         font-size: 18px;
@@ -49,7 +48,7 @@
     </style>
   </head>
 
-  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top">
 
     <!-- Navbar
     ================================================== -->
@@ -69,30 +68,55 @@
                 <a href="./index.html">Home</a>
               </li>
               <li class="">
-                <a href="#">Getting started</a>
-              </li>
-              <li class="">
-                <a href="#">Tutorials</a>
+                <a href="./getting-started.html">Get started</a>
               </li>
               <li class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Libraries <b class="caret"></b></a>
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li class="nav-header">Browser</li>
+                  <li><a href="#">General</a></li>
+                  <li><a href="#">Forms</a></li>
+                  <li><a href="./browser-select.html">List or Select</a></li>
+                  <li><a href="#">Upload and Download</a></li>
+                  <li class="nav-header">Web Services</li>
+                  <li><a href="#">Http Requests</a></li>
+                  <li><a href="#">JSON</a></li>
+                  <li><a href="#">XML</a></li>
+                  <li class="nav-header">Others</li>
+                  <li><a href="#">Jenkins</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i> Documentation <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Selenium Library</a></li>
-                    <li><a href="./http.html">HTTP Library</a></li>
-                    <li><a href="./xml.html">XML Library</a></li>
-                    <li><a href="./json.html">JSON Library</a></li>
-                    <li><a href="./db.html">DB Library</a></li>
-                    <li><a href="./ssh.html">SSH Library</a></li>
-                    <li><a href="./csv.html">CSV Library</a></li>
-                    <li><a href="./test-data.html">Test Data Library</a></li>
-                    <li><a href="./config.html">Config Library</a></li>
+                    <li class="nav-header">RobotFramework</li>
+                    <li><a href="./library-builtin.html">BuiltIn Library</a></li>
+                    <li><a href="./library-string.html">String Library</a></li>
+                    <li><a href="./library-os.html">Operating System Library</a></li>
+                    <li><a href="./library-collection.html">Collection Library</a></li>
+                    <li class="nav-header">jSpringBot</li>
+                    <li><a href="./library-selenium.html">Selenium Library</a></li>
+                    <li><a href="./library-http.html">HTTP Library</a></li>
+                    <li><a href="./library-xml.html">XML Library</a></li>
+                    <li><a href="./library-json.html">JSON Library</a></li>
+                    <li><a href="./library-db.html">DB Library</a></li>
+                    <li><a href="./library-ssh.html">SSH Library</a></li>
+                    <li><a href="./library-csv.html">CSV Library</a></li>
+                    <li><a href="./library-date.html">Date Library</a></li>
+                    <li><a href="./library-i18n.html">i18n Library</a></li>
+                    <li><a href="./library-test-data.html">Test Data Library</a></li>
+                    <li><a href="./library-config.html">Config Library</a></li>
                   </ul>
+              </li>
+              <li class="">
+                <a href="./search.html"><i class="icon-search"></i> Search</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
 <div class="container">
 
   <div class="hero-unit">
@@ -120,7 +144,7 @@
       <div class="row about">
         <div class="span4">
           <h3>Rich Libraries</h3>
-          <p>jSpringBot supports a rich set of libraries for Web application testing, web and rest-ful services testing, DB testing, and many more.</p>
+          <p>jSpringBot supports a rich set of libraries for browser testing, web and rest-ful services testing, DB testing, and many more.</p>
         </div>
         <div class="span4">
           <h3>Easy to Setup</h3>
@@ -164,20 +188,19 @@
       <div class="span6">
         <h3>Contact</h3>
         <ul class="icons">
-          <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Shiela Buitizon</a></li>
+          <li><i class="icon-envelope"></i> Email: <a href="mailto:badong2210@yahoo.com">Shiela Buitizon</a></li>
           <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22">http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22</a></li>
           <li><i class="icon-wrench"></i> Work: QA Automation Engineer @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix</a></li>
         </ul>
         <h3>Contributor</h3>
         <ul class="icons">
           <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Alvin R. de Leon</a></li>
-          <li><i class="icon-linkedin"></i> Linkedin: <a onclick="_gaq.push(['_trackEvent', 'Contact', 'Links', 'LinkedIn']);" target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
+          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
         </ul>
       </div>
       <div class="span6">
         <h3>Special Thanks</h3>
-        Special thanks to <a target="_blank" href="https://github.com/ashier">@ashier</a>,
-        <a target="_blank" href="https://github.com/badong2210">@badong2210</a>, <a href="https://www.facebook.com/jctmendoza">@jctmendoza</a>, and <a href="https://twitter.com/bernardlago">@bernardlago</a> for design
+        Special thanks to <a href="https://github.com/alvinrdeleon">@alvinrdeleon</a>, <a href="https://www.facebook.com/warren.herrera">@warren.herrera</a>, and <a href="https://www.facebook.com/bary.reyes">@bary.reyes</a> for design
         review, advice, and some help.
       </div>
     </div>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Date Library Documentation · jSpringBot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="jSpringBot is a framework built on top of Robot Framework to support Java and Spring. This also allows you to run end to end testing with ease using Maven.">
+  <meta name="author" content="shiela buitizon">
+
+  <!-- Exclude IE7 becuase it may renders web fonts blurry -->
+  <!--[if !(IE 7)]><!-->
+  <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700'>
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="assets/css-rose/bootstrap.css">
+  <link rel="stylesheet" href="assets/css-rose/bootstrap-responsive.css">
+  <link rel="stylesheet" href="assets/css/switcher.css">
+
+
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="assets/css/font-awesome-ie7.css">
+  <![endif]-->
+
+  <link href="assets/css/general.css" rel="stylesheet">
+  <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/templates.css">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="assets/ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top" robot-library-url="docs/JSpringBotDateLibrary.html">
+
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
+      <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+          <li>
+            <a href="./index.html">Home</a>
+          </li>
+          <li>
+            <a href="./getting-started.html">Get started</a>
+          </li>
+          <li class="dropdown">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="nav-header">Browser</li>
+              <li><a href="#">General</a></li>
+              <li><a href="#">Forms</a></li>
+              <li><a href="./browser-select.html">List or Select</a></li>
+              <li><a href="#">Upload and Download</a></li>
+              <li class="nav-header">Web Services</li>
+              <li><a href="#">Http Requests</a></li>
+              <li><a href="#">JSON</a></li>
+              <li><a href="#">XML</a></li>
+              <li class="nav-header">Others</li>
+              <li><a href="#">Jenkins</a></li>
+            </ul>
+          </li>
+          <li class="dropdown active">
+            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i> Documentation <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="nav-header">RobotFramework</li>
+              <li><a href="./library-builtin.html">BuiltIn Library</a></li>
+              <li><a href="./library-string.html">String Library</a></li>
+              <li><a href="./library-os.html">Operating System Library</a></li>
+              <li><a href="./library-collection.html">Collection Library</a></li>
+              <li class="nav-header">jSpringBot</li>
+              <li><a href="./library-selenium.html">Selenium Library</a></li>
+              <li><a href="./library-http.html">HTTP Library</a></li>
+              <li><a href="./library-xml.html">XML Library</a></li>
+              <li><a href="./library-json.html">JSON Library</a></li>
+              <li><a href="./library-db.html">DB Library</a></li>
+              <li><a href="./library-ssh.html">SSH Library</a></li>
+              <li><a href="./library-csv.html">CSV Library</a></li>
+              <li><a href="./library-date.html">Date Library</a></li>
+              <li><a href="./library-i18n.html">i18n Library</a></li>
+              <li><a href="./library-test-data.html">Test Data Library</a></li>
+              <li><a href="./library-config.html">Config Library</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a href="./search.html"><i class="icon-search"></i> Search</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="span9">
+
+        <article class="post">
+          <h1 class="post-title">
+            jSpringBot Date Library
+            <small>(<span id="robot-library-keywords-length"></span> Keywords)</small>
+          </h1>
+          <ul class="post-meta">
+            <li>
+              <i class="icon-user"></i> <a class="url fn" href="#">Shiela Buitizon</a>
+            </li>
+            <li>
+              <i class="icon-calendar"></i> <span id="robot-library-generated"></span>
+            </li>
+            <li>
+              <i class="icon-tag"></i> Version 1.0-SNAPSHOT
+            </li>
+          </ul>
+
+          <div class="robot-library-filter-hide">
+            <h1>Introduction</h1>
+            <div id="robot-library-docs"></div>
+          </div>
+
+          <h1 id="keywords">
+            Keywords
+            <small class="hide robot-library-filter-show">Filtered results</small>
+          </h1>
+          <div id="robot-library-keywords"></div>
+
+          <section class="comments">
+            <h1 class="page-header">Comments</h1>
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+              var disqus_shortname = 'jspringbot';
+
+              (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+          </section><!-- .comments -->
+
+
+        </article>
+
+      </div><!-- .span9 -->
+
+      <aside class="sidebar span3">
+        <section>
+          <h3 class="widget-heading">Filter Keywords</h3>
+          <form id="robot-library-filter" action="#keywords">
+            <div class="input-append">
+              <input type="text" placeholder="Enter keyword phrase">
+              <button class="btn" type="submit">Go!</button>
+            </div>
+          </form>
+        </section>
+
+        <section>
+          <h3 class="widget-heading"><i class="icon-filter hide robot-library-filter-show"></i> Quick Links</h3>
+          <div id="robot-library-shortcuts"></div>
+        </section>
+      </aside>
+    </div><!-- .row -->
+
+  <hr class="soften">
+
+  <footer>
+    <div class="row">
+      <div class="span6">
+        <h3>Contact</h3>
+        <ul class="icons">
+          <li><i class="icon-envelope"></i> Email: <a href="mailto:badong2210@yahoo.com">Shiela Buitizon</a></li>
+          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22">http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22</a></li>
+          <li><i class="icon-wrench"></i> Work: QA Automation Engineer @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix</a></li>
+        </ul>
+        <h3>Contributor</h3>
+        <ul class="icons">
+          <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Alvin R. de Leon</a></li>
+          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
+        </ul>
+      </div>
+      <div class="span6">
+        <h3>Special Thanks</h3>
+        Special thanks to <a href="https://github.com/alvinrdeleon">@alvinrdeleon</a>, <a href="https://www.facebook.com/warren.herrera">@warren.herrera</a>, and <a href="https://www.facebook.com/bary.reyes">@bary.reyes</a> for design
+        review, advice, and some help.
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- .container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/google-code-prettify/prettify.js"></script>
+<script src="assets/js/bootstrap-transition.js"></script>
+<script src="assets/js/bootstrap-alert.js"></script>
+<script src="assets/js/bootstrap-modal.js"></script>
+<script src="assets/js/bootstrap-dropdown.js"></script>
+<script src="assets/js/bootstrap-scrollspy.js"></script>
+<script src="assets/js/bootstrap-tab.js"></script>
+<script src="assets/js/bootstrap-tooltip.js"></script>
+<script src="assets/js/bootstrap-popover.js"></script>
+<script src="assets/js/bootstrap-button.js"></script>
+<script src="assets/js/bootstrap-collapse.js"></script>
+<script src="assets/js/bootstrap-carousel.js"></script>
+<script src="assets/js/bootstrap-typeahead.js"></script>
+<script src="assets/js/bootstrap-affix.js"></script>
+<script src="assets/js/robot-library.js"></script>
+
+
+</body>
+</html>

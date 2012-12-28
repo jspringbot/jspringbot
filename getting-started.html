@@ -37,51 +37,74 @@
 
   </head>
 
-  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top">
 
-    <!-- Navbar
-    <!-- Navbar
-    ================================================== -->
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-              <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
-              <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
-              <div class="nav-collapse collapse">
-                <ul class="nav pull-right">
-                        <li class="">
-                            <a href="./index.html">Home</a>
-                        </li>
-                        <li class="active">
-                            <a href="./getting-started.html">Getting started</a>
-                        </li>
-                        <li class="">
-                            <a href="./tutorials.html">Tutorials</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Libraries <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="./selenium.html">Selenium Library</a></li>
-                                <li><a href="./http.html">HTTP Library</a></li>
-                                <li><a href="./xml.html">XML Library</a></li>
-                                <li><a href="./json.html">JSON Library</a></li>
-                                <li><a href="./db.html">DB Library</a></li>
-                                <li><a href="./ssh.html">SSH Library</a></li>
-                                <li><a href="./csv.html">CSV Library</a></li>
-                                <li><a href="./test-data.html">Test Data Library</a></li>
-                                <li><a href="./config.html">Config Library</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+  <!-- Navbar
+  ================================================== -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
+        <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <li>
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="active">
+              <a href="./getting-started.html">Get started</a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">Browser</li>
+                <li><a href="#">General</a></li>
+                <li><a href="#">Forms</a></li>
+                <li><a href="./browser-select.html">List or Select</a></li>
+                <li><a href="#">Upload and Download</a></li>
+                <li class="nav-header">Web Services</li>
+                <li><a href="#">Http Requests</a></li>
+                <li><a href="#">JSON</a></li>
+                <li><a href="#">XML</a></li>
+                <li class="nav-header">Others</li>
+                <li><a href="#">Jenkins</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i> Documentation <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">RobotFramework</li>
+                <li><a href="./library-builtin.html">BuiltIn Library</a></li>
+                <li><a href="./library-string.html">String Library</a></li>
+                <li><a href="./library-os.html">Operating System Library</a></li>
+                <li><a href="./library-collection.html">Collection Library</a></li>
+                <li class="nav-header">jSpringBot</li>
+                <li><a href="./library-selenium.html">Selenium Library</a></li>
+                <li><a href="./library-http.html">HTTP Library</a></li>
+                <li><a href="./library-xml.html">XML Library</a></li>
+                <li><a href="./library-json.html">JSON Library</a></li>
+                <li><a href="./library-db.html">DB Library</a></li>
+                <li><a href="./library-ssh.html">SSH Library</a></li>
+                <li><a href="./library-csv.html">CSV Library</a></li>
+                <li><a href="./library-date.html">Date Library</a></li>
+                <li><a href="./library-i18n.html">i18n Library</a></li>
+                <li><a href="./library-test-data.html">Test Data Library</a></li>
+                <li><a href="./library-config.html">Config Library</a></li>
+              </ul>
+            </li>
+            <li class="">
+              <a href="./search.html"><i class="icon-search"></i> Search</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
 
 <!-- Subhead
 ================================================== -->
@@ -101,10 +124,11 @@
     <div class="row">
       <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav">
-          <li><a href="#robot-overview"><i class="icon-chevron-right"></i> Overview</a></li>
+          <li class="active"><a href="#robot-overview"><i class="icon-chevron-right"></i> Overview</a></li>
           <li><a href="#robot-objectives"><i class="icon-chevron-right"></i> Objectives</a></li>
           <li><a href="#supported-testing"><i class="icon-chevron-right"></i> Supported Testing</a></li>
           <li><a href="#examples"><i class="icon-chevron-right"></i> Examples</a></li>
+          <li><a href="#comments"><i class="icon-chevron-right"></i> Comments</a></li>
         </ul>
       </div>
       <div class="span9">
@@ -115,7 +139,7 @@
         ================================================== -->
         <section id="robot-overview">
           <div class="page-header">
-            <h1>1. Overview</h1>
+            <h1>Overview</h1>
           </div>
           <p class="lead">
               jSpringBot allows you to easily create java based robot framework libraries.
@@ -174,7 +198,7 @@
        ================================================== -->
         <section id="robot-objectives">
             <div class="page-header">
-                <h1>2. Objectives</h1>
+                <h1>Objectives</h1>
             </div>
             <p class="lead">
                 Here are jSpringBot goals and objectives.
@@ -192,7 +216,7 @@
         ================================================== -->
         <section id="supported-testing">
           <div class="page-header">
-            <h1>3. Supported Testing</h1>
+            <h1>Supported Testing</h1>
           </div>
           <p class="lead">JSpringBot provides support for the following:</p>
           <h4>Web Application Testing</h4>
@@ -215,7 +239,7 @@
         ================================================== -->
         <section id="examples">
           <div class="page-header">
-            <h1>4. Examples</h1>
+            <h1>Examples</h1>
           </div>
           <p class="lead">Move beyond the base template with a few example layouts. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
           <ul class="thumbnails bootstrap-examples">
@@ -271,32 +295,53 @@
             </li>
           </ul>
         </section>
+        <section id="comments">
+          <div class="page-header">
+            <h1>Comments</h1>
+          </div>
+
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_shortname = 'jspringbot';
+
+            (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
       </div>
     </div>
 
-  </div>
+    <hr class="soften">
 
-
-
-    <!-- Footer
-    ================================================== -->
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>Designed and built by <a href="https://github.com/badong2210" target="_blank">Shiela Buitizon</a>.</p>
-            <p>Contributor: <a href="https://github.com/alvinrdeleon" target="_blank">Alvin R. de Leon</a>.</p>
-            <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>.</p>
-            <ul class="footer-links">
-                <li><a href="https://github.com/badong2210/jspringbot/">GitHub</a></li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/badong2210/jspringbot/issues?state=open">Issues</a></li>
-                <li class="muted">&middot;</li>
-                <li><a href="https://github.com/badong2210/jspringbot/wiki">Wiki</a></li>
-            </ul>
+    <footer>
+      <div class="row">
+        <div class="span6">
+          <h3>Contact</h3>
+          <ul class="icons">
+            <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Shiela Buitizon</a></li>
+            <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22">http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22</a></li>
+            <li><i class="icon-wrench"></i> Work: QA Automation Engineer @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix</a></li>
+          </ul>
+          <h3>Contributor</h3>
+          <ul class="icons">
+            <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Alvin R. de Leon</a></li>
+            <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
+          </ul>
         </div>
+        <div class="span6">
+          <h3>Special Thanks</h3>
+          Special thanks to <a href="https://github.com/alvinrdeleon">@alvinrdeleon</a>, <a href="https://www.facebook.com/warren.herrera">@warren.herrera</a>, and <a href="https://www.facebook.com/bary.reyes">@bary.reyes</a> for design
+          review, advice, and some help.
+        </div>
+      </div>
     </footer>
 
-
+  </div>
 
     <!-- Le javascript
     ================================================== -->

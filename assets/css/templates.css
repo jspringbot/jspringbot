@@ -488,6 +488,11 @@
 }
 .sidebar section {
   margin-bottom: 48px;
+  padding-top: 0;
+}
+
+.sidebar section:first-child {
+    padding-top: 12px;
 }
 
 .widget-heading {
@@ -527,4 +532,16 @@ ol.spaced li {
   overflow: visible;
   position: static;
   width: auto;
+}
+
+table td.kw {
+    font-weight: bold;
+}
+
+table.table table td {
+    border-color: black;
+}
+
+#robot-library-docs table {
+    margin-bottom: 10px;
 }
