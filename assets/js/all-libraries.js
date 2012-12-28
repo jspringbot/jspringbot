@@ -16,6 +16,15 @@ $(function() {
     var _libraries = {};
     var _keywordNames = [];
 
+    var _prettyPrint = function() {
+      $("pre").each(function(index, el) {
+        var $el = $(el);
+        $el.addClass("prettyprint linenums");
+      });
+
+      window.prettyPrint && prettyPrint();
+    };
+
     var _initShortcuts = function(search) {
       if(!$shortcuts.length) {
         return;
@@ -99,6 +108,8 @@ $(function() {
         $(".robot-library-filter-hide").show();
         $(".robot-library-filter-show").hide();
       }
+
+      _prettyPrint();
 
       if(event) {
         event.preventDefault();

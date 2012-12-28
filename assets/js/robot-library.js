@@ -140,6 +140,17 @@ $(function() {
     var $filter = $("#robot-library-filter");
     var $filterCount = $("#robot-library-filter-count");
 
+    var _prettyPrint = function() {
+      $docs.html(data.doc);
+
+      $("pre").each(function(index, el) {
+        var $el = $(el);
+        $el.addClass("prettyprint linenums");
+      });
+
+      window.prettyPrint && prettyPrint();
+    };
+
     var _initShortcuts = function(search) {
       if(!$shortcuts.length) {
         return;
@@ -209,6 +220,8 @@ $(function() {
         $(".robot-library-filter-show").hide();
       }
 
+      _prettyPrint();
+
       if(event) {
         event.preventDefault();
         event.stopPropagation();
@@ -254,7 +267,6 @@ $(function() {
         $length.text(data.keywords.length);
         $version.text(data.version);
         $name.text(data.name);
-        $docs.html(data.doc);
 
         var search = "";
         if($filter.length) {
@@ -265,6 +277,7 @@ $(function() {
           _initShortcuts();
           _initKeywords();
           _initFilter();
+          _prettyPrint();
         } else {
           _initFilter();
           _filterSubmit();

@@ -669,8 +669,7 @@ table.table td.kw a {
     top: -52px;
 }
 
-table.table td pre {
-    background-color: inherit;
+table.table td pre, #robot-library-docs pre {
     font-size: 11px;
 }
 
