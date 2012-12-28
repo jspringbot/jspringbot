@@ -545,3 +545,7 @@ table.table table td {
 #robot-library-docs table {
     margin-bottom: 10px;
 }
+
+.quick-filter {
+    cursor: pointer;
+}

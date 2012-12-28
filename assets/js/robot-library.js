@@ -96,6 +96,12 @@ $(function() {
         return val;
       }});
 
+      $("span[robot-library-filter]").click(function() {
+        var $el = $(this);
+        $input.val($el.attr("robot-library-filter"));
+        _filterSubmit();
+      });
+
       $filter.submit(_filterSubmit);
     };
 
