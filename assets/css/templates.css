@@ -660,3 +660,8 @@ ul.unstyled, ol.unstyled {
 .sidebar ul.all li.nav-header.quick-link {
     padding-left: 0;
 }
+
+table.table td.kw a {
+    position: relative;
+    top: -52px;
+}
