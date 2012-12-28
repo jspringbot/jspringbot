@@ -665,3 +665,19 @@ table.table td.kw a {
     position: relative;
     top: -52px;
 }
+
+table.table td pre {
+    background-color: inherit;
+}
+
+#robot-library-docs table, table.table.keywords table {
+    font-family: "DejaVu Sans Mono",Menlo,Consolas,monospace;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+#robot-library-docs table td, table.table.keywords table td {
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 3px;
+}
