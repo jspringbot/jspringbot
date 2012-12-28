@@ -144,8 +144,11 @@ $(function() {
       $docs.html(data.doc);
 
       $("pre").each(function(index, el) {
-        var $el = $(el);
-        $el.addClass("prettyprint linenums");
+        $(el).addClass("prettyprint");
+      });
+
+      $docs.find("pre").each(function(index, el) {
+        $(el).addClass("linenums");
       });
 
       window.prettyPrint && prettyPrint();

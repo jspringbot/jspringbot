@@ -677,6 +677,11 @@ table.table td pre, #robot-library-docs pre {
     font-family: "DejaVu Sans Mono",Menlo,Consolas,monospace;
     font-size: 11px;
     margin-bottom: 10px;
+    background-color: #F7F7F9;
+}
+
+#robot-library-keywords table.table-hover.keywords tbody tr:hover table td {
+    background-color: #F7F7F9;
 }
 
 #robot-library-docs table td, table.table.keywords table td {

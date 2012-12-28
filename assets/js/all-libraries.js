@@ -18,8 +18,7 @@ $(function() {
 
     var _prettyPrint = function() {
       $("pre").each(function(index, el) {
-        var $el = $(el);
-        $el.addClass("prettyprint linenums");
+        $(el).addClass("prettyprint");
       });
 
       window.prettyPrint && prettyPrint();
