@@ -552,6 +552,8 @@ table.table table td {
 
 .label-rose, .badge-rose {
     background-color: #D55360;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    opacity: 0.8;
 }
 
 table.table.library th {
