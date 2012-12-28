@@ -156,5 +156,5 @@ $(function() {
   };
 
   // start loading the library
-  $.ajax({url: LIBRARY_URL}).done(_initializeLibrary);
+  $.ajax({url: LIBRARY_URL, async: false}).done(_initializeLibrary);
 });
