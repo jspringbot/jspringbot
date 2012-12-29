@@ -1,0 +1,27 @@
+{
+    "tutorial-set": [
+        {
+            "name": "Selenium",
+            "tutorials": {
+                "selenium-general": "General",
+                "selenium-forms": "Forms",
+                "selenium-upload-download": "Upload and Download",
+                "selenium-async": "Asynchronous"
+            }
+        },
+        {
+            "name": "Web Services",
+            "tutorials": {
+                "http": "Http Requests",
+                "http-xml": "XML Responses",
+                "http-json": "JSON Responses"
+            }
+        },
+        {
+            "name": "Others",
+            "tutorials": {
+                "jenkins": "Jenkins"
+            }
+        }
+    ]
+}

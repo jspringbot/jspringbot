@@ -1,0 +1,10 @@
+{
+    "tutorial-set": [
+        {
+            "name": "Selenium",
+            "tutorials": {
+                "selenium-general": "General"
+            }
+        }
+    ]
+}

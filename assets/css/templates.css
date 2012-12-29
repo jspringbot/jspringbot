@@ -558,6 +558,14 @@ table.table table td {
     font-weight: normal;
 }
 
+.label-rose-featured, .badge-rose-featured {
+    background-color: #F5A732;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+    opacity: 0.8;
+    font-size: 12px;
+    font-weight: normal;
+}
+
 table.table.library th {
     font-weight: normal;
     text-decoration: underline;
@@ -646,10 +654,24 @@ ul.unstyled, ol.unstyled {
 }
 
 .post-meta-rose {
-    color: #7eb216;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
     opacity: 0.7;
     font-size: 10px;
+    display: inline;
+    font-weight: normal;
+    margin: 0;
+}
+
+.label-featured {
+    color: #F5A732;
+}
+
+.label-library {
+    color: #7EB216;
+}
+
+.label-copy {
+    color: #D55360;
 }
 
 .nav-header.quick-link {
@@ -664,23 +686,23 @@ ul.unstyled, ol.unstyled {
     padding-left: 0;
 }
 
-table.table td.kw a {
+table.table td.kw a, #robot-library-keywords a.anchor {
     position: relative;
     top: -52px;
 }
 
-table.table td pre, #robot-library-docs pre {
+table.table td pre, #robot-library-docs pre, #robot-library-keywords .accordion pre {
     font-size: 11px;
 }
 
-#robot-library-docs table, table.table.keywords table {
+#robot-library-docs table, table.table.keywords table, #robot-library-keywords .accordion table {
     font-family: "DejaVu Sans Mono",Menlo,Consolas,monospace;
     font-size: 11px;
     margin-bottom: 10px;
     background-color: #F7F7F9;
 }
 
-#robot-library-keywords table.table-hover.keywords tbody tr:hover table td {
+#robot-library-keywords .accordion table td, #robot-library-keywords table.table-hover.keywords tbody tr:hover table td {
     background-color: #F7F7F9;
 }
 
@@ -698,4 +720,29 @@ table.table td pre, #robot-library-docs pre {
     font-size: 11px;
     text-align: left;
     max-width: 300px;
+}
+
+#robot-library-keywords .accordion-heading .accordion-toggle {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #F5F5F5;
+}
+
+#robot-library-keywords .accordion-heading a.accordion-toggle:hover  {
+    text-decoration: none;
+    background-color: #F2F2E6;
+}
+
+#robot-library-keywords .accordion-heading a.accordion-toggle {
+    outline: 0;
+}
+
+#robot-library-keywords .accordion-heading small {
+    color: #999999;
+    font-weight: normal;
+    font-size: 11px;
+}
+
+#robot-featured-keywords {
+    margin-top: 10px;
 }

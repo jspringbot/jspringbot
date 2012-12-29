@@ -127,7 +127,7 @@
 })();
 
 $(function() {
-  var LIBRARY_URL = $(document.body).attr("robot-library-url");
+  var LIBRARY_NAME = $(document.body).attr("robot-library");
 
   var RobotLibrary = function(data) {
     var $generated = $("#robot-library-generated");
@@ -139,6 +139,9 @@ $(function() {
     var $name = $("#robot-library-name");
     var $filter = $("#robot-library-filter");
     var $filterCount = $("#robot-library-filter-count");
+    var $quickFilter = $("#robot-quick-filter");
+    var $featured = $("#robot-featured-keywords");
+
 
     var _prettyPrint = function() {
       $docs.html(data.doc);
@@ -166,6 +169,10 @@ $(function() {
       return $dummy.find("p").first().text();
     };
 
+    var _isMatch = function(keyword, search) {
+      return !search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1;
+    };
+
     var _initShortcuts = function(search) {
       if(!$shortcuts.length) {
         return;
@@ -178,7 +185,7 @@ $(function() {
       var buf = "<ul>";
       for(i = 0; i < data.keywords.length; i++) {
         var keyword = data.keywords[i];
-        if(!search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
+        if(_isMatch(keyword, search)) {
           buf += "<li><a id='shortcut-" + match + "' href='#" + keyword.name + "' data-placement='left' rel='tooltip'>" + keyword.name + "</a></li>";
           titles[match] = _createTooltip(keyword);
           match++;
@@ -200,7 +207,7 @@ $(function() {
       }
     };
 
-    var _initKeywords = function(search) {
+    var _initTableKeywords = function(search) {
       if(!$keywords.length) {
         return;
       }
@@ -218,7 +225,7 @@ $(function() {
       for(var i = 0; i < data.keywords.length; i++) {
         var keyword = data.keywords[i];
 
-        if(!search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1) {
+        if(_isMatch(keyword, search)) {
           buf += "<tr>";
           buf += "<td class='kw'><a name='" + keyword.name + "'></a>" + keyword.name + "</a></td>";
           buf += "<td class='arg'>" + keyword.args + "</a></td>";
@@ -229,6 +236,72 @@ $(function() {
       buf += "</tbody>";
       buf += "</table>";
       $keywords.html(buf);
+    };
+
+    var _initKeywords = function(search) {
+      if(!$keywords.length) {
+        return;
+      }
+
+      var buf = [];
+      var ctr = 0;
+      var exact = -1;
+      buf.push('<div class="accordion" id="accordion-keywords">');
+
+      for(var i = 0; i < data.keywords.length; i++) {
+        var keyword = data.keywords[i];
+
+        if(_isMatch(keyword, search)) {
+          buf.push('<a class="anchor" name="' + keyword.name + '"></a>');
+          buf.push('<div class="accordion-group">');
+          buf.push('<div class="accordion-heading">');
+          buf.push('<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-' + ctr + '">');
+
+          if(window.RobotUtils.isFeatured(LIBRARY_NAME, keyword.name)) {
+            buf.push("<ul class='post-meta pull-right post-meta-rose'><li class='label-featured'><i class='icon-star'></i> Featured</li></ul>");
+          }
+
+          buf.push("<span class='clearfix'>");
+          buf.push(keyword.name);
+          if(keyword.args) {
+            buf.push(' <small>');
+            buf.push('[ ');
+            buf.push(keyword.args);
+            buf.push(' ]');
+            buf.push('</small>');
+          }
+
+          buf.push('</a>');
+          buf.push('</div>');
+          buf.push('<div id="collapse-' + ctr + '" class="accordion-body collapse">');
+          buf.push('<div class="accordion-inner">');
+          buf.push(keyword.doc);
+          buf.push('</div>');
+          buf.push('</div>');
+          buf.push('</div>');
+
+          if(search && search.toLowerCase() == keyword.name.toLowerCase()) {
+            exact = ctr;
+          }
+
+          ctr++;
+        }
+      }
+
+      buf.push('</div>');
+
+      $keywords.html(buf.join(''));
+
+      if(ctr == 1) {
+        $("#collapse-0").addClass("in");
+      }
+      if(exact != -1 && ctr > 1) {
+        $("#collapse-" + exact).addClass("in");
+      }
+
+      var $accordion = $("#accordion-keywords");
+      $accordion.collapse();
+      $accordion.removeAttr("style");
     };
 
     var _filterSubmit = function(event) {
@@ -271,7 +344,7 @@ $(function() {
         return val;
       }});
 
-      $("span[robot-library-filter]").click(function() {
+      $("*[robot-library-filter]").click(function() {
         var $el = $(this);
         $input.val($el.attr("robot-library-filter"));
         _filterSubmit();
@@ -299,6 +372,19 @@ $(function() {
           search = $filter.find("input").val();
         }
 
+        var quickFilterHTML = window.RobotUtils.quickFilterHtml();
+        var featuredHTML = window.RobotUtils.featuredHtml();
+
+        if(quickFilterHTML) {
+          $quickFilter.append(quickFilterHTML);
+          $quickFilter.removeClass("hide");
+        }
+
+        if(featuredHTML) {
+          $featured.append(featuredHTML);
+          $featured.removeClass("hide");
+        }
+
         if(!search) {
           _initShortcuts();
           _initKeywords();
@@ -312,31 +398,7 @@ $(function() {
     };
   };
 
-  var _initializeLibrary = function(doc, status, result) {
-    if(status == "success") {
-      var responseText = result.responseText;
-
-      var startIndex = responseText.indexOf("libdoc =");
-      if(startIndex != -1) {
-        var endIndex = responseText.indexOf("</" + "script>", startIndex);
-
-        if(endIndex != -1) {
-          var libdocStatement = responseText.substring(startIndex, endIndex);
-          startIndex = libdocStatement.indexOf("{");
-          endIndex = libdocStatement.lastIndexOf("}");
-
-          // initialize robot library
-          new RobotLibrary($.parseJSON(libdocStatement.substring(startIndex, endIndex + 1))).init();
-          return;
-        }
-      }
-    }
-
-    if(window.console && console.log) {
-      console.log("Error loading robot library from url " + LIBRARY_URL);
-    }
-  };
-
-  // start loading the library
-  $.ajax({url: LIBRARY_URL, async: false}).done(_initializeLibrary);
+  window.RobotUtils.load(LIBRARY_NAME, function(name, data) {
+    new RobotLibrary(data).init();
+  });
 });

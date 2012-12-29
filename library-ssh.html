@@ -38,76 +38,21 @@
   <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top" robot-library-url="docs/JSpringBotSSHLibrary.html">
+<body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top"  selected-menu="documentation-menu" robot-library="ssh">
 
 <!-- Navbar
 ================================================== -->
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
       <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
-      <div class="nav-collapse collapse">
-        <ul class="nav pull-right">
-          <li>
-            <a href="./index.html">Home</a>
-          </li>
-          <li>
-            <a href="./getting-started.html">Get started</a>
-          </li>
-          <li class="dropdown">
-            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="nav-header">Browser</li>
-              <li><a href="#">General</a></li>
-              <li><a href="#">Forms</a></li>
-              <li><a href="./browser-select.html">List or Select</a></li>
-              <li><a href="#">Upload and Download</a></li>
-              <li class="nav-header">Web Services</li>
-              <li><a href="#">Http Requests</a></li>
-              <li><a href="#">JSON</a></li>
-              <li><a href="#">XML</a></li>
-              <li class="nav-header">Others</li>
-              <li><a href="#">Jenkins</a></li>
-            </ul>
-          </li>
-          <li class="dropdown active">
-            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i> Documentation <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="nav-header">RobotFramework</li>
-              <li><a href="./library-builtin.html">BuiltIn Library</a></li>
-              <li><a href="./library-string.html">String Library</a></li>
-              <li><a href="./library-os.html">Operating System Library</a></li>
-              <li><a href="./library-collection.html">Collection Library</a></li>
-              <li class="nav-header">jSpringBot</li>
-              <li><a href="./library-selenium.html">Selenium Library</a></li>
-              <li><a href="./library-http.html">HTTP Library</a></li>
-              <li><a href="./library-xml.html">XML Library</a></li>
-              <li><a href="./library-json.html">JSON Library</a></li>
-              <li><a href="./library-db.html">DB Library</a></li>
-              <li><a href="./library-ssh.html">SSH Library</a></li>
-              <li><a href="./library-csv.html">CSV Library</a></li>
-              <li><a href="./library-date.html">Date Library</a></li>
-              <li><a href="./library-i18n.html">i18n Library</a></li>
-              <li><a href="./library-test-data.html">Test Data Library</a></li>
-              <li><a href="./library-config.html">Config Library</a></li>
-            </ul>
-          </li>
-          <li class="">
-            <a href="./search.html"><i class="icon-search"></i> Keyword Search</a>
-          </li>
-        </ul>
-      </div>
+      <div id="main-menu" class="nav-collapse collapse"></div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div id="container" class="container">
     <div class="row">
       <div class="span9">
 
@@ -133,9 +78,9 @@
             <div id="robot-library-docs"></div>
           </div>
 
-          <h1 id="keywords">
+          <h1 id="keywords"><div class="pull-right robot-library-filter-show hide"><button robot-library-filter="" class="btn btn-mini btn-primary quick-filter" type="button"><i class="icon-refresh"></i> Reset Filter</button></div>
             Keywords
-            <small class="hide robot-library-filter-show"><i class="icon-filter"></i> Filtered results</small>
+            <small class="hide robot-library-filter-show"><i class="icon-filter"></i> Filtered keyword results</small>
           </h1>
           <div id="robot-library-keywords"></div>
 
@@ -170,6 +115,12 @@
               <button class="btn btn-primary" type="submit">Go!</button>
             </div>
           </form>
+          <div id="robot-quick-filter" class="hide">
+            <strong><i class="icon-tags"></i> Quick Filter:</strong><br />
+          </div>
+          <div id="robot-featured-keywords" class="hide">
+            <strong><i class="icon-star"></i> Featured Keywords:</strong><br />
+          </div>
         </section>
 
         <section>
@@ -178,38 +129,11 @@
         </section>
       </aside>
     </div><!-- .row -->
-
-  <hr class="soften">
-
-  <footer>
-    <div class="row">
-      <div class="span6">
-        <h3>Contact</h3>
-        <ul class="icons">
-          <li><i class="icon-envelope"></i> Email: <a href="mailto:badong2210@yahoo.com">Shiela Buitizon</a></li>
-          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22">http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22</a></li>
-          <li><i class="icon-wrench"></i> Work: QA Automation Engineer @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix</a></li>
-        </ul>
-        <h3>Contributor</h3>
-        <ul class="icons">
-          <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Alvin R. de Leon</a></li>
-          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
-        </ul>
-      </div>
-      <div class="span6">
-        <h3>Special Thanks</h3>
-        Special thanks to <a href="https://github.com/alvinrdeleon">@alvinrdeleon</a>, <a href="https://www.facebook.com/warren.herrera">@warren.herrera</a>, and <a href="https://www.facebook.com/bary.reyes">@bary.reyes</a> for design
-        review, advice, and some help.
-      </div>
-    </div>
-  </footer>
-
-  </div><!-- .container -->
+</div><!-- .container -->
 
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/google-code-prettify/prettify.js"></script>
 <script src="assets/js/bootstrap-transition.js"></script>
@@ -225,7 +149,9 @@
 <script src="assets/js/bootstrap-carousel.js"></script>
 <script src="assets/js/bootstrap-typeahead.js"></script>
 <script src="assets/js/bootstrap-affix.js"></script>
-<script src="assets/js/robot-library.js"></script>
+<script src="assets/js/robot/robot-common.js"></script>
+<script src="assets/js/templates.js"></script>
+<script src="assets/js/robot/robot-library.js"></script>
 
 
 </body>

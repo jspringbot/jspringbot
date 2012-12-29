@@ -38,187 +38,28 @@
   <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top">
+<body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top" selected-menu="search-menu">
 
 <!-- Navbar
 ================================================== -->
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
       <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
-      <div class="nav-collapse collapse">
-        <ul class="nav pull-right">
-          <li>
-            <a href="./index.html">Home</a>
-          </li>
-          <li>
-            <a href="./getting-started.html">Get started</a>
-          </li>
-          <li class="dropdown">
-            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="nav-header">Browser</li>
-              <li><a href="#">General</a></li>
-              <li><a href="#">Forms</a></li>
-              <li><a href="./browser-select.html">List or Select</a></li>
-              <li><a href="#">Upload and Download</a></li>
-              <li class="nav-header">Web Services</li>
-              <li><a href="#">Http Requests</a></li>
-              <li><a href="#">JSON</a></li>
-              <li><a href="#">XML</a></li>
-              <li class="nav-header">Others</li>
-              <li><a href="#">Jenkins</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i> Documentation <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li class="nav-header">RobotFramework</li>
-              <li><a href="./library-builtin.html">BuiltIn Library</a></li>
-              <li><a href="./library-string.html">String Library</a></li>
-              <li><a href="./library-os.html">Operating System Library</a></li>
-              <li><a href="./library-collection.html">Collection Library</a></li>
-              <li class="nav-header">jSpringBot</li>
-              <li><a href="./library-selenium.html">Selenium Library</a></li>
-              <li><a href="./library-http.html">HTTP Library</a></li>
-              <li><a href="./library-xml.html">XML Library</a></li>
-              <li><a href="./library-json.html">JSON Library</a></li>
-              <li><a href="./library-db.html">DB Library</a></li>
-              <li><a href="./library-ssh.html">SSH Library</a></li>
-              <li><a href="./library-csv.html">CSV Library</a></li>
-              <li><a href="./library-date.html">Date Library</a></li>
-              <li><a href="./library-i18n.html">i18n Library</a></li>
-              <li><a href="./library-test-data.html">Test Data Library</a></li>
-              <li><a href="./library-config.html">Config Library</a></li>
-            </ul>
-          </li>
-          <li class="active">
-            <a href="./search.html"><i class="icon-search"></i> Keyword Search</a>
-          </li>
-        </ul>
-      </div>
+      <div id="main-menu" class="nav-collapse collapse"></div>
     </div>
   </div>
 </div>
 
-<form id="advance-search-form" class="form-horizontal hide">
-
-  <!--<div class="alert alert-info">-->
-  <!--Please enter the following information.-->
-  <!--</div>-->
-
-  <div  id="name-group" class="control-group">
-    <label class="control-label" for="name">Keyword</label>
-    <div class="controls">
-      <input type="text" id="name" placeholder="Enter keyword phrase" class="input-xlarge">
-      <span class="help-inline hide">Field required.</span>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">Libraries</label>
-    <div class="controls">
-      <div class="span5" style="margin: 0;">
-        <table class="table table-condensed library" style="margin-bottom: 2px;">
-          <thead>
-          <tr>
-            <th class="jspringbot" colspan="2">jSpringBot</th>
-            <th colspan="2">Robot Framework</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td class="column-checkbox"><input id="selenium" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotSeleniumLibrary.html"></td>
-            <td><label for="selenium">Selenium Library</label></td>
-            <td class="column-checkbox"><input id="builtin" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/BuiltIn.html"></td>
-            <td><label for="builtin">Built In Library</label></td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="http" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotHttpLibrary.html"></td>
-            <td><label for="http">HTTP Library</label></td>
-            <td class="column-checkbox"><input id="string" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/String.html"></td>
-            <td><label for="string">String Library</label></td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="xml" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotXMLLibrary.html"></td>
-            <td><label for="xml">XML Library</label></td>
-            <td class="column-checkbox"><input id="os" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/OperatingSystem.html"></td>
-            <td><label for="os">Operating System Library</label></td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="json" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotJSONLibrary.html"></td>
-            <td><label for="json">JSON Library</label></td>
-            <td class="column-checkbox"><input id="collections" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/Collections.html"></td>
-            <td><label for="collections">Collections Library</label></td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="db" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotDBLibrary.html"></td>
-            <td><label for="db">DB Library</label></td>
-            <td class="column-checkbox">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="ssh" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotSSHLibrary.html"></td>
-            <td><label for="ssh">SSH Library</label></td>
-            <td class="column-checkbox">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="csv" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotCSVLibrary.html"></td>
-            <td><label for="csv">CSV Library</label></td>
-            <td class="column-checkbox">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="date" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotDateLibrary.html"></td>
-            <td><label for="date">Date Library</label></td>
-            <td class="column-checkbox">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="i18n" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBoti18nLibrary.html"></td>
-            <td><label for="i18n">i18n Library</label></td>
-            <td class="column-checkbox">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="test-data" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotTestDataLibrary.html"></td>
-            <td><label for="test-data">Test Data Library</label></td>
-            <td class="column-checkbox">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td class="column-checkbox"><input id="config" type="checkbox" checked="checked" class="checkbox-library" robot-url="docs/JSpringBotConfigLibrary.html"></td>
-            <td><label for="config">Config Library</label></td>
-            <td class="column-checkbox">&nbsp;</td>
-            <td>&nbsp;</td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-      <span class="help-inline hide">Please select at least one library.</span>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <button id="add-form-save" type="submit" class="btn btn-primary" data-loading-text="Searching...">Search</button>
-    <button type="reset" class="btn">Reset</button>
-  </div>
-</form>
-
-<div class="container">
+<div id="container" class="container">
     <div class="row">
       <div class="span9">
 
         <article class="post">
           <h1 class="post-title">
             Keyword Search
-            <small>Find keywords from all libraries</small>
+            <small>Find keywords from all supported libraries</small>
           </h1>
 
           <div id="progress-bar" class="progress progress-striped active"></div>
@@ -264,39 +105,7 @@
       <aside class="sidebar span3">
         <section>
           <h3 class="widget-heading">Quick Search <small><i class="icon-tags"></i> keyword phrases</small></h3>
-
-          <span robot-library-filter="run" class="label label-rose quick-filter">Run</span>
-          <span robot-library-filter="create" class="label label-rose quick-filter">Create</span>
-          <span robot-library-filter="keyword" class="label label-rose quick-filter">Keyword</span>
-          <span robot-library-filter="convert" class="label label-rose quick-filter">Convert</span>
-          <span robot-library-filter="should" class="label label-rose quick-filter">Should</span>
-          <span robot-library-filter="should not" class="label label-rose quick-filter">Should Not</span>
-          <span robot-library-filter="should contain" class="label label-rose quick-filter">Should Contain</span>
-          <span robot-library-filter="should be" class="label label-rose quick-filter">Should Be</span>
-          <span robot-library-filter="variable" class="label label-rose quick-filter">Variable</span>
-          <span robot-library-filter="set" class="label label-rose quick-filter">Set</span>
-          <span robot-library-filter="get" class="label label-rose quick-filter">Get</span>
-          <span robot-library-filter="log" class="label label-rose quick-filter">Log</span>
-          <span robot-library-filter="suite" class="label label-rose quick-filter">Suite</span>
-          <span robot-library-filter="test" class="label label-rose quick-filter">Test</span>
-          <span robot-library-filter="integer" class="label label-rose quick-filter">Integer</span>
-          <span robot-library-filter="string" class="label label-rose quick-filter">String</span>
-          <span robot-library-filter="number" class="label label-rose quick-filter">Number</span>
-          <span robot-library-filter="generate" class="label label-rose quick-filter">Generate</span>
-          <span robot-library-filter="list" class="label label-rose quick-filter">List</span>
-          <span robot-library-filter="dictionar" class="label label-rose quick-filter">Dictionary</span>
-          <span robot-library-filter="element" class="label label-rose quick-filter">Element</span>
-          <span robot-library-filter="page" class="label label-rose quick-filter">Page</span>
-          <span robot-library-filter="checkbox" class="label label-rose quick-filter">Checkbox</span>
-          <span robot-library-filter="cookie" class="label label-rose quick-filter">Cookie</span>
-          <span robot-library-filter="click" class="label label-rose quick-filter">Click</span>
-          <span robot-library-filter="mouse" class="label label-rose quick-filter">Mouse</span>
-          <span robot-library-filter="json" class="label label-rose quick-filter">JSON</span>
-          <span robot-library-filter="xpath" class="label label-rose quick-filter">XPath</span>
-          <span robot-library-filter="http" class="label label-rose quick-filter">HTTP</span>
-          <span robot-library-filter="csv" class="label label-rose quick-filter">CSV</span>
-          <span robot-library-filter="date" class="label label-rose quick-filter">Date</span>
-          <span robot-library-filter="i18n" class="label label-rose quick-filter">i18n</span>
+          <div id="robot-quick-filter" class="hide"></div>
         </section>
 
         <section class="robot-library-filter-show hide">
@@ -305,32 +114,6 @@
         </section>
       </aside>
     </div><!-- .row -->
-
-  <hr class="soften">
-
-  <footer>
-    <div class="row">
-      <div class="span6">
-        <h3>Contact</h3>
-        <ul class="icons">
-          <li><i class="icon-envelope"></i> Email: <a href="mailto:badong2210@yahoo.com">Shiela Buitizon</a></li>
-          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22">http://www.linkedin.com/pub/shiela-buitizon/5a/321/b22</a></li>
-          <li><i class="icon-wrench"></i> Work: QA Automation Engineer @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix</a></li>
-        </ul>
-        <h3>Contributor</h3>
-        <ul class="icons">
-          <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Alvin R. de Leon</a></li>
-          <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
-        </ul>
-      </div>
-      <div class="span6">
-        <h3>Special Thanks</h3>
-        Special thanks to <a href="https://github.com/alvinrdeleon">@alvinrdeleon</a>, <a href="https://www.facebook.com/warren.herrera">@warren.herrera</a>, and <a href="https://www.facebook.com/bary.reyes">@bary.reyes</a> for design
-        review, advice, and some help.
-      </div>
-    </div>
-  </footer>
-
   </div><!-- .container -->
 
 <!-- Le javascript
@@ -351,7 +134,9 @@
 <script src="assets/js/bootstrap-carousel.js"></script>
 <script src="assets/js/bootstrap-typeahead.js"></script>
 <script src="assets/js/bootstrap-affix.js"></script>
-<script src="assets/js/all-libraries.js"></script>
+<script src="assets/js/robot/robot-common.js"></script>
+<script src="assets/js/templates.js"></script>
+<script src="assets/js/robot/robot-all-libraries.js"></script>
 
 
 </body>
