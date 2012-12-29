@@ -1,22 +1,24 @@
 (function() {
 
   var _initDocumentationMenu = function() {
-    var data = window.RobotUtils.getMetaData();
-    var items = [];
+    window.RobotUtils.onReady(function() {
+      var data = window.RobotUtils.getMetaData();
+      var items = [];
 
-    var libSets = data['library-set'];
-    for(var i = 0; i < libSets.length; i++) {
-      var libSet = libSets[i];
-      var libs = libSet['libraries'];
+      var libSets = data['library-set'];
+      for(var i = 0; i < libSets.length; i++) {
+        var libSet = libSets[i];
+        var libs = libSet['libraries'];
 
-      items.push("<li class='nav-header'>" + libSet.name + "</li>");
-      for(var shortname in libs) {
-        var lib = libs[shortname];
-        items.push("<li><a href='./library-" + shortname + ".html'>" + lib.name + "</a></li>");
+        items.push("<li class='nav-header'>" + libSet.name + "</li>");
+        for(var shortname in libs) {
+          var lib = libs[shortname];
+          items.push("<li><a href='./library-" + shortname + ".html'>" + lib.name + "</a></li>");
+        }
       }
-    }
 
-    $("#robot-docs-menu-items").append(items.join(''));
+      $("#robot-docs-menu-items").append(items.join(''));
+    });
   };
 
   var _initTutorialsMenu = function() {

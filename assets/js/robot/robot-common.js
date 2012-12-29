@@ -56,13 +56,17 @@
     var dataCache = {};
     var loaded = [];
     var shortnames = [];
+    var ready = false;
+    var fns = [];
 
     $.getJSON('metadata/robot-metadata.json', function(data) {
       metadata = data;
       var libSets = data['library-set'];
 
       total = 0;
-      for(var i = 0; i < libSets.length; i++) {
+      var i = 0;
+
+      for(i = 0; i < libSets.length; i++) {
         var libSet = libSets[i];
         var libs = libSet['libraries'];
 
@@ -70,6 +74,13 @@
           shortnames.push(shortname);
           metaDataCache[shortname] = libs[shortname];
           total += 1;
+        }
+      }
+
+      ready = true;
+      for(i = 0; i < fns.length; i++) {
+        if(fns[i]) {
+          fns[i]();
         }
       }
     });
@@ -171,7 +182,17 @@
       return buf.join('');
     };
 
+
     return {
+      onReady: function(fn) {
+        if(ready && fn) {
+          fn();
+          return;
+        }
+
+        fns.push(fn);
+      },
+
       markup: function(html) {
 
       },

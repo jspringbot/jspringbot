@@ -258,20 +258,21 @@ $(function() {
     _all.init();
   };
 
-  var total = window.RobotUtils.librarySize();
-  var percent = 1/total * 100;
-  var loaded = 0;
+  window.RobotUtils.onReady(function() {
+    var total = window.RobotUtils.librarySize();
+    var percent = 1/total * 100;
+    var loaded = 0;
 
-  window.RobotUtils.loadAll(function(name, data) {
-    loaded++;
+    window.RobotUtils.loadAll(function(name, data) {
+      loaded++;
 
-    _all.add(name, data);
+      _all.add(name, data);
 
-    $("#progress-bar").append("<div class='bar bar-danger' style='width: "+ percent +"%;'></div>");
+      $("#progress-bar").append("<div class='bar bar-danger' style='width: "+ percent +"%;'></div>");
 
-    if(loaded == total) {
-      _init();
-    }
+      if(loaded == total) {
+        _init();
+      }
+    });
   });
-
 });

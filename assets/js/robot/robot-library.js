@@ -398,7 +398,9 @@ $(function() {
     };
   };
 
-  window.RobotUtils.load(LIBRARY_NAME, function(name, data) {
-    new RobotLibrary(data).init();
+  window.RobotUtils.onReady(function() {
+    window.RobotUtils.load(LIBRARY_NAME, function(name, data) {
+      new RobotLibrary(data).init();
+    });
   });
 });
