@@ -127,6 +127,7 @@
 })();
 
 $(function() {
+  var RobotUtils = window.RobotUtils;
   var LIBRARY_NAME = $(document.body).attr("robot-library");
 
   var RobotLibrary = function(data) {
@@ -144,7 +145,7 @@ $(function() {
 
 
     var _prettyPrint = function() {
-      $docs.html(data.doc);
+      $docs.html(RobotUtils.jSpringBotMarkup(data.doc));
 
       $("pre").each(function(index, el) {
         $(el).addClass("prettyprint");
@@ -257,7 +258,7 @@ $(function() {
           buf.push('<div class="accordion-heading">');
           buf.push('<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-' + ctr + '">');
 
-          if(window.RobotUtils.isFeatured(LIBRARY_NAME, keyword.name)) {
+          if(RobotUtils.isFeatured(LIBRARY_NAME, keyword.name)) {
             buf.push("<ul class='post-meta pull-right post-meta-rose'><li class='label-featured'><i class='icon-star'></i> Featured</li></ul>");
           }
 
@@ -275,7 +276,7 @@ $(function() {
           buf.push('</div>');
           buf.push('<div id="collapse-' + ctr + '" class="accordion-body collapse">');
           buf.push('<div class="accordion-inner">');
-          buf.push(keyword.doc);
+          buf.push(RobotUtils.jSpringBotMarkup(keyword.doc));
           buf.push('</div>');
           buf.push('</div>');
           buf.push('</div>');
@@ -364,16 +365,23 @@ $(function() {
       init: function() {
         $generated.text(_parseDate(data.generated).format("mmmm d, yyyy"));
         $length.text(data.keywords.length);
-        $version.text(data.version);
-        $name.text(data.name);
+        $version.text(RobotUtils.getVersion(LIBRARY_NAME));
+        $name.text(RobotUtils.getName(LIBRARY_NAME));
 
         var search = "";
         if($filter.length) {
-          search = $filter.find("input").val();
+          var $input = $filter.find("input");
+
+          var q = RobotUtils.getQuery();
+          if(q) {
+            $input.val(q);
+          }
+
+          search = $input.val();
         }
 
-        var quickFilterHTML = window.RobotUtils.quickFilterHtml();
-        var featuredHTML = window.RobotUtils.featuredHtml();
+        var quickFilterHTML = RobotUtils.quickFilterHtml();
+        var featuredHTML = RobotUtils.featuredHtml();
 
         if(quickFilterHTML) {
           $quickFilter.append(quickFilterHTML);
@@ -398,8 +406,8 @@ $(function() {
     };
   };
 
-  window.RobotUtils.onReady(function() {
-    window.RobotUtils.load(LIBRARY_NAME, function(name, data) {
+  RobotUtils.onReady(function() {
+    RobotUtils.load(LIBRARY_NAME, function(name, data) {
       new RobotLibrary(data).init();
     });
   });

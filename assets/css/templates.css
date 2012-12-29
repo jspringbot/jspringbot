@@ -691,7 +691,7 @@ table.table td.kw a, #robot-library-keywords a.anchor {
     top: -52px;
 }
 
-table.table td pre, #robot-library-docs pre, #robot-library-keywords .accordion pre {
+table.table td pre, #robot-library-docs pre, #robot-library-docs code, #robot-library-keywords .accordion pre, #robot-library-keywords code {
     font-size: 11px;
 }
 

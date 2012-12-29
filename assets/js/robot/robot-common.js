@@ -5,6 +5,49 @@
     }
   };
 
+  var _startsWith = function(source, str) {
+    return source.match("^"+str) == str;
+  };
+
+  var _getQueryStringParameters = function (paramName, url) {
+    var i, len, idx, queryString, params, tokens;
+
+    url = url || top.location.href;
+
+    idx = url.indexOf("?");
+    queryString = idx >= 0 ? url.substr(idx + 1) : url;
+
+    // Remove the hash if any
+    idx = queryString.lastIndexOf("#");
+    queryString = idx >= 0 ? queryString.substr(0, idx) : queryString;
+
+    params = queryString.split("&");
+
+    var values = [];
+    for (i = 0, len = params.length; i < len; i++) {
+      tokens = params[i].split("=");
+      if (tokens.length >= 2) {
+        if (tokens[0] === paramName) {
+          values.push(decodeURIComponent(tokens[1]));
+        }
+      }
+    }
+
+    if(values.length == 0) return null;
+
+    return values;
+  };
+
+  var _getQueryStringParameter = function (paramName, url) {
+    var values = _getQueryStringParameters(paramName, url);
+
+    if(values === null) {
+      return null;
+    }
+
+    return values[0];
+  };
+
   var LibraryInitializer = function(name, url, callback) {
 
     var _libraryData;
@@ -72,6 +115,9 @@
 
         for(var shortname in libs) {
           shortnames.push(shortname);
+          if(!libs[shortname].version) {
+            libs[shortname].version = libSet.version;
+          }
           metaDataCache[shortname] = libs[shortname];
           total += 1;
         }
@@ -182,6 +228,28 @@
       return buf.join('');
     };
 
+    var _jSpringBotMarkup = function(html) {
+      var pattern = /\{\{.+}}/g;
+      return html.replace(pattern,
+        function(capture) {
+          var content = capture.substring(2, capture.length -2);
+
+          if(_startsWith(content, 'jspringbot-github:')) {
+            var project = content.substring(18);
+            var label = project;
+            if(project.indexOf("|")) {
+              var split = project.split("|");
+              project = split[0];
+              label = split[1];
+            }
+
+            return '<a target="_blank" href="https://github.com/jspringbot/' + project + '" class="btn btn-primary"><i class="icon-github"></i> ' + label + ' &raquo;</a>';
+          }
+
+          return "<code>" + content + "</code>";
+        });
+    };
+
 
     return {
       onReady: function(fn) {
@@ -193,8 +261,13 @@
         fns.push(fn);
       },
 
-      markup: function(html) {
+      getQuery: function(param) {
+        param = param || "q";
+        return _getQueryStringParameter(param);
+      },
 
+      jSpringBotMarkup: function(html) {
+        return _jSpringBotMarkup(html);
       },
 
       loadAll: function(callbackFn) {

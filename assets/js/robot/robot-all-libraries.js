@@ -1,10 +1,5 @@
 $(function() {
-
-  var _log = function(msg) {
-    if(window.console && console.log) {
-      console.log(msg);
-    }
-  };
+  var RobotUtils = window.RobotUtils;
 
   var RobotLibraries = function() {
     var $keywords = $("#robot-library-keywords");
@@ -57,7 +52,7 @@ $(function() {
           var keyword = data.keywords[i];
           if(_isMatch(keyword, search)) {
             if(!withHeader) {
-              buf += "<li class='nav-header quick-link'>" + window.RobotUtils.getName(prop) + "</li>";
+              buf += "<li class='nav-header quick-link'>" + RobotUtils.getName(prop) + "</li>";
               withHeader = true;
             }
 
@@ -108,7 +103,7 @@ $(function() {
             buf += "<tr>";
             buf += "<td class='kw'><a name='" + keyword.name + "'></a>" + keyword.name + "</a></td>";
             buf += "<td class='arg'>" + keyword.args + "</a></td>";
-            buf += "<td class='doc'><ul class='post-meta pull-right post-meta-rose'><li><i class='icon-tag'></i> " + window.RobotUtils.getName(prop) + "</li></ul> " + keyword.doc + "</a></td>";
+            buf += "<td class='doc'><ul class='post-meta pull-right post-meta-rose'><li><i class='icon-tag'></i> " + RobotUtils.getName(prop) + "</li></ul> " + keyword.doc + "</a></td>";
             buf += "</tr>";
           }
         }
@@ -141,10 +136,10 @@ $(function() {
             buf.push('<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-' + ctr + '">');
             buf.push("<ul class='post-meta pull-right post-meta-rose'>");
 
-            if(window.RobotUtils.isFeatured(prop, keyword.name)) {
+            if(RobotUtils.isFeatured(prop, keyword.name)) {
               buf.push("<li class='label-featured'><i class='icon-star'></i> Featured</li>");
             }
-            buf.push("<li class='label-library'><i class='icon-tag'></i> " + window.RobotUtils.getName(prop) + "</li>");
+            buf.push("<li class='label-library'><i class='icon-tag'></i> " + RobotUtils.getName(prop) + "</li>");
             buf.push("</ul>");
 
 
@@ -162,7 +157,7 @@ $(function() {
             buf.push('</div>');
             buf.push('<div id="collapse-' + ctr + '" class="accordion-body collapse">');
             buf.push('<div class="accordion-inner">');
-            buf.push(keyword.doc);
+            buf.push(RobotUtils.jSpringBotMarkup(keyword.doc));
             buf.push('</div>');
             buf.push('</div>');
             buf.push('</div>');
@@ -231,7 +226,7 @@ $(function() {
           return val;
         }});
 
-        var quickFilterHTML = window.RobotUtils.quickFilterHtml();
+        var quickFilterHTML = RobotUtils.quickFilterHtml();
 
         if(quickFilterHTML) {
           $quickFilter.append(quickFilterHTML);
@@ -245,6 +240,14 @@ $(function() {
         });
 
         $filter.submit(_filterSubmit);
+
+        if($filter.length) {
+          var q = RobotUtils.getQuery();
+          if(q) {
+            $input.val(q);
+            _filterSubmit();
+          }
+        }
       }
     };
   };
@@ -258,12 +261,12 @@ $(function() {
     _all.init();
   };
 
-  window.RobotUtils.onReady(function() {
-    var total = window.RobotUtils.librarySize();
+  RobotUtils.onReady(function() {
+    var total = RobotUtils.librarySize();
     var percent = 1/total * 100;
     var loaded = 0;
 
-    window.RobotUtils.loadAll(function(name, data) {
+    RobotUtils.loadAll(function(name, data) {
       loaded++;
 
       _all.add(name, data);
