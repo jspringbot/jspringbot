@@ -15,10 +15,14 @@ public final class ArgumentHandlerRegistry {
     }
 
     private Object handle(Object arg) {
-        for(ArgumentHandler handler : handlers) {
-            if(handler.isSupported(arg)) {
-                return handler.handle(arg);
+        try {
+            for(ArgumentHandler handler : handlers) {
+                if(handler.isSupported(arg)) {
+                    return handler.handle(arg);
+                }
             }
+        } catch(Exception e) {
+            e.printStackTrace(System.out);
         }
 
         return arg;
