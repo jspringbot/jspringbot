@@ -5,14 +5,15 @@ import org.springframework.context.ApplicationContext;
 import java.util.Map;
 
 public final class ArgumentHandlerManager {
-    private Map<String, ArgumentHandlerRegistryBean> handlers;
+    private ApplicationContext context;
 
     public ArgumentHandlerManager(ApplicationContext context) {
-         handlers = context.getBeansOfType(ArgumentHandlerRegistryBean.class);
+        this.context = context;
     }
 
     private Object handle(String keyword, Object arg) {
         try {
+            Map<String, ArgumentHandlerRegistryBean> handlers = context.getBeansOfType(ArgumentHandlerRegistryBean.class);
             for(ArgumentHandlerRegistryBean handler : handlers.values()) {
                 if(handler.isSupported(keyword, arg)) {
                     return handler.handle(arg);
