@@ -161,7 +161,17 @@
                 },
                 "i18n": {
                     "name": "i18n Library",
-                    "src": "docs/JSpringBoti18nLibrary.html"
+                    "src": "docs/JSpringBoti18nLibrary.html",
+                    "quick-filter": [
+                        "Locale",
+                        "Language",
+                        "Country"
+                    ],
+                    "featured": [
+                        "Create I18n Object",
+                        "Set I18n Locale",
+                        "Get I18n Message"
+                    ]
                 },
                 "db": {
                     "name": "DB Library",

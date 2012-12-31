@@ -221,7 +221,7 @@
       return buf.join('');
     };
 
-    var _featuredHtml = function() {
+    var _featuredHtml = function(sort) {
       var features = [];
 
       for(var i = 0; i < loaded.length; i++) {
@@ -240,6 +240,10 @@
 
       if(!features.length) {
         return "";
+      }
+
+      if(sort) {
+        features.sort();
       }
 
       var buf = [];
@@ -357,6 +361,17 @@
         });
     };
 
+    var _getShortDescription = function(keyword) {
+      var $dummy = $("#dummy");
+
+      if(!$dummy.length) {
+        $(document.body).append("<div id='dummy' class='hide'></div>");
+        $dummy = $("#dummy");
+      }
+
+      $dummy.html(_jSpringBotMarkup(keyword.doc));
+      return $dummy.find("p").first().text();
+    };
 
     return {
       onReady: function(fn) {
@@ -391,8 +406,8 @@
         return _quickFilterHTML();
       },
 
-      featuredHtml: function() {
-        return _featuredHtml();
+      featuredHtml: function(sort) {
+        return _featuredHtml(sort);
       },
 
       isFeatured: function(shortname, keyword) {
@@ -405,6 +420,10 @@
         var featured = lib['featured'];
 
         return featured.indexOf(keyword) != -1;
+      },
+
+      getKeywordShortDescription: function(keyword) {
+        return _getShortDescription(keyword);
       },
 
       getName: function(shortname) {

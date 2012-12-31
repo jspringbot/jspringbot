@@ -158,17 +158,6 @@ $(function() {
       window.prettyPrint && prettyPrint();
     };
 
-    var _createTooltip = function(keyword) {
-      var $dummy = $("#dummy");
-
-      if(!$dummy.length) {
-        $(document.body).append("<div id='dummy' class='hide'></div>");
-        $dummy = $("#dummy");
-      }
-
-      $dummy.html(keyword.doc);
-      return $dummy.find("p").first().text();
-    };
 
     var _isMatch = function(keyword, search) {
       return !search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1;
@@ -188,7 +177,7 @@ $(function() {
         var keyword = data.keywords[i];
         if(_isMatch(keyword, search)) {
           buf += "<li><a id='shortcut-" + match + "' href='#" + keyword.name + "' data-placement='left' rel='tooltip'>" + keyword.name + "</a></li>";
-          titles[match] = _createTooltip(keyword);
+          titles[match] = RobotUtils.getKeywordShortDescription(keyword);
           match++;
         }
       }

@@ -8,6 +8,7 @@ $(function() {
     var $input = $filter.find("input");
     var $filterCount = $("#robot-library-filter-count");
     var $quickFilter = $("#robot-quick-filter");
+    var $featured = $("#robot-featured-keywords");
 
     var _libraries = {};
     var _keywordNames = [];
@@ -18,18 +19,6 @@ $(function() {
       });
 
       window.prettyPrint && prettyPrint();
-    };
-
-    var _createTooltip = function(keyword) {
-      var $dummy = $("#dummy");
-
-      if(!$dummy.length) {
-        $(document.body).append("<div id='dummy' class='hide'></div>");
-        $dummy = $("#dummy");
-      }
-
-      $dummy.html(keyword.doc);
-      return $dummy.find("p").first().text();
     };
 
     var _isMatch = function(keyword, search) {
@@ -57,7 +46,7 @@ $(function() {
             }
 
             buf += "<li><a id='shortcut-" + match + "' href='#" + keyword.name + "' data-placement='left' rel='tooltip'>" + keyword.name + "</a></li>";
-            titles[match] = _createTooltip(keyword);
+            titles[match] = RobotUtils.getKeywordShortDescription(keyword);
             match++;
           }
         }
@@ -227,10 +216,16 @@ $(function() {
         }});
 
         var quickFilterHTML = RobotUtils.quickFilterHtml();
+        var featuredHTML = RobotUtils.featuredHtml(true);
 
         if(quickFilterHTML) {
           $quickFilter.append(quickFilterHTML);
           $quickFilter.removeClass("hide");
+        }
+
+        if(featuredHTML) {
+          $featured.append(featuredHTML);
+          $featured.removeClass("hide");
         }
 
         $("span[robot-library-filter]").click(function() {
