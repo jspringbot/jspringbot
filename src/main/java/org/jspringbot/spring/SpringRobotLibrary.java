@@ -20,6 +20,7 @@ package org.jspringbot.spring;
 
 import org.jspringbot.DynamicRobotLibrary;
 import org.jspringbot.Keyword;
+import org.jspringbot.argument.ArgumentHandlerRegistry;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -75,7 +76,9 @@ class SpringRobotLibrary implements DynamicRobotLibrary {
      */
     public Object runKeyword(String keyword, final Object[] params) {
         try {
-            return ((Keyword) context.getBean(keywordToBeanMap.get(keyword))).execute(params);
+            Object[] handledParams = ArgumentHandlerRegistry.REGISTRY.handlerArguments(params);
+
+            return ((Keyword) context.getBean(keywordToBeanMap.get(keyword))).execute(handledParams);
         } catch(Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         }
