@@ -1,22 +1,19 @@
 package org.jspringbot.argument;
 
-import java.util.LinkedList;
-import java.util.List;
+import org.springframework.context.ApplicationContext;
 
-public final class ArgumentHandlerRegistry {
-    public static final ArgumentHandlerRegistry REGISTRY = new ArgumentHandlerRegistry();
+import java.util.Map;
 
-    private List<ArgumentHandler> handlers = new LinkedList<ArgumentHandler>();
+public final class ArgumentHandlers {
+    private Map<String, ArgumentHandler> handlers;
 
-    private ArgumentHandlerRegistry() {}
-
-    public void register(ArgumentHandler handler) {
-        handlers.add(handler);
+    public ArgumentHandlers(ApplicationContext context) {
+         handlers = context.getBeansOfType(ArgumentHandler.class);
     }
 
     private Object handle(Object arg) {
         try {
-            for(ArgumentHandler handler : handlers) {
+            for(ArgumentHandler handler : handlers.values()) {
                 if(handler.isSupported(arg)) {
                     return handler.handle(arg);
                 }
