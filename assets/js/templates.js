@@ -10,11 +10,15 @@
         var libSet = libSets[i];
         var libs = libSet['libraries'];
 
-        items.push("<li class='nav-header'>" + libSet.name + "</li>");
+        items.push('<li class="dropdown-submenu">');
+        items.push('<a href="javascript:;" tabindex="-1">' + libSet.name + '</a>');
+        items.push('<ul class="dropdown-menu">');
         for(var shortname in libs) {
           var lib = libs[shortname];
           items.push("<li><a href='./library-" + shortname + ".html'>" + lib.name + "</a></li>");
         }
+        items.push("</ul>");
+        items.push("</li>");
       }
 
       $("#robot-docs-menu-items").append(items.join(''));
