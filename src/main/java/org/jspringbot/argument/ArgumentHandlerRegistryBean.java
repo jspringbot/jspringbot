@@ -13,8 +13,8 @@ public class ArgumentHandlerRegistryBean implements ArgumentHandler {
     }
 
     @Override
-    public boolean isSupported(Object parameter) {
-        return handler.isSupported(parameter);
+    public boolean isSupported(String keyword, Object parameter) {
+        return handler.isSupported(keyword, parameter);
     }
 
     @Override

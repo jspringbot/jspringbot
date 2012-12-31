@@ -11,10 +11,10 @@ public final class ArgumentHandlerManager {
          handlers = context.getBeansOfType(ArgumentHandlerRegistryBean.class);
     }
 
-    private Object handle(Object arg) {
+    private Object handle(String keyword, Object arg) {
         try {
             for(ArgumentHandlerRegistryBean handler : handlers.values()) {
-                if(handler.isSupported(arg)) {
+                if(handler.isSupported(keyword, arg)) {
                     return handler.handle(arg);
                 }
             }
@@ -25,7 +25,7 @@ public final class ArgumentHandlerManager {
         return arg;
     }
 
-    public Object[] handlerArguments(Object[] args) {
+    public Object[] handlerArguments(String keyword, Object[] args) {
         if(args == null || args.length == 0) {
             return args;
         }
@@ -33,7 +33,7 @@ public final class ArgumentHandlerManager {
         Object[] converted = new Object[args.length];
 
         for (int i = 0; i < args.length; i++) {
-            converted[i] = handle(args[i]);
+            converted[i] = handle(keyword, args[i]);
         }
 
         return converted;

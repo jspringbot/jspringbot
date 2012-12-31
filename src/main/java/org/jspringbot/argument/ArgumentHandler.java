@@ -2,7 +2,7 @@ package org.jspringbot.argument;
 
 public interface ArgumentHandler {
 
-    boolean isSupported(Object parameter);
+    boolean isSupported(String keyword, Object parameter);
 
     Object handle(Object parameter);
 }
