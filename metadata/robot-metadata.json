@@ -132,7 +132,6 @@
                     "src": "docs/JSpringBotHttpLibrary.html",
                     "quick-filter": [
                         "Should",
-                        "Should Not",
                         "Should Be",
                         "Request",
                         "Response",

@@ -48,6 +48,34 @@
     return values[0];
   };
 
+  var unescapeHtml = function(source) {
+
+    var output = source.replace(/<br\/?>/gi, "\n");
+    output = output.replace(/\&quot;/gi, "\"");
+    output = output.replace(/\&gt;/gi, ">");
+    output = output.replace(/\&lt;/gi, "<");
+    output = output.replace(/\&amp;/gi, "&");
+    output = output.replace(/\&apos;/gi, "'");
+    output = output.replace(/\&nbsp;/gi, " ");
+
+    // convert html decimal notation (&#NNNN;) to javascript unicode string
+    output = output.replace(/\&#[\d]+;/g,
+      function(capture){
+        var decimalValue = parseInt(capture.match(/\d+/), 10);
+        var hex = decimalValue.toString(16);
+        return eval("'\\u"+_self.leftPad(hex, 4, "0")+"'");
+      });
+
+    // convert html hexadecimal notation (&#xNNNN;) to javascript unicode string
+    output = output.replace(/\&#[Xx][\dA-Fa-f]+;/g,
+      function(capture){
+        var hex = capture.match(/[\dA-Fa-f]+/);
+        return eval("'\\u"+_self.leftPad(hex, 4, "0")+"'");
+      });
+
+    return output;
+  };
+
   var LibraryInitializer = function(name, url, callback) {
 
     var _libraryData;
@@ -228,22 +256,101 @@
       return buf.join('');
     };
 
+    var JSPRINGBOT_MARKUP = {
+      "jspringbot-github": function(content) {
+        var project = content.substring(18);
+        var label = project;
+        if(project.indexOf("|") != -1) {
+          var split = project.split("|");
+          project = split[0];
+          label = split[1];
+        }
+
+        return '<a target="_blank" href="https://github.com/jspringbot/' + project + '" class="btn btn-primary"><i class="icon-github"></i> ' + label + ' &raquo;</a>';
+      },
+
+      "jspringbot-doc": function(content) {
+        var project = content.substring(15);
+        var anchor = "";
+        var title = project;
+
+        if(project.indexOf("|") != -1) {
+          var split = project.split("|");
+          project = split[0];
+
+          if(metaDataCache[project]) {
+            title = metaDataCache[project].name;
+          }
+
+          if(split.length > 1) {
+            if(_startsWith(split[1], "#")) {
+              anchor = split[1];
+            } else {
+              title = split[1];
+            }
+          }
+
+          if(split.length > 2) {
+            title = split[2];
+          }
+        } else if(metaDataCache[project]) {
+            title = metaDataCache[project].name;
+        }
+
+        return '<a href="./library-' + project + '.html' + anchor + '"><i class="icon-book"></i> ' + title + '</a>';
+      },
+
+      "external-link": function(content) {
+        var link = content.substring(14);
+        var label = link;
+
+        if(link.indexOf("|") != -1) {
+          var split = link.split("|");
+          link = split[0];
+          label = split[1];
+        }
+
+        return '<a href="' + link + '"><i class="icon-external-link"></i> ' + label + '</a>';
+      },
+
+      "html": function(content) {
+        return unescapeHtml(content.substring(5));
+      },
+
+      "unicode": function(content) {
+        var buf = [];
+        var withUnicode = content.substring(8);
+        for(var i = 0; i < withUnicode.length; i++) {
+          var ch = withUnicode.charAt(i);
+          if(ch == '\\') {
+            var toConvert = withUnicode.substring(i, i + 6);
+            buf.push(_convertUnicode(toConvert));
+            i += 5;
+          } else {
+            buf.push(ch);
+          }
+        }
+
+        return buf.join('');
+      }
+    };
+
+    var _convertUnicode = function(str) {
+      return String.fromCharCode(parseInt(str.substring(2), 16))
+    };
+
     var _jSpringBotMarkup = function(html) {
-      var pattern = /\{\{.+}}/g;
+      var pattern = /\{\{[^\}]+}}/g;
       return html.replace(pattern,
         function(capture) {
           var content = capture.substring(2, capture.length -2);
 
-          if(_startsWith(content, 'jspringbot-github:')) {
-            var project = content.substring(18);
-            var label = project;
-            if(project.indexOf("|")) {
-              var split = project.split("|");
-              project = split[0];
-              label = split[1];
-            }
+          for(var key in JSPRINGBOT_MARKUP) {
+            if(_startsWith(content, key + ':')) {
+              var handler = JSPRINGBOT_MARKUP[key];
 
-            return '<a target="_blank" href="https://github.com/jspringbot/' + project + '" class="btn btn-primary"><i class="icon-github"></i> ' + label + ' &raquo;</a>';
+              return handler(content);
+            }
           }
 
           return "<code>" + content + "</code>";
