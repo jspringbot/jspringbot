@@ -20,9 +20,7 @@ package org.jspringbot.spring;
 
 import org.jspringbot.DynamicRobotLibrary;
 import org.jspringbot.Keyword;
-import org.jspringbot.argument.ArgumentHandler;
-import org.jspringbot.argument.ArgumentHandlers;
-import org.jspringbot.argument.ArgumentHandlers;
+import org.jspringbot.argument.ArgumentHandlerManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -45,7 +43,7 @@ class SpringRobotLibrary implements DynamicRobotLibrary {
     /** Mapping of keyword name to spring bean name. */
     private Map<String, String> keywordToBeanMap;
 
-    private ArgumentHandlers argumentHandlers;
+    private ArgumentHandlerManager argumentHandlers;
 
     /**
      * Create new SpringRobotLibrary object using the given configuration.
@@ -57,7 +55,7 @@ class SpringRobotLibrary implements DynamicRobotLibrary {
 
         context.registerShutdownHook();
         this.context = context;
-        this.argumentHandlers = new ArgumentHandlers(context);
+        this.argumentHandlers = new ArgumentHandlerManager(context);
         this.keywordToBeanMap = KeywordUtils.getKeywordMap(context);
     }
 
