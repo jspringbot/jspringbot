@@ -261,6 +261,18 @@
     };
 
     var JSPRINGBOT_MARKUP = {
+      "jspringbot-github-simple": function(content) {
+        var project = content.substring(18);
+        var label = project;
+        if(project.indexOf("|") != -1) {
+          var split = project.split("|");
+          project = split[0];
+          label = split[1];
+        }
+
+        return '<a target="_blank" href="https://github.com/jspringbot/' + project + '"><i class="icon-github"></i> ' + label + ' &raquo;</a>';
+      },
+
       "jspringbot-github": function(content) {
         var project = content.substring(18);
         var label = project;

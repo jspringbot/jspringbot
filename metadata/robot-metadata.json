@@ -100,6 +100,10 @@
             "name": "jSpringBot",
             "version": "1.0-SNAPSHOT",
             "libraries": {
+                "expression": {
+                    "name": "Expression Library",
+                    "src": "docs/JSpringBotExpressionLibrary.html"
+                },
                 "selenium": {
                     "name": "Selenium Library",
                     "src": "docs/JSpringBotSeleniumLibrary.html",
