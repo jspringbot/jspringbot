@@ -135,6 +135,11 @@
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.5.6</version>
     </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.python</groupId>-->
+      <!--<artifactId>jython-standalone</artifactId>-->
+      <!--<version>2.5.1</version>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>org.robotframework</groupId>
       <artifactId>robotframework</artifactId>
