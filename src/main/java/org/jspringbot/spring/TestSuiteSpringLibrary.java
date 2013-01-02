@@ -23,15 +23,14 @@ package org.jspringbot.spring;
  */
 public class TestSuiteSpringLibrary extends SpringRobotLibrary {
 
-    /** Setting library scope to GLOBAL. */
-    public static final String ROBOT_LIBRARY_SCOPE = "TEST SUITE";
+    public static final String ROBOT_LIBRARY_SCOPE = RobotScope.SUITE.getValue();
 
     /**
      * Create new SpringRobotLibrary object using the given configuration.
      *
      * @param springConfigPath String configuration path
      */
-    public TestSuiteSpringLibrary(String springConfigPath) {
+    public TestSuiteSpringLibrary(String springConfigPath) throws Exception {
         super(springConfigPath);
     }
 }

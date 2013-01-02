@@ -21,7 +21,7 @@ package org.jspringbot.spring;
 import org.jspringbot.DynamicRobotLibrary;
 import org.jspringbot.Keyword;
 import org.jspringbot.argument.ArgumentHandlerManager;
-import org.springframework.context.ApplicationContext;
+import org.jspringbot.runner.SpringRobotFramework;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Map;
@@ -35,10 +35,10 @@ import java.util.Map;
  * keyword name is equivalent to bean name while keyword documentation and parameter description becomes "" and {"*args"}
  * respectively.
  */
-class SpringRobotLibrary implements DynamicRobotLibrary {
+public class SpringRobotLibrary implements DynamicRobotLibrary {
 
     /** Spring application context. */
-    private ApplicationContext context;
+    private ClassPathXmlApplicationContext context;
 
     /** Mapping of keyword name to spring bean name. */
     private Map<String, String> keywordToBeanMap;
@@ -50,11 +50,15 @@ class SpringRobotLibrary implements DynamicRobotLibrary {
      *
      * @param springConfigPath String configuration path
      */
-    public SpringRobotLibrary(String springConfigPath) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(springConfigPath);
+    public SpringRobotLibrary(String springConfigPath) throws Exception {
+        context = new ClassPathXmlApplicationContext(springConfigPath);
 
-        context.registerShutdownHook();
-        this.context = context;
+        if(SpringRobotFramework.CONTEXT != null) {
+            SpringRobotLibraryManager manager = SpringRobotFramework.CONTEXT.getBean(SpringRobotLibraryManager.class);
+
+            manager.addLibrary(getClass(), context);
+        }
+
         this.argumentHandlers = new ArgumentHandlerManager(context);
         this.keywordToBeanMap = KeywordUtils.getKeywordMap(context);
     }
