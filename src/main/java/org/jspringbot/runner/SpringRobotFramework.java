@@ -13,7 +13,7 @@ public class SpringRobotFramework {
 
     public static int run(String[] args) {
         try {
-            ClassPathXmlApplicationContext context = MainContextHolder.get();
+            ClassPathXmlApplicationContext context = MainContextHolder.create();
 
             RobotRunner runner = context.getBean(RobotRunner.class);
 
