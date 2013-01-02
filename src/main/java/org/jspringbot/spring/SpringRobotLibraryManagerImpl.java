@@ -1,6 +1,7 @@
 package org.jspringbot.spring;
 
 
+import org.jspringbot.MainContextHolder;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.ReflectionUtils;
 
@@ -22,6 +23,7 @@ public class SpringRobotLibraryManagerImpl implements SpringRobotLibraryManager 
         if(current != null && current.isActive()) {
             current.destroy();
         } else {
+            context.setParent(MainContextHolder.get());
             libraries.put(scope, context);
         }
     }

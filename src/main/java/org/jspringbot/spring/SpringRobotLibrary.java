@@ -20,8 +20,8 @@ package org.jspringbot.spring;
 
 import org.jspringbot.DynamicRobotLibrary;
 import org.jspringbot.Keyword;
+import org.jspringbot.MainContextHolder;
 import org.jspringbot.argument.ArgumentHandlerManager;
-import org.jspringbot.runner.SpringRobotFramework;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Map;
@@ -53,8 +53,8 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
     public SpringRobotLibrary(String springConfigPath) throws Exception {
         context = new ClassPathXmlApplicationContext(springConfigPath);
 
-        if(SpringRobotFramework.CONTEXT != null) {
-            SpringRobotLibraryManager manager = SpringRobotFramework.CONTEXT.getBean(SpringRobotLibraryManager.class);
+        if(MainContextHolder.get() != null) {
+            SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
 
             manager.addLibrary(getClass(), context);
         }
