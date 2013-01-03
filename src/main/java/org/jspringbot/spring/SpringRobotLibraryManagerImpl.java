@@ -2,6 +2,7 @@ package org.jspringbot.spring;
 
 
 import org.jspringbot.MainContextHolder;
+import org.jspringbot.Visitor;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.ReflectionUtils;
 
@@ -29,11 +30,11 @@ public class SpringRobotLibraryManagerImpl implements SpringRobotLibraryManager 
     }
 
     @Override
-    public <T> void visitActiveBeanOfType(RobotScope scope, BeanOfTypeVisitor<T> visitor, Class<T> beanType) {
+    public void visitActive(RobotScope scope, Visitor<ClassPathXmlApplicationContext> visitor) {
         if(RobotScope.ALL.equals(scope)) {
             for(ClassPathXmlApplicationContext context : libraries.values()) {
                 if(context.isActive() && context.isRunning()) {
-                    visitor.visit(context.getBeansOfType(beanType));
+                    visitor.visit(context);
                 }
             }
 
@@ -42,7 +43,7 @@ public class SpringRobotLibraryManagerImpl implements SpringRobotLibraryManager 
 
         ClassPathXmlApplicationContext context = libraries.get(scope);
         if(context != null && context.isActive() && context.isRunning()) {
-            visitor.visit(context.getBeansOfType(beanType));
+            visitor.visit(context);
         }
     }
 }

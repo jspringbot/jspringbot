@@ -87,6 +87,7 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
             Object[] handledParams = argumentHandlers.handlerArguments(keyword, params);
             return ((Keyword) context.getBean(keywordToBeanMap.get(keyword))).execute(handledParams);
         } catch(Exception e) {
+            e.printStackTrace(System.out);
             throw new IllegalStateException(e.getMessage(), e);
         } finally {
             ApplicationContextHolder.remove();
