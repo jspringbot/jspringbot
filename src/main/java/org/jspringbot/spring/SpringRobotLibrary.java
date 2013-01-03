@@ -22,8 +22,10 @@ import org.jspringbot.DynamicRobotLibrary;
 import org.jspringbot.Keyword;
 import org.jspringbot.MainContextHolder;
 import org.jspringbot.argument.ArgumentHandlerManager;
+import org.jspringbot.lifecycle.LifeCycleHandlerManager;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -45,6 +47,8 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
 
     private ArgumentHandlerManager argumentHandlers;
 
+    private LifeCycleHandlerManager lifeCycleHandlers;
+
     /**
      * Create new SpringRobotLibrary object using the given configuration.
      *
@@ -59,8 +63,9 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
             manager.addLibrary(getClass(), context);
         }
 
-        this.argumentHandlers = new ArgumentHandlerManager(context);
-        this.keywordToBeanMap = KeywordUtils.getKeywordMap(context);
+        argumentHandlers = new ArgumentHandlerManager(context);
+        lifeCycleHandlers = new LifeCycleHandlerManager(context);
+        keywordToBeanMap = KeywordUtils.getKeywordMap(context);
     }
 
     /**
@@ -81,15 +86,28 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
      * @param params parameters passed by Robot Framework
      * @return result of the keyword execution
      */
+    @SuppressWarnings("unchecked")
     public Object runKeyword(String keyword, final Object[] params) {
+        Map attributes = new HashMap();
+        attributes.put("args", params);
+
         try {
             ApplicationContextHolder.set(context);
+            lifeCycleHandlers.startJSpringBotKeyword(keyword, attributes);
+
             Object[] handledParams = argumentHandlers.handlerArguments(keyword, params);
-            return ((Keyword) context.getBean(keywordToBeanMap.get(keyword))).execute(handledParams);
+            Object returnedValue = ((Keyword) context.getBean(keywordToBeanMap.get(keyword))).execute(handledParams);
+
+            attributes.put("status", "PASS");
+
+            return returnedValue;
         } catch(Exception e) {
-            e.printStackTrace(System.out);
+            attributes.put("exception", e);
+            attributes.put("status", "FAIL");
+
             throw new IllegalStateException(e.getMessage(), e);
         } finally {
+            lifeCycleHandlers.endJSpringBotKeyword(keyword, attributes);
             ApplicationContextHolder.remove();
         }
     }

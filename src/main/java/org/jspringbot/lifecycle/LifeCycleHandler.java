@@ -14,4 +14,8 @@ public interface LifeCycleHandler {
     void startKeyword(String name, Map attributes);
 
     void endKeyword(String name, Map attributes);
+
+    void startJSpringBotKeyword(String name, Map attributes);
+
+    void endJSpringBotKeyword(String name, Map attributes);
 }

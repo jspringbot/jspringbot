@@ -82,4 +82,24 @@ public class LifeCycleHandlerManager implements LifeCycleHandler {
             }
         });
     }
+
+    @Override
+    public void startJSpringBotKeyword(final String name, final Map attributes) {
+        visitAll(new Visitor<LifeCycleHandler>() {
+            @Override
+            public void visit(LifeCycleHandler handler) {
+                handler.startJSpringBotKeyword(name, attributes);
+            }
+        });
+    }
+
+    @Override
+    public void endJSpringBotKeyword(final String name, final Map attributes) {
+        visitAll(new Visitor<LifeCycleHandler>() {
+            @Override
+            public void visit(LifeCycleHandler handler) {
+                handler.startJSpringBotKeyword(name, attributes);
+            }
+        });
+    }
 }
