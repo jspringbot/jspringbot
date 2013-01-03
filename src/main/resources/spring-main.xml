@@ -25,11 +25,7 @@
 
   <description>jSpringBot RobotFramework Main Spring Context</description>
 
-  <bean id="jspringbotContext" class="org.springframework.context.support.ClassPathXmlApplicationContext">
-    <constructor-arg>
-      <list>
-        <value>classpath*:spring/jspringbot.xml</value>
-      </list>
-    </constructor-arg>
-  </bean>
+  <import resource="classpath*:spring/jspringbot.xml"/>
+
+  <bean name="libraryManager" class="org.jspringbot.spring.SpringRobotLibraryManagerImpl"/>
 </beans>
