@@ -98,7 +98,7 @@ public class LifeCycleHandlerManager implements LifeCycleHandler {
         visitAll(new Visitor<LifeCycleHandler>() {
             @Override
             public void visit(LifeCycleHandler handler) {
-                handler.startJSpringBotKeyword(name, attributes);
+                handler.endJSpringBotKeyword(name, attributes);
             }
         });
     }

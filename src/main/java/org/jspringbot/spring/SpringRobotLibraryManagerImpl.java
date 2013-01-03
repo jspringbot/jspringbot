@@ -31,6 +31,9 @@ public class SpringRobotLibraryManagerImpl implements SpringRobotLibraryManager 
 
     @Override
     public void visitActive(RobotScope scope, Visitor<ClassPathXmlApplicationContext> visitor) {
+        // visit the parent
+        visitor.visit(MainContextHolder.get());
+
         if(RobotScope.ALL.equals(scope)) {
             for(ClassPathXmlApplicationContext context : libraries.values()) {
                 if(context.isActive() && context.isRunning()) {

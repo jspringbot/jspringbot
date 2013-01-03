@@ -52,6 +52,6 @@ public class LifeCycleHandlerRegistryBean implements LifeCycleHandler {
 
     @Override
     public void endJSpringBotKeyword(String name, Map attributes) {
-        handler.startJSpringBotKeyword(name, attributes);
+        handler.endJSpringBotKeyword(name, attributes);
     }
 }

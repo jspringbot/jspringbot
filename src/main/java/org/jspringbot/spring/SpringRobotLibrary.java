@@ -21,6 +21,7 @@ package org.jspringbot.spring;
 import org.jspringbot.DynamicRobotLibrary;
 import org.jspringbot.Keyword;
 import org.jspringbot.MainContextHolder;
+import org.jspringbot.Visitor;
 import org.jspringbot.argument.ArgumentHandlerManager;
 import org.jspringbot.lifecycle.LifeCycleHandlerManager;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -47,8 +48,6 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
 
     private ArgumentHandlerManager argumentHandlers;
 
-    private LifeCycleHandlerManager lifeCycleHandlers;
-
     /**
      * Create new SpringRobotLibrary object using the given configuration.
      *
@@ -64,7 +63,6 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
         }
 
         argumentHandlers = new ArgumentHandlerManager(context);
-        lifeCycleHandlers = new LifeCycleHandlerManager(context);
         keywordToBeanMap = KeywordUtils.getKeywordMap(context);
     }
 
@@ -77,6 +75,26 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
      */
     public String[] getKeywordNames() {
         return keywordToBeanMap.keySet().toArray(new String[keywordToBeanMap.size()]);
+    }
+
+    private void startJSpringBotKeyword(final String name, final Map attributes) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).startJSpringBotKeyword(name, attributes);
+            }
+        });
+    }
+
+    private void endJSpringBotKeyword(final String name, final Map attributes) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).endJSpringBotKeyword(name, attributes);
+            }
+        });
     }
 
     /**
@@ -93,7 +111,7 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
 
         try {
             ApplicationContextHolder.set(context);
-            lifeCycleHandlers.startJSpringBotKeyword(keyword, attributes);
+            startJSpringBotKeyword(keyword, attributes);
 
             Object[] handledParams = argumentHandlers.handlerArguments(keyword, params);
             Object returnedValue = ((Keyword) context.getBean(keywordToBeanMap.get(keyword))).execute(handledParams);
@@ -107,7 +125,7 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
 
             throw new IllegalStateException(e.getMessage(), e);
         } finally {
-            lifeCycleHandlers.endJSpringBotKeyword(keyword, attributes);
+            endJSpringBotKeyword(keyword, attributes);
             ApplicationContextHolder.remove();
         }
     }
