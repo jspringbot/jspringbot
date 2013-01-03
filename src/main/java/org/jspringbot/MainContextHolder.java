@@ -6,7 +6,7 @@ public class MainContextHolder {
     private static final ThreadLocal<ClassPathXmlApplicationContext> CONTEXT = new ThreadLocal<ClassPathXmlApplicationContext>();
 
     public static ClassPathXmlApplicationContext create() {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:robot-runner.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-main.xml");
         CONTEXT.set(context);
 
         return context;
