@@ -21,6 +21,7 @@ public final class ArgumentHandlerManager {
             }
         } catch(Exception e) {
             e.printStackTrace(System.out);
+            throw new IllegalArgumentException(String.format("Unable to handle arguments '%s'", arg), e);
         }
 
         return arg;
