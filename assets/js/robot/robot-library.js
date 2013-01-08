@@ -152,7 +152,7 @@ $(function() {
       });
 
       $docs.find("pre").each(function(index, el) {
-        $(el).addClass("linenums");
+        $(el).addClass("linenums lang-clj");
       });
 
       window.prettyPrint && prettyPrint();

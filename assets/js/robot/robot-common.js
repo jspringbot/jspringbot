@@ -262,7 +262,7 @@
 
     var JSPRINGBOT_MARKUP = {
       "jspringbot-github-simple": function(content) {
-        var project = content.substring(18);
+        var project = content.substring(25);
         var label = project;
         if(project.indexOf("|") != -1) {
           var split = project.split("|");
