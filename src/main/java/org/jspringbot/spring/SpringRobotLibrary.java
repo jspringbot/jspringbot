@@ -56,7 +56,7 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
     public SpringRobotLibrary(String springConfigPath) throws Exception {
         context = new ClassPathXmlApplicationContext(springConfigPath);
 
-        if(MainContextHolder.get() != null) {
+        if(MainContextHolder.isEnabled()) {
             SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
 
             manager.addLibrary(getClass(), context);

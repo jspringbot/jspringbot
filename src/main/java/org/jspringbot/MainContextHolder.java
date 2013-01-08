@@ -12,6 +12,10 @@ public class MainContextHolder {
         return context;
     }
 
+    public static boolean isEnabled() {
+        return CONTEXT.get() != null;
+    }
+
     public static ClassPathXmlApplicationContext get() {
         if(CONTEXT.get() == null) {
             throw new IllegalStateException("Not running in jspringbot runtime.");
