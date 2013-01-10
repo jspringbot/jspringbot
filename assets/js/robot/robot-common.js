@@ -114,7 +114,7 @@
 
     return {
       init: function() {
-        $.ajax({"url": url}).done(_initializeLibrary);
+        $.ajax({"url": url, cache: false}).done(_initializeLibrary);
       }
     };
   };
