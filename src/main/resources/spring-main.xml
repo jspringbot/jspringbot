@@ -27,5 +27,5 @@
 
   <import resource="classpath*:spring/jspringbot.xml"/>
 
-  <bean name="libraryManager" class="org.jspringbot.spring.SpringRobotLibraryManagerImpl"/>
+  <bean name="libraryManager" class="org.jspringbot.spring.SpringRobotLibraryManagerImpl" destroy-method="destroy"/>
 </beans>

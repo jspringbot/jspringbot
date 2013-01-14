@@ -29,6 +29,15 @@ public class SpringRobotLibraryManagerImpl implements SpringRobotLibraryManager 
         }
     }
 
+    public void destroy() {
+        visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                context.destroy();
+            }
+        });
+    }
+
     @Override
     public void visitActive(RobotScope scope, Visitor<ClassPathXmlApplicationContext> visitor) {
         // visit the parent
