@@ -24,7 +24,6 @@ public class SpringRobotLibraryManagerImpl implements SpringRobotLibraryManager 
         if(current != null && current.isActive()) {
             current.destroy();
         } else {
-            context.setParent(MainContextHolder.get());
             libraries.put(scope, context);
         }
     }

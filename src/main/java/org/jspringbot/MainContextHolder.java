@@ -1,12 +1,13 @@
 package org.jspringbot;
 
+import org.jspringbot.spring.ApplicationContextFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class MainContextHolder {
     private static final ThreadLocal<ClassPathXmlApplicationContext> CONTEXT = new ThreadLocal<ClassPathXmlApplicationContext>();
 
     public static ClassPathXmlApplicationContext create() {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-main.xml");
+        ClassPathXmlApplicationContext context = ApplicationContextFactory.create("classpath:spring-main.xml");
         CONTEXT.set(context);
 
         return context;
