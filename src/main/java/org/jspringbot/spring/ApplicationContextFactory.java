@@ -1,17 +1,22 @@
 package org.jspringbot.spring;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.access.BeanFactoryLocator;
+import org.springframework.beans.factory.access.BeanFactoryReference;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.access.ContextSingletonBeanFactoryLocator;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.util.ClassUtils;
 
 public class ApplicationContextFactory {
+    private static final Logger LOG = Logger.getLogger(ApplicationContextFactory.class);
+
     private static final String PARENT_CONTEXT_KEY = "piraso.context";
 
-    private static ApplicationContext PARENT_CONTEXT_REF;
+    private static BeanFactoryReference PARENT_CONTEXT_REF;
 
     private static Boolean PIRASO_ENABLED;
 
@@ -34,12 +39,13 @@ public class ApplicationContextFactory {
         }
 
         try {
-            CONTEXT_LOGGER_BEAN_PROCESSOR_CLASS = Class.forName("org.piraso.server.ContextLoggerBeanProcessor");
+            CONTEXT_LOGGER_BEAN_PROCESSOR_CLASS = ClassUtils.forName("org.piraso.server.ContextLoggerBeanProcessor", ClassUtils.getDefaultClassLoader());
             BeanFactoryLocator locator = ContextSingletonBeanFactoryLocator.getInstance();
-            PARENT_CONTEXT_REF = (ApplicationContext) locator.useBeanFactory(PARENT_CONTEXT_KEY);
+            PARENT_CONTEXT_REF = locator.useBeanFactory(PARENT_CONTEXT_KEY);
 
             return PARENT_CONTEXT_REF != null;
         } catch (Exception e) {
+            LOG.warn(e.getMessage(), e);
             PIRASO_ENABLED = false;
 
             return false;
@@ -48,7 +54,7 @@ public class ApplicationContextFactory {
 
     private static class PirasoClassPathXmlApplicationContext extends ClassPathXmlApplicationContext {
         public PirasoClassPathXmlApplicationContext(String... configLocations) throws BeansException {
-            super(configLocations, PARENT_CONTEXT_REF);
+            super(configLocations, (ApplicationContext) PARENT_CONTEXT_REF.getFactory());
         }
 
         @Override
