@@ -1,7 +1,7 @@
 import org.jspringbot.MainContextHolder;
+import org.jspringbot.Visitor;
 import org.jspringbot.lifecycle.LifeCycleHandlerManager;
 import org.jspringbot.runner.RobotListenerInterface;
-import org.jspringbot.Visitor;
 import org.jspringbot.spring.RobotScope;
 import org.jspringbot.spring.SpringRobotLibraryManager;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -76,30 +76,79 @@ public class JSpringBotListener implements RobotListenerInterface {
     }
 
     @Override
-    public void logMessage(Map message) {
+    public void logMessage(final Map message) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).logMessage(message);
+            }
+        });
     }
 
     @Override
-    public void message(Map message) {
+    public void message(final Map message) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).message(message);
+            }
+        });
     }
 
     @Override
-    public void outputFile(String path) {
+    public void outputFile(final String path) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).outputFile(path);
+            }
+        });
     }
 
     @Override
-    public void logFile(String path) {
+    public void logFile(final String path) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).logFile(path);
+            }
+        });
     }
 
     @Override
-    public void reportFile(String path) {
+    public void reportFile(final String path) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).reportFile(path);
+            }
+        });
     }
 
     @Override
-    public void debugFile(String path) {
+    public void debugFile(final String path) {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).debugFile(path);
+            }
+        });
     }
 
     @Override
     public void close() {
+        SpringRobotLibraryManager manager = MainContextHolder.get().getBean(SpringRobotLibraryManager.class);
+        manager.visitActive(RobotScope.ALL, new Visitor<ClassPathXmlApplicationContext>() {
+            @Override
+            public void visit(ClassPathXmlApplicationContext context) {
+                new LifeCycleHandlerManager(context).close();
+            }
+        });
     }
 }

@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 
 import java.util.Map;
 
-public class LifeCycleHandlerManager implements LifeCycleHandler {
+public class LifeCycleHandlerManager implements RobotListenerHandler {
     private ApplicationContext context;
 
     public LifeCycleHandlerManager(ApplicationContext context) {
@@ -17,6 +17,19 @@ public class LifeCycleHandlerManager implements LifeCycleHandler {
             Map<String, LifeCycleHandlerRegistryBean> handlers = context.getBeansOfType(LifeCycleHandlerRegistryBean.class);
             for(LifeCycleHandlerRegistryBean handler : handlers.values()) {
                 visitor.visit(handler);
+            }
+        } catch(Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
+
+    private void visitAllExtension(Visitor<RobotListenerHandler> visitor) {
+        try {
+            Map<String, LifeCycleHandlerRegistryBean> handlers = context.getBeansOfType(LifeCycleHandlerRegistryBean.class);
+            for(LifeCycleHandlerRegistryBean handler : handlers.values()) {
+                if(RobotListenerHandler.class.isInstance(handler.getHandler())) {
+                    visitor.visit((RobotListenerHandler) handler.getHandler());
+                }
             }
         } catch(Exception e) {
             e.printStackTrace(System.out);
@@ -99,6 +112,76 @@ public class LifeCycleHandlerManager implements LifeCycleHandler {
             @Override
             public void visit(LifeCycleHandler handler) {
                 handler.endJSpringBotKeyword(name, attributes);
+            }
+        });
+    }
+
+    @Override
+    public void logMessage(final Map message) {
+        visitAllExtension(new Visitor<RobotListenerHandler>() {
+            @Override
+            public void visit(RobotListenerHandler type) {
+                type.logMessage(message);
+            }
+        });
+    }
+
+    @Override
+    public void message(final Map message) {
+        visitAllExtension(new Visitor<RobotListenerHandler>() {
+            @Override
+            public void visit(RobotListenerHandler type) {
+                type.message(message);
+            }
+        });
+    }
+
+    @Override
+    public void outputFile(final String path) {
+        visitAllExtension(new Visitor<RobotListenerHandler>() {
+            @Override
+            public void visit(RobotListenerHandler type) {
+                type.outputFile(path);
+            }
+        });
+    }
+
+    @Override
+    public void logFile(final String path) {
+        visitAllExtension(new Visitor<RobotListenerHandler>() {
+            @Override
+            public void visit(RobotListenerHandler type) {
+                type.logFile(path);
+            }
+        });
+    }
+
+    @Override
+    public void reportFile(final String path) {
+        visitAllExtension(new Visitor<RobotListenerHandler>() {
+            @Override
+            public void visit(RobotListenerHandler type) {
+                type.reportFile(path);
+            }
+        });
+    }
+
+    @Override
+    public void debugFile(final String path) {
+        visitAllExtension(new Visitor<RobotListenerHandler>() {
+            @Override
+            public void visit(RobotListenerHandler type) {
+                type.debugFile(path);
+            }
+        });
+    }
+
+    @Override
+    public void close() {
+        visitAllExtension(new Visitor<RobotListenerHandler>() {
+            @Override
+            public void visit(RobotListenerHandler type) {
+                type.close();
             }
         });
     }
