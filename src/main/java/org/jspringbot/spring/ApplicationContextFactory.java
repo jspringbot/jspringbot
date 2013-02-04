@@ -45,7 +45,7 @@ public class ApplicationContextFactory {
 
             return PARENT_CONTEXT_REF != null;
         } catch (Exception e) {
-            LOG.warn(e.getMessage(), e);
+            LOG.info("Piraso logging disabled.");
             PIRASO_ENABLED = false;
 
             return false;
