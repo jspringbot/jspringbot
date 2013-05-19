@@ -3,7 +3,8 @@
         {
             "name": "RobotFramework",
             "version": "2.7.5",
-            "libraries": {
+          "include": true,
+          "libraries": {
                 "builtin": {
                     "name": "BuiltIn Library",
                     "src": "docs/BuiltIn.html",
@@ -97,9 +98,10 @@
             }
         },
         {
-            "name": "jSpringBot",
+            "name": "jSpringBot Libraries",
             "version": "1.0-SNAPSHOT",
-            "libraries": {
+          "include": true,
+          "libraries": {
                 "expression": {
                     "name": "Expression Library",
                     "src": "docs/JSpringBotExpressionLibrary.html"
@@ -220,6 +222,33 @@
                     "src": "docs/JSpringBotConfigLibrary.html"
                 }
             }
+        },
+      {
+        "name": "jSpringBot Functions",
+        "version": "1.0-SNAPSHOT",
+        "include": false,
+        "libraries": {
+          "function-string": {
+            "name": "Default and String Functions",
+            "src": "docs/JSpringBotHttpLibrary.html"
+          },
+          "function-collection": {
+            "name": "Array and Collection Functions",
+            "src": "docs/JSpringBotXMLLibrary.html"
+          },
+          "function-math": {
+            "name": "Math Functions",
+            "src": "docs/JSpringBotJSONLibrary.html"
+          },
+          "function-xml": {
+            "name": "XML Functions",
+            "src": "docs/JSpringBotJSONLibrary.html"
+          },
+          "function-json": {
+            "name": "JSON Functions",
+            "src": "docs/JSpringBotJSONLibrary.html"
+          }
         }
+      }
     ]
 }
