@@ -240,6 +240,10 @@
             "name": "Math Functions",
             "src": "docs/JSpringBotJSONLibrary.html"
           },
+          "function-date": {
+            "name": "Date Functions",
+            "src": "docs/JSpringBotJSONLibrary.html"
+          },
           "function-xml": {
             "name": "XML Functions",
             "src": "docs/JSpringBotJSONLibrary.html"
