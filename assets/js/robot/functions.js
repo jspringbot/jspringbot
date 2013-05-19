@@ -24,7 +24,7 @@
 
           data[i].name = matches[2];
 
-          if(data[i].prefix != "") {
+          if(data[i].prefix != null) {
             data[i].longName = data[i].prefix + ":" + data[i].name;
           } else {
             data[i].longName = data[i].name;
