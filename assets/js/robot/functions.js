@@ -85,6 +85,9 @@
   var RobotFunction = function(data) {
     var $keywords = $("#robot-library-keywords");
     var $length = $("#function-length");
+    var $filter = $("#robot-library-filter");
+    var $filterCount = $("#robot-library-filter-count");
+    var $shortcuts = $("#robot-library-shortcuts");
 
     var _prettyPrint = function() {
       $("pre").each(function(index, el) {
@@ -94,8 +97,55 @@
       window.prettyPrint && prettyPrint();
     };
 
+    var _getShortDescription = function(keyword) {
+      var $dummy = $("#dummy");
+
+      if(!$dummy.length) {
+        $(document.body).append("<div id='dummy' class='hide'></div>");
+        $dummy = $("#dummy");
+      }
+
+      $dummy.html(keyword.description);
+      return $dummy.find("p").first().text();
+    };
+
+    var _initShortcuts = function(search) {
+      if(!$shortcuts.length) {
+        return;
+      }
+
+      var titles = [];
+
+      var match = 0;
+      var i = 0;
+      var buf = "<ul>";
+      for(i = 0; i < data.length; i++) {
+        var keyword = data[i];
+        if(_isMatch(keyword, search)) {
+          buf += "<li><a id='shortcut-" + match + "' href='#" + keyword.name + "' data-placement='left' rel='tooltip'>" + keyword.name + "</a></li>";
+          titles[match] = _getShortDescription(keyword);
+          match++;
+        }
+      }
+      buf += "</ul>";
+
+      if($filterCount.length) {
+        $filterCount.text(match);
+      }
+
+      $shortcuts.html(buf);
+
+      // add tooltips
+      for(i = 0; i < titles.length; i++) {
+        var $shortcut = $('#shortcut-' + i);
+        $shortcut.attr("title", titles[i]);
+        $shortcut.tooltip();
+      }
+    };
+
+
     var _isMatch = function(keyword, search) {
-      return true;
+      return !search || keyword.name.toLowerCase().indexOf(search.toLowerCase()) != -1;
     };
 
     var _initKeywords = function(search) {
@@ -139,7 +189,7 @@
           buf.push('</div>');
           buf.push('</div>');
 
-          if(search && search.toLowerCase() == keyword.functionSignature.toLowerCase()) {
+          if(search && search.toLowerCase() == keyword.name.toLowerCase()) {
             exact = ctr;
           }
 
@@ -163,11 +213,81 @@
       $accordion.removeAttr("style");
     };
 
+    var _filterSubmit = function(event) {
+      var $input = $filter.find("input");
+
+      var value = $.trim($input.val());
+      _initKeywords(value);
+      _initShortcuts(value);
+
+      if(value) {
+        $(".robot-library-filter-show").show();
+        $(".robot-library-filter-hide").hide();
+      } else {
+        $(".robot-library-filter-hide").show();
+        $(".robot-library-filter-show").hide();
+      }
+
+      _prettyPrint();
+
+      if(event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+
+    var _initFilter = function() {
+      if(!$filter.length) {
+        return;
+      }
+
+      var keywordNames = [];
+      for(var i = 0; i < data.length; i++) {
+        keywordNames.push(data[i].name);
+      }
+
+      var $input = $filter.find("input");
+      $input.typeahead({"source": keywordNames, "showOffsetHeight": -100, "updater": function(val) {
+        $input.val(val).change();
+        _filterSubmit();
+        return val;
+      }});
+
+      $("*[robot-library-filter]").click(function() {
+        var $el = $(this);
+        $input.val($el.attr("robot-library-filter"));
+        _filterSubmit();
+      });
+
+      $filter.submit(_filterSubmit);
+    };
+
+
     return {
       init: function() {
         $length.text(data.length);
-        _initKeywords();
-        _prettyPrint();
+
+        var search = "";
+        if($filter.length) {
+          var $input = $filter.find("input");
+
+          var q = RobotUtils.getQuery();
+          if(q) {
+            $input.val(q);
+          }
+
+          search = $input.val();
+        }
+
+        if(!search) {
+          _initKeywords(search);
+          _initShortcuts(search);
+          _initFilter();
+          _prettyPrint();
+        } else {
+          _initFilter();
+          _filterSubmit();
+        }
       }
     };
   };
