@@ -141,13 +141,15 @@
         var libSet = libSets[i];
         var libs = libSet['libraries'];
 
-        for(var shortname in libs) {
-          shortnames.push(shortname);
-          if(!libs[shortname].version) {
-            libs[shortname].version = libSet.version;
+        if(libSet['include']) {
+          for(var shortname in libs) {
+            shortnames.push(shortname);
+            if(!libs[shortname].version) {
+              libs[shortname].version = libSet.version;
+            }
+            metaDataCache[shortname] = libs[shortname];
+            total += 1;
           }
-          metaDataCache[shortname] = libs[shortname];
-          total += 1;
         }
       }
 
