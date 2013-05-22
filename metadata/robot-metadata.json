@@ -229,32 +229,25 @@
         "include": false,
         "libraries": {
           "function-string": {
-            "name": "Default and String Functions",
-            "src": "docs/JSpringBotHttpLibrary.html"
+            "name": "Default and String Functions"
           },
           "function-collection": {
-            "name": "Array and Collection Functions",
-            "src": "docs/JSpringBotXMLLibrary.html"
+            "name": "Array and Collection Functions"
           },
           "function-math": {
-            "name": "Math Functions",
-            "src": "docs/JSpringBotJSONLibrary.html"
+            "name": "Math Functions"
           },
           "function-escape": {
-            "name": "Escape Functions",
-            "src": "docs/JSpringBotJSONLibrary.html"
+            "name": "Escape Functions"
           },
           "function-date": {
-            "name": "Date Functions",
-            "src": "docs/JSpringBotJSONLibrary.html"
+            "name": "Date Functions"
           },
           "function-xml": {
-            "name": "XML Functions",
-            "src": "docs/JSpringBotJSONLibrary.html"
+            "name": "XML Functions"
           },
           "function-json": {
-            "name": "JSON Functions",
-            "src": "docs/JSpringBotJSONLibrary.html"
+            "name": "JSON Functions"
           }
         }
       }
