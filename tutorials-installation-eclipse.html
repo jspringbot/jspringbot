@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selenium General · Tutorials · jSpringBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jSpringBot is a framework built on top of Robot Framework to support Java and Spring. This also allows you to run end to end testing with ease using Maven.">
+    <meta name="author" content="shiela buitizon">
+
+    <!-- Exclude IE7 becuase it may renders web fonts blurry -->
+    <!--[if !(IE 7)]><!-->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700'>
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="assets/css-rose/bootstrap.css">
+    <link rel="stylesheet" href="assets/css-rose/bootstrap-responsive.css">
+    <link rel="stylesheet" href="assets/css/switcher.css">
+
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.css">
+    <![endif]-->
+
+    <link href="assets/css/general.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/templates.css">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top" selected-menu="tutorials-menu">
+
+<!-- Navbar
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
+            <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.0</p>
+            <div id="main-menu" class="nav-collapse collapse"></div>
+        </div>
+    </div>
+</div>
+
+<div id="container" class="container">
+    <div class="row">
+        <div class="span9">
+
+            <article class="post">
+                <h1 class="post-title">
+                    <a href="./tutorials-installation-java.html">Java Installation</a>
+                </h1>
+                <ul class="post-meta">
+                    <li>
+                        <i class="icon-user"></i> <a class="url fn" href="#">Shiela Buitizon</a>
+                    </li>
+                    <li>
+                        <i class="icon-calendar"></i> May 15, 2013
+                    </li>
+                </ul>
+
+                <h1 id="SetupandInstallation-InstallJDK">Install JDK</h1>
+                <p>
+                <p><span class="label label-info">1</span> Download and install JDK 1.6. You may need to create an oracle account to register the product and complete jdk installation.</p>
+                <pre>http://www.oracle.com/technetwork/java/javase/downloads/index.html</pre>
+                <p><span class="label label-success">2</span> Set Java in Path</p>
+
+                <p>For Windows:</p>
+
+                <p>Launch System Properties for setting up JAVA_HOME</p>
+                <p>Open Explorer > Right Click Computer > Properties > Advanced system settings > Environment Variables > System variables > New</p>
+                <pre>Variable Name: JAVA_HOME
+Variable Value:  ex. C:\Program Files\Java\jdk1.6.0_43</pre>
+                <p>Note: The variable value depends on where you extracted the jdk. The above is as on my system.</p>
+                <p>Update Windows Path</p>
+                <pre>Open Explorer -> Right Click Computer -> Properties -> Advanced -> Environment Variables -> System Variables</pre>
+                <pre>Select "Path" and then Click "Edit". Then Add ";%JAVA_HOME%\bin" at the end and  then click "OK".</pre>
+
+                <p>For Mac:</p>
+
+                <p><span class="label label-warning">3</span> Ensure java is installed. Open a command prompt and run <code>java -version</code> command.</p>
+
+                <section class="comments">
+                    <h1 class="page-header">Comments</h1>
+
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_shortname = 'jspringbot';
+
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+                </section><!-- .comments -->
+
+
+            </article>
+
+        </div><!-- .span9 -->
+
+        <aside class="sidebar span3">
+            <section>
+                <h3 class="widget-heading">Related Tutorials</h3>
+                <ul class="spaced">
+                    <li><a href="#">Browser Testing - General</a></li>
+                    <li><a href="#">Browser Testing - Forms</a></li>
+                    <li><a href="#">Browser Testing - Upload and Download</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div><!-- .row -->
+</div><!-- .container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/google-code-prettify/prettify.js"></script>
+<script src="assets/js/bootstrap-transition.js"></script>
+<script src="assets/js/bootstrap-alert.js"></script>
+<script src="assets/js/bootstrap-modal.js"></script>
+<script src="assets/js/bootstrap-dropdown.js"></script>
+<script src="assets/js/bootstrap-scrollspy.js"></script>
+<script src="assets/js/bootstrap-tab.js"></script>
+<script src="assets/js/bootstrap-tooltip.js"></script>
+<script src="assets/js/bootstrap-popover.js"></script>
+<script src="assets/js/bootstrap-button.js"></script>
+<script src="assets/js/bootstrap-collapse.js"></script>
+<script src="assets/js/bootstrap-carousel.js"></script>
+<script src="assets/js/bootstrap-typeahead.js"></script>
+<script src="assets/js/bootstrap-affix.js"></script>
+<script src="assets/js/robot/robot-common.js"></script>
+<script src="assets/js/templates.js"></script>
+<script src="assets/js/application.js"></script>
+
+</body>
+</html>

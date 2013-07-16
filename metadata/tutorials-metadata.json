@@ -1,9 +1,12 @@
 {
     "tutorial-set": [
         {
-            "name": "Selenium",
+            "name": "Installation",
             "tutorials": {
-                "selenium-general": "General"
+                "installation-java": "Java",
+                "installation-maven": "Maven",
+                "installation-subversion": "Subversion",
+                "installation-eclipse": "Eclipse"
             }
         }
     ]
