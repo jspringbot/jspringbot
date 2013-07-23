@@ -36,6 +36,12 @@
     <constructor-arg ref="robotPythonInterpreter"/>
   </bean>
 
+  <bean name="log4jKeywordLoggerLifeCycle" class="org.jspringbot.lifecycle.LifeCycleHandlerRegistryBean">
+    <constructor-arg>
+      <bean class="org.jspringbot.log4j.Log4jLifeCycleHandler"/>
+    </constructor-arg>
+  </bean>
+
   <bean name="robotRunner" class="org.jspringbot.runner.RobotRunnerFactory" factory-method="createRobotRunner">
     <constructor-arg ref="robotRunnerClass"/>
   </bean>
