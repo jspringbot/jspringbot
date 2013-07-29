@@ -231,6 +231,9 @@
           "function-string": {
             "name": "Default and String Functions"
           },
+          "function-parser": {
+            "name": "Parser Functions"
+          },
           "function-collection": {
             "name": "Array and Collection Functions"
           },
