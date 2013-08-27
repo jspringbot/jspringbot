@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Selenium General · Tutorials · jSpringBot</title>
+    <title>Tutorials · jSpringBot</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="jSpringBot is a framework built on top of Robot Framework to support Java and Spring. This also allows you to run end to end testing with ease using Maven.">
     <meta name="author" content="shiela buitizon">
@@ -58,7 +58,7 @@
 
             <article class="post">
                 <h1 class="post-title">
-                    <a href="./tutorials-installation-java.html">Java Installation</a>
+                    <a href="./tutorials-installation-maven.html">Maven Installation</a>
                 </h1>
                 <ul class="post-meta">
                     <li>
@@ -69,27 +69,47 @@
                     </li>
                 </ul>
 
-                <h1 id="SetupandInstallation-InstallJDK">Install JDK</h1>
-                <p>
-                <p><span class="label label-info">1</span> Download and install JDK 1.6. You may need to create an oracle account to register the product and complete jdk installation.</p>
-                <pre>http://www.oracle.com/technetwork/java/javase/downloads/index.html</pre>
-                <p><span class="label label-success">2</span> Set Java in Path</p>
+                <h1 id="SetupandInstallation-Maven">Install Maven</h1>
+                <p>We will use maven to configure and build our project infrastructure and run our test using the maven integration-test phase.</p>
 
-                <p>For Windows:</p>
+                <p><span class="label label-info">1</span> Download latest Maven.</p>
 
-                <p>Launch System Properties for setting up JAVA_HOME</p>
+                <p><strong>For Windows: Download mavan Binary .zip</strong></p>
+                <p> Extract under C:\Program Files</p>
+
+                <p><strong>For Mac: Download Maven Binary .tar.gz</strong></p>
+
+                <p><span class="label label-success">2</span> Setup Maven in Path.</p>
+                <p> We setup PATH environment variable so we can conveniently run various executable from any directory without having to type the full path of the command. If you do not set the PATH variable, you need to specify the full path to the executable every time you run it, such as: "C:\apache-maven-3.0.4\bin\mvn". To read more about PATH you may visit this link http://docs.oracle.com/javase/tutorial/essential/environment/paths.html.</p>
+
+                <p><strong>For Windows:</strong></p>
+                <p>Launch System Properties for setting up MAVEN_HOME</p>
                 <p>Open Explorer > Right Click Computer > Properties > Advanced system settings > Environment Variables > System variables > New</p>
-                <pre>Variable Name: JAVA_HOME
-Variable Value:  ex. C:\Program Files\Java\jdk1.6.0_43</pre>
-                <p>Note: The variable value depends on where you extracted the jdk. The above is as on my system.</p>
+                <pre>Variable Name: MAVEN_HOME
+Variable Value:  ex. C:\apache-maven-3.0.4</pre>
+                <p>Note: The variable value depends on where you extracted maven. The above is as on my system.</p>
                 <p>Update Windows Path</p>
                 <pre>Open Explorer -> Right Click Computer -> Properties -> Advanced -> Environment Variables -> System Variables</pre>
-                <pre>Select "Path" and then Click "Edit". Then Add ";%JAVA_HOME%\bin" at the end and  then click "OK".</pre>
+                <pre>Select "Path" and then Click "Edit". Then Add ";%MAVEN_HOME%\bin" at the end and  then click "OK".</pre>
+                <p>Ensure java is installed. Open a NEW command prompt and run <code>mvn -version</code> command.</p>
 
-                <p>For Mac:</p>
+                <p><strong>For Mac:</strong></p>
 
-                <p><span class="label label-warning">3</span> Ensure java is installed. Open a command prompt and run <code>java -version</code> command.</p>
+                <p>Open ~/.bash_profile and set MAVEN_HOME in PATH</p>
+                <pre>M2_HOME=/home/<user>/apache-maven-3.0.4
+export MAVEN_HOME
 
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$JAVA_HOME/bin:$MAVEN_HOME/bin
+export PATH</pre>
+                <p>Ensure java is installed. Open a NEW terminal and run <code>mvn -version</code> command.</p>
+
+                <p><span class="label label-warning">3</span> Setup .m2 repository.</p>
+                <p>The .m2 or maven local repository is a local folder that is used to store all your project’s dependencies (plugin jars and other files which are downloaded by Maven). So when you build a Maven project, all dependency files will be stored in your maven local repository. By using maven local repository, we avoid duplicate libraries in our machine and dependencies are easily managed.</p>
+
+                <p><strong>For Windows:</strong></p>
+                <p>A. Create an ".m2" folder under the user home folder</p>
+                <p>B. Configure settings.xml for .m2.</p>
+                <pre>You can get the settings.xml from http://github.com/jspringbot and place it under the user home folder.</pre>
                 <section class="comments">
                     <h1 class="page-header">Comments</h1>
 
