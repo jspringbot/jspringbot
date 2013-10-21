@@ -251,6 +251,9 @@
           },
           "function-json": {
             "name": "JSON Functions"
+          },
+		  "function-faker": {
+            "name": "Faker Functions"
           }
         }
       }
