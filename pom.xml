@@ -36,6 +36,7 @@
 
   <packaging>jar</packaging>
   <name>jspringbot</name>
+  <url>http://jspringbot.org</url>
 
   <licenses>
     <license>
@@ -46,22 +47,30 @@
     </license>
   </licenses>
 
-  <distributionManagement>
-    <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
-
   <scm>
     <connection>scm:git:https://github.com/jspringbot/jspringbot.git</connection>
     <url>scm:git:https://github.com/jspringbot/jspringbot.git</url>
     <developerConnection>scm:git:https://github.com/jspringbot/jspringbot.git</developerConnection>
   </scm>
+
+  <developers>
+    <developer>
+      <id>owner</id>
+      <email>badong2210@yahoo.com</email>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>owner</id>
+      <email>alvinrdeleon@me.com</email>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
 
   <properties>
     <spring.version>3.1.0.RELEASE</spring.version>
@@ -135,16 +144,10 @@
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.5.6</version>
     </dependency>
-
-    <!--<dependency>-->
-      <!--<groupId>org.python</groupId>-->
-      <!--<artifactId>jython-standalone</artifactId>-->
-      <!--<version>2.5.1</version>-->
-    <!--</dependency>-->
     <dependency>
       <groupId>org.jspringbot</groupId>
       <artifactId>robotframework</artifactId>
-      <version>2.7.7.0.TEST-SNAPSHOT</version>
+      <version>2.7.7.0.TEST</version>
     </dependency>
   </dependencies>
 </project>
