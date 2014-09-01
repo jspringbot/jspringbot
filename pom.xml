@@ -49,8 +49,9 @@
 
   <scm>
     <connection>scm:git:https://github.com/jspringbot/jspringbot.git</connection>
-    <url>scm:git:https://github.com/jspringbot/jspringbot.git</url>
-    <developerConnection>scm:git:https://github.com/jspringbot/jspringbot.git</developerConnection>
+    <developerConnection>scm:git:ssh://git@github.com/jspringbot/jspringbot.git</developerConnection>
+    <url>https://github.com/jspringbot/jspringbot</url>
+    <tag>HEAD</tag>
   </scm>
 
   <developers>
