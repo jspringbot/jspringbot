@@ -129,13 +129,7 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
 
                 return null;
             } else {
-                StringBuilder buf = new StringBuilder(e.getMessage());
-
-                if(SoftAssertManager.INSTANCE.hasErrors()) {
-                    buf.append("\n").append(SoftAssertManager.INSTANCE.getErrors());
-                }
-
-                throw new IllegalStateException(buf.toString(), e);
+                throw new IllegalStateException(e.getMessage(), e);
             }
         } finally {
             endJSpringBotKeyword(keyword, attributes);
