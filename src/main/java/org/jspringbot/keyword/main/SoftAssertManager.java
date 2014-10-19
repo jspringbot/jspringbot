@@ -9,7 +9,7 @@ public class SoftAssertManager {
 
     public static final SoftAssertManager INSTANCE = new SoftAssertManager();
 
-    private List<Exception> captured = new ArrayList<Exception>();
+    private List<SoftAssertExceptionItem> captured = new ArrayList<SoftAssertExceptionItem>();
 
     private boolean enable;
 
@@ -21,8 +21,8 @@ public class SoftAssertManager {
         this.enable = enable;
     }
 
-    public void add(Exception e) {
-        captured.add(e);
+    public void add(String keyword, Exception e) {
+        captured.add(new SoftAssertExceptionItem(keyword, e));
     }
 
     public void clear() {
@@ -49,8 +49,9 @@ public class SoftAssertManager {
         StringBuilder buf = new StringBuilder("Soft Assert Errors: ");
 
         int i = 1;
-        for(Exception e : captured) {
-            buf.append("\n   ").append("[").append(i++).append("]: ").append(e.getMessage());
+        for(SoftAssertExceptionItem item : captured) {
+            buf.append("\n   ").append("[").append(i++).append("]: ")
+                    .append(item);
         }
 
         return buf;
