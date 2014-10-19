@@ -124,7 +124,7 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
             attributes.put("status", "FAIL");
 
             if(SoftAssertManager.INSTANCE.isEnable()) {
-                LOGGER.warn("SOFT ASSERT: " + e.getMessage());
+                LOGGER.warn("[SOFT ASSERT]: (" + keyword + ") -> " + e.getMessage());
                 SoftAssertManager.INSTANCE.add(keyword, e);
 
                 return null;
