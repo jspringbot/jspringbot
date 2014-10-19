@@ -18,11 +18,9 @@
 
 package org.jspringbot.spring;
 
-import org.jspringbot.DynamicRobotLibrary;
-import org.jspringbot.Keyword;
-import org.jspringbot.MainContextHolder;
-import org.jspringbot.Visitor;
+import org.jspringbot.*;
 import org.jspringbot.argument.ArgumentHandlerManager;
+import org.jspringbot.keyword.main.SoftAssertManager;
 import org.jspringbot.lifecycle.LifeCycleHandlerManager;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -39,6 +37,8 @@ import java.util.Map;
  * respectively.
  */
 public class SpringRobotLibrary implements DynamicRobotLibrary {
+
+    private static final JSpringBotLogger LOGGER = JSpringBotLogger.getLogger(SpringRobotLibrary.class);
 
     /** Spring application context. */
     private ClassPathXmlApplicationContext context;
@@ -123,7 +123,20 @@ public class SpringRobotLibrary implements DynamicRobotLibrary {
             attributes.put("exception", e);
             attributes.put("status", "FAIL");
 
-            throw new IllegalStateException(e.getMessage(), e);
+            if(SoftAssertManager.INSTANCE.isEnable()) {
+                LOGGER.warn("SOFT ASSERT: " + e.getMessage());
+                SoftAssertManager.INSTANCE.add(e);
+
+                return null;
+            } else {
+                StringBuilder buf = new StringBuilder(e.getMessage());
+
+                if(SoftAssertManager.INSTANCE.hasErrors()) {
+                    buf.append("\n").append(SoftAssertManager.INSTANCE.getErrors());
+                }
+
+                throw new IllegalStateException(buf.toString(), e);
+            }
         } finally {
             endJSpringBotKeyword(keyword, attributes);
             ApplicationContextHolder.remove();
