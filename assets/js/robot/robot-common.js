@@ -94,7 +94,7 @@
             endIndex = libdocStatement.lastIndexOf("}");
 
             // initialize robot library
-            _libraryData = $.parseJSON(libdocStatement.substring(startIndex, endIndex + 1));
+            _libraryData = eval("(" + libdocStatement.substring(startIndex, endIndex + 1) + ")");
 
             if(callback) {
               callback(name, _libraryData);

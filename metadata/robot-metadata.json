@@ -102,6 +102,10 @@
             "version": "1.0-SNAPSHOT",
           "include": true,
           "libraries": {
+                "general": {
+                    "name": "General Library",
+                    "src": "docs/JSpringBotGeneralLibrary.html"
+                },
                 "expression": {
                     "name": "Expression Library",
                     "src": "docs/JSpringBotExpressionLibrary.html"
