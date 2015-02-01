@@ -1,6 +1,18 @@
-Flushes all soft assert errors.
-
+Flushes all soft assertion errors by throwing all captured error within the Soft Assert & Flush Soft Assert Errors block.
+Note that this is only applicable for jspingbot keywords.
 
 Example:
 | Soft Assert | true |
+| El Should Be True | $[1 > 0] |
+| El Should Be True | $[1 > 2] |
+| El Should Be True | $[3 > 1] |
+| El Should Be True | $[2 < 1] |
 | Flush Soft Assert Errors |
+
+Result:
+[ WARN ] [SpringRobotLibrary] [SOFT ASSERT]: (EL Should Be True) -> Evaluation '$[1 > 2]' was not true.
+[ WARN ] [SpringRobotLibrary] [SOFT ASSERT]: (EL Should Be True) -> Evaluation '$[2 < 1]' was not true.
+Demo Soft and Hard Assertion                                          | FAIL |
+IllegalStateException: Soft Assert Errors:
+   [1]: (EL Should Be True) -> Evaluation '$[1 > 2]' was not true.
+   [2]: (EL Should Be True) -> Evaluation '$[2 < 1]' was not true.
