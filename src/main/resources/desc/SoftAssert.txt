@@ -1,0 +1,4 @@
+Sets soft assertion on and off.
+
+Example:
+| Soft Assert | true |

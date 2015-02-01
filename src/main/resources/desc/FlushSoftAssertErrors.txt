@@ -1,0 +1,6 @@
+Flushes all soft assert errors.
+
+
+Example:
+| Soft Assert | true |
+| Flush Soft Assert Errors |
