@@ -1,11 +1,15 @@
 package org.jspringbot.keyword.main;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.log4j.Logger;
+import org.jspringbot.JSpringBotLogger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SoftAssertManager {
+
+    private static final JSpringBotLogger LOGGER = JSpringBotLogger.getLogger(SoftAssertManager.class);
 
     public static final SoftAssertManager INSTANCE = new SoftAssertManager();
 
@@ -55,5 +59,18 @@ public class SoftAssertManager {
         }
 
         return buf;
+    }
+
+    public void print() {
+        if(!hasErrors()) {
+            return;
+        }
+
+        StringBuilder buf = getErrors();
+
+        // ensure that this is thrown properly
+        setEnable(false);
+
+        LOGGER.warn(buf.toString());
     }
 }

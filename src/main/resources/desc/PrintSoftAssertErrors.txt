@@ -1,0 +1,15 @@
+Prints all soft assertion errors within the Soft Assert & Print Soft Assert Errors block.
+Note that this is only applicable for jspingbot keywords.
+
+Example:
+| Soft Assert | true |
+| El Should Be True | $[1 > 0] |
+| El Should Be True | $[1 > 2] |
+| El Should Be True | $[3 > 1] |
+| El Should Be True | $[2 < 1] |
+| Print Soft Assert Errors |
+
+Result:
+[ WARN ] [SpringRobotLibrary] [SOFT ASSERT]: (EL Should Be True) -> Evaluation '$[1 > 2]' was not true.
+[ WARN ] [SpringRobotLibrary] [SOFT ASSERT]: (EL Should Be True) -> Evaluation '$[2 < 1]' was not true.
+Demo Soft and Hard Assertion                                          | PASS |
