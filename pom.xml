@@ -30,7 +30,7 @@
 
   <groupId>org.jspringbot</groupId>
   <artifactId>jspringbot</artifactId>
-  <version>1.3</version>
+  <version>1.4-SNAPSHOT</version>
 
   <packaging>jar</packaging>
   <name>jspringbot</name>
