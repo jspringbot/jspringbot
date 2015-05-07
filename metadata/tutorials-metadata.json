@@ -4,9 +4,7 @@
             "name": "Installation",
             "tutorials": {
                 "installation-java": "Java",
-                "installation-maven": "Maven",
-                "installation-subversion": "Subversion",
-                "installation-eclipse": "Eclipse"
+                "installation-maven": "Maven"
             }
         }
     ]

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <title>Getting Started · jSpringBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Exclude IE7 becuase it may renders web fonts blurry -->
+    <!--[if !(IE 7)]><!-->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700'>
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="assets/css-rose/bootstrap.css">
+    <link rel="stylesheet" href="assets/css-rose/bootstrap-responsive.css">
+    <link rel="stylesheet" href="assets/css/switcher.css">
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.css">
+    <![endif]-->
+
+    <link href="assets/css/general.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" class="has-navbar-fixed-top">
+
+  <!-- Navbar
+  ================================================== -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
+        <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.3</p>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <li>
+              <a href="./index.html">Home</a>
+            </li>
+            <li class="active">
+              <a href="./getting-started.html">Get started</a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">Tutorials <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">Browser</li>
+                <li><a href="#">General</a></li>
+                <li><a href="#">Forms</a></li>
+                <li><a href="tutorials-selenium-general.html">List or Select</a></li>
+                <li><a href="#">Upload and Download</a></li>
+                <li class="nav-header">Web Services</li>
+                <li><a href="#">Http Requests</a></li>
+                <li><a href="#">JSON</a></li>
+                <li><a href="#">XML</a></li>
+                <li class="nav-header">Others</li>
+                <li><a href="#">Jenkins</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book"></i> Documentation <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="nav-header">RobotFramework</li>
+                <li><a href="./library-builtin.html">BuiltIn Library</a></li>
+                <li><a href="./library-string.html">String Library</a></li>
+                <li><a href="./library-os.html">Operating System Library</a></li>
+                <li><a href="./library-collection.html">Collection Library</a></li>
+                <li class="nav-header">jSpringBot</li>
+                <li><a href="./library-selenium.html">Selenium Library</a></li>
+                <li><a href="./library-http.html">HTTP Library</a></li>
+                <li><a href="./library-xml.html">XML Library</a></li>
+                <li><a href="./library-json.html">JSON Library</a></li>
+                <li><a href="./library-db.html">DB Library</a></li>
+                <li><a href="./library-ssh.html">SSH Library</a></li>
+                <li><a href="./library-csv.html">CSV Library</a></li>
+                <li><a href="./library-date.html">Date Library</a></li>
+                <li><a href="./library-i18n.html">i18n Library</a></li>
+                <li><a href="./library-test-data.html">Test Data Library</a></li>
+                <li><a href="./library-config.html">Config Library</a></li>
+              </ul>
+            </li>
+            <li class="">
+              <a href="./search.html"><i class="icon-search"></i> Keyword Search</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Getting started</h1>
+    <p class="lead">Overview of the project, its contents, and how to get started with a simple template.</p>
+  </div>
+</header>
+
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li class="active"><a href="#robot-overview"><i class="icon-chevron-right"></i> Overview</a></li>
+          <li><a href="#robot-objectives"><i class="icon-chevron-right"></i> Objectives</a></li>
+          <li><a href="#supported-testing"><i class="icon-chevron-right"></i> Supported Testing</a></li>
+          <li><a href="#examples"><i class="icon-chevron-right"></i> Examples</a></li>
+          <li><a href="#comments"><i class="icon-chevron-right"></i> Comments</a></li>
+        </ul>
+      </div>
+      <div class="span9">
+
+
+
+        <!-- Overview
+        ================================================== -->
+        <section id="robot-overview">
+          <div class="page-header">
+            <h1>Overview</h1>
+          </div>
+          <p class="lead">
+              jSpringBot allows you to easily create java based robot framework libraries.
+              This also leverages the use of spring and maven for setup and dependency management.
+              Spring lets you define your robot framework keywords as beans while maven lets you create your library
+              and run your tests with ease since dependencies are fetched and managed automatically.
+          </p>
+
+        <h2 id="robotframework">Robot Framework</h2>
+        <p>
+            Robot Framework is a generic test automation framework for acceptance testing and acceptance test-driven
+            development (ATDD). It has easy-to-use tabular test data syntax and utilizes the keyword-driven testing
+            approach. Its testing capabilities can be extended by test libraries implemented either with Python or Java,
+            and users can create new keywords from existing ones using the same syntax that is used for creating test cases.
+        </p>
+
+            <ul>
+                <li>Enables easy-to-use tabular syntax for <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#creating-test-cases">creating test cases</a> in a uniform way.</li>
+                <li>Allows using <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#different-test-case-styles">keyword-driven, data-driven and behavior-driven (BDD)</a> approaches.</li>
+                <li>Provides ability to create reusable <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#creating-user-keywords">higher-level keywords</a> from the existing keywords.</li>
+                <li>Provides easy-to-read <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#created-outputs">reports and logs</a> in HTML format.</li>
+                <li>Is platform and application independent.</li>
+                <li>The <a rel="nofollow" href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#high-level-architecture">modular architecture</a> supports creating tests even for applications with several diverse interfaces.</li>
+                <li>Provides a simple <a rel="nofollow"
+                                         href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#creating-test-libraries">library
+                    API</a> for creating customized test libraries.
+                </li>
+                <li>Provides a <a rel="nofollow"
+                                  href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#executing-test-cases">command
+                    line interface and XML based outputs</a> for integration into existing build infrastructure
+                    (continuous integration systems).
+                </li>
+                <li><a rel="nofollow"
+                       href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#remote-library-interface">Remote
+                    library interface</a> enables distributed testing and implementing test libraries in any programming
+                    language.
+                </li>
+                <li>Provides <a rel="nofollow"
+                                href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#tagging-test-cases">tagging</a>
+                    to categorize and select test cases to be executed.
+                </li>
+                <li>Has built-in support for <a rel="nofollow"
+                                                href="http://robotframework.googlecode.com/hg/doc/userguide/RobotFrameworkUserGuide.html?r=2.7.5#variables">variables</a>,
+                    practical particularly for testing in different environments.
+                </li>
+            </ul>
+
+            <div class="alert alert-info">
+            <strong>Heads up!</strong>
+            Please also see <a href="https://code.google.com/p/robotframework/wiki/UserGuide">Robot Framework User Guide</a>.
+            </div>
+
+        </section>
+
+        <!-- Overview
+       ================================================== -->
+        <section id="robot-objectives">
+            <div class="page-header">
+                <h1>Objectives</h1>
+            </div>
+            <p class="lead">
+                Here are jSpringBot goals and objectives.
+            </p>
+
+            <ul class="lead">
+                <li>To have a pure java based library</li>
+                <li>To have a rich library accessible to java developers</li>
+                <li>For simple creation of dynamic libraries integrated in Spring and Maven</li>
+                <li>To easily create custom keywords</li>
+            </ul>
+        </section>
+
+        <!-- File structure
+        ================================================== -->
+        <section id="supported-testing">
+          <div class="page-header">
+            <h1>Supported Testing</h1>
+          </div>
+          <p class="lead">JSpringBot provides support for the following:</p>
+          <h4>Web Application Testing</h4>
+          <p>Web Application Testing is supported using JSpringBot <a href="./selenium.html">SeleniumLibrary</a>.</p>
+          <h4>Restful Services Testing</h4>
+          <p>Restful Services Testing is supported using <a href="./http.html">Http</a>, <a href="./xml.html">XML</a> and <a href="./json.html">JSON</a> Libraries.</p>
+          <h4>Database Validation</h4>
+          <p>Database Validation is supported using <a href="./db.html">DBLibrary</a>.</p>
+          <h4>Config Support</h4>
+          <p>Contains support to access values in properties file using <a href="./config.html">ConfigLibrary</a>.</p>
+          <h4>SSH Support</h4>
+          <p>Enables support to access and execute command on a remote machine over an SSH connection using <a href="./ssh.html">SSHLibrary</a>.</p>
+          <h4>CSV Support</h4>
+          <p>Contains support to parse and query a CSV string or resource using <a href="./csv.html">CSVLibrary</a>.</p>
+          <h4>Other Utilities</h4>
+          <p>Other utilities like <a href="./test-data.html">TestDataLibrary</a> that enable create of test-data on a csv file.</p>
+        </section>
+
+        <!-- Examples
+        ================================================== -->
+        <section id="examples">
+          <div class="page-header">
+            <h1>Examples</h1>
+          </div>
+          <p class="lead">Move beyond the base template with a few example layouts. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
+          <ul class="thumbnails bootstrap-examples">
+            <li class="span3">
+              <h4>Selenium Google Search</h4>
+              <p>A barebones HTML document with all the jSpringBot CSS and JavaScript included.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>Selenium Forms</h4>
+              <p>Featuring a hero unit for a primary message and three supporting elements.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>Selenium Upload Download</h4>
+              <p>Uses our new responsive, fluid grid system to create a seamless liquid layout.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>Http Restful Services</h4>
+              <p>Slim, lightweight marketing template for small projects or teams.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+              <li class="span3">
+                  <h4>JSON Parsing</h4>
+                  <p>Slim, lightweight marketing template for small projects or teams.</p>
+                  <a href="" class="btn btn-small">More &raquo;</a>
+              </li>
+            <li class="span3">
+              <h4>XML Parsing</h4>
+              <p>Slim, lightweight marketing template for small projects or teams.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>Config Properties</h4>
+              <p>Barebones sign in form with custom, larger form controls and a flexible layout.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>Database</h4>
+              <p>Pin a fixed-height footer to the bottom of the user's viewport.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>CSV</h4>
+              <p>Pin a fixed-height footer to the bottom of the user's viewport.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+            <li class="span3">
+              <h4>SSH Connection</h4>
+              <p>A more interactive riff on the basic marketing site featuring a prominent carousel.</p>
+              <a href="" class="btn btn-small">More &raquo;</a>
+            </li>
+          </ul>
+        </section>
+        <section id="comments">
+          <div class="page-header">
+            <h1>Comments</h1>
+          </div>
+
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+            var disqus_shortname = 'jspringbot';
+
+            (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+      </div>
+    </div>
+
+    <hr class="soften">
+
+    <footer>
+      <div class="row">
+          <div class="span6">
+              <h3>Community Members:</h3>
+              <ul class="icons">
+                  <li><i class="icon-envelope"></i> Email: <a href="mailto:badong2210@yahoo.com">Shiela D. Buitizon</a></li>
+                  <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/shielabuitizon">http://www.linkedin.com/in/shielabuitizon</a></li>
+                  <li><i class="icon-wrench"></i> Work: QA Automation Team Lead @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix Corporation</a></li>
+              </ul>
+              <ul class="icons">
+                  <li><i class="icon-envelope"></i> Email: <a href="mailto:alvinrdeleon@me.com">Alvin R. de Leon</a></li>
+                  <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/alvinrdeleon">http://www.linkedin.com/in/alvinrdeleon</a></li>
+                  <li><i class="icon-wrench"></i> Work: Staff Software Engineer @ <a target="_blank" href="http://www.adchemy.com">Adchemy</a></li>
+              </ul>
+              <ul class="icons">
+                  <li><i class="icon-envelope"></i> Email: <a href="mailto:bernardilago@gmail.com">Bernard I. Lago</a></li>
+                  <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/bernardlago">http://www.linkedin.com/in/bernardlago</a></li>
+                  <li><i class="icon-wrench"></i> Work: QA Automation Developer @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix Corporation</a></li>
+              </ul>
+              <ul class="icons">
+                  <li><i class="icon-envelope"></i> Email: <a href="mailto:fcabuslay@yahoo.com">Francis Michael S. Cabuslay</a></li>
+                  <li><i class="icon-linkedin"></i> Linkedin: <a target="_blank" href="http://www.linkedin.com/in/fcabuslay">http://www.linkedin.com/in/fcabuslay</a></li>
+                  <li><i class="icon-wrench"></i> Work: QA Team Lead @ <a target="_blank" href="http://www.novenix.net/about-us">Novenix Corporation</a></li>
+              </ul>
+          </div>
+        <div class="span6">
+          <h3>Special Thanks</h3>
+          Special thanks to <a href="https://www.facebook.com/warren.herrera">@warren.herrera</a> and <a href="https://www.facebook.com/bary.reyes">@bary.reyes</a> for reporting bugs and issues found, feedback and help.
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/application.js"></script>
+  </body>
+</html>
