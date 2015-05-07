@@ -224,6 +224,10 @@
                 "config": {
                     "name": "Config Library",
                     "src": "docs/JSpringBotConfigLibrary.html"
+                },
+                "office": {
+                  "name": "Office Library",
+                  "src": "docs/JSpringBotOfficeLibrary.html"
                 }
             }
         },
