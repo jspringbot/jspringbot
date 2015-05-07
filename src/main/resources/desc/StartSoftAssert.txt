@@ -1,0 +1,4 @@
+Starts soft assertion.
+
+Example:
+| Start Soft Assert |

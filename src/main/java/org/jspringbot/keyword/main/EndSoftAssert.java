@@ -6,13 +6,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @KeywordInfo(
-        name = "Print Soft Assert Errors",
-        description = "classpath:desc/PrintSoftAssertErrors.txt"
+        name = "End Soft Assert",
+        description = "classpath:desc/EndSoftAssert.txt"
 )
-public class PrintSoftAssertErrors implements Keyword {
+public class EndSoftAssert implements Keyword {
+
     @Override
     public Object execute(Object[] params) throws Exception {
-        SoftAssertManager.INSTANCE.print();
+        SoftAssertManager.INSTANCE.setEnable(false);
 
         return null;
     }

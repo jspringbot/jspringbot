@@ -1,0 +1,6 @@
+Ends soft assertion.
+
+Example:
+| Start Soft Assert |
+| assertions here... |
+| End Soft Assert |

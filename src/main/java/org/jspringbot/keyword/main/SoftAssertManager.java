@@ -60,17 +60,4 @@ public class SoftAssertManager {
 
         return buf;
     }
-
-    public void print() {
-        if(!hasErrors()) {
-            return;
-        }
-
-        StringBuilder buf = getErrors();
-
-        // ensure that this is thrown properly
-        setEnable(false);
-
-        LOGGER.warn(buf.toString());
-    }
 }
