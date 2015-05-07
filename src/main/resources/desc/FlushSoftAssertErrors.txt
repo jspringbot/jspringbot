@@ -8,9 +8,9 @@ Example:
 | El Should Be True | $[3 > 1] |
 | El Should Be True | $[2 < 1] |
 | End Soft Assert |
-| El Should Be True | $[5 < 1] |
+| El Should Be True | $[1 eq 1] |
 | Start Soft Assert |
-| El Should Be True | $[5 > 0] |
+| El Should Be True | $[5 < 0] |
 | End Soft Assert |
 | Flush Soft Assert Errors |
 
