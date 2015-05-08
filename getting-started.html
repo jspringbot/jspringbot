@@ -117,10 +117,9 @@
 
                 <ul>
                     <li>To have a pure java based library.</li>
-                    <li>To have a rich library accessible to java developers.</li>
+                    <li>To have a rich library accessible to automation developers.</li>
                     <li>For simple creation of dynamic libraries integrated with Spring and Maven.</li>
-                    <li>To easily create java based custom keywords.</li>
-                    <li>Seemless support for continuous integration.</li>
+                    <li>Seamless support for continuous integration.</li>
                 </ul>
 
                 <a name="GettingStarted-Requirements"></a>
@@ -145,6 +144,32 @@
                     <li>Also comes with advance support for expressions across all libraries with <a href="./library-expression.html">Expression Library</a>.</li>
                     <li>And other utility libraries, like <a href="./library-date.html">Date Library</a>, <a href="./library-test-data.html">Test Data Library</a>.</li>
                 </ul>
+
+                <a name="GettingStarted-Examples"></a>
+                <h1 id="GettingStarted-Examples">Examples</h1>
+
+                <p>Each of the library provides sample projects you can start to work with. To download and execute these samples follow these instructions.</p>
+
+                <p><span class="label label-info">1</span> You can download the sample project by using git. You can also download using the Download ZIP button on each of the sample projects.</p>
+
+                                                <pre>
+  git clone https://github.com/jspringbot/sample-office.git</pre>
+
+                <p><span class="label label-success">2</span> After downloading you can execute, opening a command line and going to the sample project folder and executing the following maven command.</p>
+
+                                                                <pre>
+  mvn clean integration-test</pre>
+
+                <p><span class="label label-warning">3</span> After which, you can check the generated logs and reports.</p>
+
+                                                                                <pre>
+Output:  --/target/robotframework-reports/output.xml
+XUnit:   --/target/robotframework-reports/TEST-acceptance.xml
+Log:     --/target/robotframework-reports/log.html
+Report:  --/target/robotframework-reports/report.html
+</pre>
+
+
 
                 <a name="GettingStarted-TestProject"></a>
                 <h1 id="GettingStarted-TestProject">Test Project</h1>
@@ -266,6 +291,7 @@ test-project/
                         <li><a href="#GettingStarted-Objectives">Objectives</a></li>
                         <li><a href="#GettingStarted-Requirements">Requirements</a></li>
                         <li><a href="#GettingStarted-Libraries">Libraries</a></li>
+                        <li><a href="#GettingStarted-Examples">Examples</a></li>
                         <li><a href="#GettingStarted-TestProject">Test Project</a></li>
                     </ul>
                 </div>
