@@ -275,6 +275,19 @@
         return '<a target="_blank" href="https://github.com/jspringbot/' + project + '"><i class="icon-github"></i> ' + label + ' &raquo;</a>';
       },
 
+      "jspringbot-function": function(content) {
+        var project = content.substring("jspringbot-function".length + 1);
+        var label = project;
+
+        if(project.indexOf("|") != -1) {
+          var split = project.split("|");
+          project = split[0];
+          label = split[1];
+        }
+
+        return '<a href="./library-function-' + project + '.html" style="white-space:nowrap;"><i class="icon-book"></i> ' + label + '</a>';
+      },
+
       "jspringbot-github": function(content) {
         var project = content.substring(18);
         var label = project;
