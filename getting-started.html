@@ -123,13 +123,36 @@
                     <li>Seemless support for continuous integration.</li>
                 </ul>
 
-                <a name="GettingStarted-TestProject"></a>
-                <h1 id="GettingStarted-TestProject">Acceptance Test Project</h1>
+                <a name="GettingStarted-Requirements"></a>
+                <h1 id="GettingStarted-Requirements">Requirements</h1>
 
-                <p>The jSpringBot acceptance test project is a maven project that runs under <code>mvn integration-test</code> phase.</p>
+                <p>For jspringbot to work, you need to have <a href="tutorials-installation-java.html">jdk 1.6 or up</a> and <a href="tutorials-installation-maven.html">maven 3</a>. Once you've set this up, you're good to go.</p>
+
+                <a name="GettingStarted-Libraries"></a>
+                <h1 id="GettingStarted-Libraries">Libraries</h1>
+
+                <p>The jspringbot provides a rich support for testing and automation.</p>
+
+                <ul>
+                    <li>Browser automation is supported using jspringbot <a href="./library-selenium.html">Selenium Library</a>.</li>
+                    <li>Restful Services Testing is supported using <a href="./library-http.html">Http</a>, <a href="./library-xml.html">XML</a> and <a href="./library-json.html">JSON</a> Libraries.</li>
+                    <li>Database Validation is supported using <a href="./library-db.html">DBLibrary</a>.</li>
+                    <li>Contains support to access values in properties file using <a href="./library-config.html">ConfigLibrary</a>.</li>
+                    <li>Enables support to access and execute command on a remote machine over an SSH connection using <a href="./library-ssh.html">SSHLibrary</a>.</li>
+                    <li>Contains support to parse and query a CSV string or resource using <a href="./library-csv.html">CSVLibrary</a>.</li>
+                    <li>Create and modify microsoft word documents, using <a href="./library-office.html">Office Library</a>.</li>
+                    <li>Support for internationalization, using <a href="./library-i18n.html">i18n Library</a>.</li>
+                    <li>Also comes with advance support for expressions across all libraries with <a href="./library-expression.html">Expression Library</a>.</li>
+                    <li>And other utility libraries, like <a href="./library-date.html">Date Library</a>, <a href="./library-test-data.html">Test Data Library</a>.</li>
+                </ul>
+
+                <a name="GettingStarted-TestProject"></a>
+                <h1 id="GettingStarted-TestProject">Test Project</h1>
+
+                <p>The jspringbot acceptance test project is a maven project that runs under <code>mvn integration-test</code> phase.</p>
 
                 <h2>File Structure</h2>
-<p>The following shows the typical project structure.</p>
+<p>The following shows the typical jspringbot project structure.</p>
 <pre>
 test-project/
   ├── src/
@@ -137,17 +160,82 @@ test-project/
   │       ├── resources/
   │       │   ├── jspringbot.properties
   │       │   └── spring/
-  │       │       └── spring-global.xml
+  │       │       └── jspringbot-global.xml
   │       └── robotframework/
   │           ├── acceptance/
   │           │   ├── test-suite1.txt
   │           │   └── test-suite2.txt
   │           └── custom-resources.txt
   └── pom.xml
+
+<strong>Where:</strong>
+    pom.xml - contains the dependencies, here you identify what jspringbot libraries you want to use.
+    jspringbot.properties - identify jsprintbot library properties. This can change the library behavior.
+    jspringbot-global.xml - all jspringbot libraries spring configuration will be imported in this file.
+    robotframework - this contains our robotframework test suites and resources.
 </pre>
 
                 <h2>pom.xml</h2>
 
+                <p>This is what most <code>pom.xml</code> in a jspringbot project would look like.</p>
+
+                <p><span class="label label-info">1</span> The code below identifies what jspringbot version you want to use.</p>
+
+                                <pre class="prettyprint linenums lang-clj">
+  &lt;parent>
+    &lt;groupId>org.jspringbot&lt;/groupId>
+    &lt;artifactId>jspringbot-base&lt;/artifactId>
+    &lt;version>1.3&lt;/version>
+  &lt;/parent></pre>
+
+                <p><span class="label label-success">2</span> The code below ensures that the project runs under <code>mvn integration-test</code> phase.</p>
+
+                                <pre class="prettyprint linenums lang-clj">
+  &lt;build>
+    &lt;plugins>
+      &lt;plugin>
+        &lt;groupId>org.jspringbot&lt;/groupId>
+        &lt;artifactId>jspringbot-maven-plugin&lt;/artifactId>
+        &lt;executions>
+          &lt;execution>
+            &lt;phase>integration-test&lt;/phase>
+            &lt;goals>
+              &lt;goal>run&lt;/goal>
+            &lt;/goals>
+          &lt;/execution>
+        &lt;/executions>
+      &lt;/plugin>
+    &lt;/plugins>
+  &lt;/build></pre>
+
+                <p><span class="label label-warning">3</span> The code below identifies what jspringbot libraries we will use. In the example, we wanted to use selenium and db libraries.</p>
+
+                                <pre class="prettyprint linenums lang-clj">
+  &lt;dependencies>
+    &lt;dependency>
+      &lt;groupId>org.jspringbot&lt;/groupId>
+      &lt;artifactId>jspringbot-selenium&lt;/artifactId>
+    &lt;/dependency>
+    &lt;dependency>
+      &lt;groupId>org.jspringbot&lt;/groupId>
+      &lt;artifactId>jspringbot-db&lt;/artifactId>
+    &lt;/dependency>
+  &lt;/dependencies></pre>
+
+                <h2>jspringbot-global.xml</h2>
+
+                <p>In this file you import all jspringbot library specific jspringbot spring configurations. The example below configured a selenium firefox and db jspringbot libraries.</p>
+
+                                                <pre class="prettyprint linenums lang-clj">
+&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  &lt;import resource="classpath:spring/spring-selenium-firefox.xml"/>
+  &lt;import resource="classpath:spring/spring-db.xml"/>
+&lt;/beans></pre>
 
 
                 <section class="comments">
@@ -176,7 +264,9 @@ test-project/
                         <li><a href="#GettingStarted-Overview">Overview</a></li>
                         <li><a href="#GettingStarted-RobotFramework">Robot Framework</a></li>
                         <li><a href="#GettingStarted-Objectives">Objectives</a></li>
-                        <li><a href="#GettingStarted-TestProject">Acceptance Test Project</a></li>
+                        <li><a href="#GettingStarted-Requirements">Requirements</a></li>
+                        <li><a href="#GettingStarted-Libraries">Libraries</a></li>
+                        <li><a href="#GettingStarted-TestProject">Test Project</a></li>
                     </ul>
                 </div>
             </section>
