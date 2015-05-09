@@ -15,14 +15,7 @@ Built for [Robotframework](https://code.google.com/p/robotframework/), and is ma
 
 All libraries were built using [Java](http://www.java.com/en/) and [Spring Framework](http://www.springsource.org/spring-framework). Dependencies and test execution are done through [Maven](http://maven.apache.org/).
 
-## Author
-
-Designed and built by [Shiela D. Buitizon](https://github.com/badong2210/).
-
-Contributor: [Alvin R. de Leon](https://github.com/alvinrdeleon/).
-
-
-## Copyright and license
+### Copyright and license
 
 Copyright 2012 JSpringBot
 
