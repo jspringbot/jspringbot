@@ -1,0 +1,27 @@
+Prints and clear all soft assertion errors Soft Assert block. We use this only when you want to ignore all the Soft Assert errors.
+Note that this is only applicable for jspingbot keywords.
+
+Example:
+| Start Soft Assert | |
+| El Should Be True | $[1 > 0] |
+| El Should Be True | $[1 > 2] |
+| El Should Be True | $[3 > 1] |
+| El Should Be True | $[2 < 1] |
+| End Soft Assert |
+| El Should Be True | $[1 eq 1] |
+| Start Soft Assert |
+| El Should Be True | $[5 < 0] |
+| End Soft Assert |
+| Print Soft Assert Errors |
+
+=>
+
+| Result:
+| [ WARN ] [SpringRobotLibrary] [SOFT ASSERT]: (EL Should Be True) -> Evaluation '$[1 > 2]' was not true.
+| [ WARN ] [SpringRobotLibrary] [SOFT ASSERT]: (EL Should Be True) -> Evaluation '$[2 < 1]' was not true.
+| [ WARN ] [SpringRobotLibrary] [SOFT ASSERT]: (EL Should Be True) -> Evaluation '$[5 < 0]' was not true.
+| [ WARN ] [SoftAssertManager] Soft Assert Errors:
+|   [1]: (EL Should Be True) -> Evaluation '$[1 > 2]' was not true.
+|   [2]: (EL Should Be True) -> Evaluation '$[2 < 1]' was not true.
+|   [3]: (EL Should Be True) -> Evaluation '$[5 < 0]' was not true.
+| Demo Soft and Hard Assertion 5                                        | PASS |

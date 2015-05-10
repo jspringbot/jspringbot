@@ -1,0 +1,6 @@
+Sets soft assertion
+
+Example:
+| Soft Assert | true |
+| assertions here... | |
+| Soft Assert | false |

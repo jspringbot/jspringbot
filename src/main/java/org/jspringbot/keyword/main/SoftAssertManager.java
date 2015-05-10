@@ -37,6 +37,19 @@ public class SoftAssertManager {
         return CollectionUtils.isNotEmpty(captured);
     }
 
+    public void print() {
+        if(!hasErrors()) {
+            return;
+        }
+
+        StringBuilder buf = getErrors();
+
+        // ensure that this is thrown properly
+        setEnable(false);
+
+        LOGGER.warn(buf.toString());
+    }
+
     public void flush() {
         if(!hasErrors()) {
             return;
