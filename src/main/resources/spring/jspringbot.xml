@@ -29,7 +29,7 @@
 
   <bean class="org.jspringbot.runner.PythonInterpreterBean">
     <constructor-arg ref="robotPythonInterpreter"/>
-    <property name="recursionLimit" value="5000"/>
+    <property name="recursionLimit" value="15000"/>
   </bean>
 
   <bean name="robotRunnerClass" class="org.jspringbot.runner.RunnerPyObjectFactory" factory-method="createRunnerPyObject">
