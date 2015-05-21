@@ -298,7 +298,7 @@ $(function() {
       $accordion.collapse();
       $accordion.removeAttr("style");
 
-      var client = new ZeroClipboard($(".btn-copy"));
+      new ZeroClipboard($(".btn-copy"));
     };
 
     var _filterSubmit = function(event) {
