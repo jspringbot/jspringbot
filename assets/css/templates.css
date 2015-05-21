@@ -748,11 +748,3 @@ table.table td pre, #robot-library-docs pre, #robot-library-docs code, #robot-li
     margin-top: 10px;
 }
 
-.accordion-inner:hover .btn-copy {
-  visibility: visible;
-}
-
-.accordion-inner .btn-copy {
-  visibility: hidden;
-}
-
