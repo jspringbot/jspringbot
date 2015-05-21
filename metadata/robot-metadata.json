@@ -2,7 +2,7 @@
     "library-set": [
         {
             "name": "RobotFramework",
-            "version": "2.8.5",
+            "version": "2.8.7",
           "include": true,
           "libraries": {
                 "builtin": {
