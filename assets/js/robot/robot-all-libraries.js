@@ -148,7 +148,7 @@ $(function() {
             buf.push('<div class="accordion-inner">');
             buf.push('<div class="pull-right"><button title="Click to copy to clipboard." data-clipboard-text="');
             buf.push(keyword.name);
-            buf.push('" class="btn-copy btn btn-small"><i class="icon-copy"></i> Copy</button></div>');
+            buf.push('" class="btn-copy btn btn-small"><i class="icon-copy"></i></button></div>');
             buf.push('<div class="clearfix">');
             buf.push(RobotUtils.jSpringBotMarkup(keyword.doc));
             buf.push('</div>');
