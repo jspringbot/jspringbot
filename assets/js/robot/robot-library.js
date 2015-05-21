@@ -265,7 +265,7 @@ $(function() {
           buf.push('</div>');
           buf.push('<div id="collapse-' + ctr + '" class="accordion-body collapse">');
           buf.push('<div class="accordion-inner">');
-          buf.push('<div class="pull-right"><button title="Click to copy to clipboard." data-clipboard-text="');
+          buf.push('<div class="pull-right"><button title="Click to copy keyword to clipboard." data-clipboard-text="');
           buf.push(keyword.name);
           buf.push('" class="btn-copy btn btn-small"><i class="icon-copy"></i></button></div>');
           buf.push('<div class="clearfix">');
