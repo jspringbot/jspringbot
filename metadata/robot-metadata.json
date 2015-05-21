@@ -94,6 +94,14 @@
             "Get From Dictionary",
             "Remove From Dictionary"
           ]
+        },
+        "dialogs": {
+          "name": "Dialogs Library",
+          "src": "docs/Dialogs.html"
+        },
+        "screenshot": {
+          "name": "Screenshot Library",
+          "src": "docs/Screenshot.html"
         }
       }
     },
