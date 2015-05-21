@@ -671,7 +671,8 @@ ul.unstyled, ol.unstyled {
 }
 
 .label-copy {
-    color: #D55360;
+  color: #D55360;
+  cursor: pointer;
 }
 
 .nav-header.quick-link {

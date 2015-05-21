@@ -265,7 +265,12 @@ $(function() {
           buf.push('</div>');
           buf.push('<div id="collapse-' + ctr + '" class="accordion-body collapse">');
           buf.push('<div class="accordion-inner">');
+          buf.push('<div class="pull-right"><button title="Click to copy to clipboard." data-clipboard-text="');
+          buf.push(keyword.name);
+          buf.push('" class="btn-copy btn btn-small"><i class="icon-copy"></i> Copy</button></div>');
+          buf.push('<div class="clearfix">');
           buf.push(RobotUtils.jSpringBotMarkup(keyword.doc));
+          buf.push('</div>');
           buf.push('</div>');
           buf.push('</div>');
           buf.push('</div>');
@@ -292,6 +297,11 @@ $(function() {
       var $accordion = $("#accordion-keywords");
       $accordion.collapse();
       $accordion.removeAttr("style");
+
+      $(".btn-copy").click(function(evt) {
+        var $target = $(evt.target);
+        window.clipboard.setText($target.attr('data-clipboard-text'));
+      })
     };
 
     var _filterSubmit = function(event) {

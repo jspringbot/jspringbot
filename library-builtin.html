@@ -134,6 +134,7 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/ZeroClipboard.js"></script>
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/google-code-prettify/prettify.js"></script>
 <script src="assets/js/bootstrap-transition.js"></script>
@@ -152,6 +153,11 @@
 <script src="assets/js/robot/robot-common.js"></script>
 <script src="assets/js/templates.js"></script>
 <script src="assets/js/robot/robot-library.js"></script>
+
+<script>
+  ZeroClipboard.setMoviePath('http://jspringbot.org/assets/js/ZeroClipboard.swf');
+  window.clipboard = new ZeroClipboard.Client();
+</script>
 
 </body>
 </html>
