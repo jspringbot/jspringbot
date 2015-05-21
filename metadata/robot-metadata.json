@@ -102,6 +102,10 @@
         "screenshot": {
           "name": "Screenshot Library",
           "src": "docs/Screenshot.html"
+        },
+        "telnet": {
+          "name": "Telnet Library",
+          "src": "docs/Telnet.html"
         }
       }
     },
