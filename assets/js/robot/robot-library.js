@@ -298,10 +298,7 @@ $(function() {
       $accordion.collapse();
       $accordion.removeAttr("style");
 
-      $(".btn-copy").click(function(evt) {
-        var $target = $(evt.target);
-        window.clipboard.setText($target.attr('data-clipboard-text'));
-      })
+      var client = new ZeroClipboard($(".btn-copy"));
     };
 
     var _filterSubmit = function(event) {
