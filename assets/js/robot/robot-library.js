@@ -147,12 +147,8 @@ $(function() {
     var _prettyPrint = function() {
       $docs.html(RobotUtils.jSpringBotMarkup(data.doc));
 
-      $("pre").each(function(index, el) {
-        $(el).addClass("prettyprint");
-      });
-
-      $docs.find("pre").each(function(index, el) {
-        $(el).addClass("linenums lang-clj");
+      $("div#robot-library-docs pre").each(function(index, el) {
+        $(el).addClass("prettyprint linenums");
       });
 
       window.prettyPrint && prettyPrint();
