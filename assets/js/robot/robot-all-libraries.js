@@ -14,10 +14,6 @@ $(function() {
     var _keywordNames = [];
 
     var _prettyPrint = function() {
-      $("pre").each(function(index, el) {
-        $(el).addClass("prettyprint");
-      });
-
       window.prettyPrint && prettyPrint();
     };
 
