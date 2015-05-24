@@ -1,269 +1,281 @@
 {
-    "library-set": [
-        {
-            "name": "RobotFramework",
-            "version": "2.8.5",
-          "include": true,
-          "libraries": {
-                "builtin": {
-                    "name": "BuiltIn Library",
-                    "src": "docs/BuiltIn.html",
-                    "quick-filter": [
-                        "Run",
-                        "Keyword",
-                        "Convert",
-                        "Should",
-                        "Should Not",
-                        "Should Be",
-                        "Variable",
-                        "Set",
-                        "Get",
-                        "Log",
-                        "Suite",
-                        "Test",
-                        "Integer",
-                        "String",
-                        "Number"
-                    ],
-                    "featured": [
-                        "Log",
-                        "Run Keyword",
-                        "Set Global Variable",
-                        "Set Suite Variable",
-                        "Set Test Variable",
-                        "Set Variable",
-                        "Set Variable If"
-                    ]
-                },
-                "string": {
-                    "name": "String Library",
-                    "src": "docs/String.html",
-                    "quick-filter": [
-                        "Should",
-                        "Should Not",
-                        "Should Be",
-                        "Get",
-                        "Replace",
-                        "Fetch",
-                        "Split"
-                    ],
-                    "featured": [
-                        "Generate Random String",
-                        "Get Lines Matching Regexp",
-                        "Replace String Using Regexp"
-                    ]
-                },
-                "os": {
-                    "name": "Operating System Library",
-                    "src": "docs/OperatingSystem.html",
-                    "quick-filter": [
-                        "Run",
-                        "Directory",
-                        "File",
-                        "Path",
-                        "Should",
-                        "Should Not",
-                        "Should Be",
-                        "Get",
-                        "Count",
-                        "Copy",
-                        "Split"
-                    ]
-                },
-                "collection": {
-                    "name": "Collections Library",
-                    "src": "docs/Collections.html",
-                    "quick-filter": [
-                        "Create",
-                        "List",
-                        "Dictionary",
-                        "Should",
-                        "Should Not",
-                        "Should Contain",
-                        "Log",
-                        "Get",
-                        "Remove"
-                    ],
-                    "featured": [
-                        "Append To List",
-                        "Insert Into List",
-                        "Get From List",
-                        "Remove From List",
-                        "Create Dictionary",
-                        "Set To Dictionary",
-                        "Get From Dictionary",
-                        "Remove From Dictionary"
-                    ]
-                }
-            }
+  "library-set": [
+    {
+      "name": "Robot Framework",
+      "version": "2.8.7",
+      "include": true,
+      "libraries": {
+        "builtin": {
+          "name": "BuiltIn Library",
+          "src": "docs/BuiltIn.html",
+          "quick-filter": [
+            "Run",
+            "Keyword",
+            "Convert",
+            "Should",
+            "Should Not",
+            "Should Be",
+            "Variable",
+            "Set",
+            "Get",
+            "Log",
+            "Suite",
+            "Test",
+            "Integer",
+            "String",
+            "Number"
+          ],
+          "featured": [
+            "Log",
+            "Run Keyword",
+            "Set Global Variable",
+            "Set Suite Variable",
+            "Set Test Variable",
+            "Set Variable",
+            "Set Variable If"
+          ]
         },
-        {
-            "name": "jSpringBot Libraries",
-            "version": "1.3",
-            "include": true,
-            "libraries": {
-                "general": {
-                    "name": "General Library",
-                    "src": "docs/JSpringBotGeneralLibrary.html"
-                },
-                "expression": {
-                    "name": "Expression Library",
-                    "src": "docs/JSpringBotExpressionLibrary.html"
-                },
-                "selenium": {
-                    "name": "Selenium Library",
-                    "src": "docs/JSpringBotSeleniumLibrary.html",
-                    "quick-filter": [
-                        "Element",
-                        "List",
-                        "Page",
-                        "Checkbox",
-                        "Cookie",
-                        "Click",
-                        "Mouse",
-                        "Class",
-                        "Visible",
-                        "Should",
-                        "Should Not",
-                        "Should Be"
-                    ],
-                    "featured": [
-                        "Navigate To",
-                        "Capture Screenshot",
-                        "Execute Javascript",
-                        "Maximize Window",
-                        "Submit Form",
-                        "Wait Till Element Found",
-                        "Wait Till Element Visible"
-                    ]
-                },
-                "http": {
-                    "name": "HTTP Library",
-                    "src": "docs/JSpringBotHttpLibrary.html",
-                    "quick-filter": [
-                        "Should",
-                        "Should Be",
-                        "Request",
-                        "Response",
-                        "Cookie"
-                    ]
-                },
-                "xml": {
-                    "name": "XML Library",
-                    "src": "docs/JSpringBotXMLLibrary.html"
-                },
-                "json": {
-                    "name": "JSON Library",
-                    "src": "docs/JSpringBotJSONLibrary.html",
-                    "quick-filter": [
-                        "Should",
-                        "Should Not",
-                        "Should Be",
-                        "Get"
-                    ],
-                    "featured": [
-                        "Set JSON String",
-                        "Get JSON Value",
-                        "Get JSON Value For",
-                        "Get JSON Values",
-                        "Get Created JSON String"
-                    ]
-                },
-                "i18n": {
-                    "name": "i18n Library",
-                    "src": "docs/JSpringBoti18nLibrary.html",
-                    "quick-filter": [
-                        "Locale",
-                        "Language",
-                        "Country"
-                    ],
-                    "featured": [
-                        "Create I18n Object",
-                        "Set I18n Locale",
-                        "Get I18n Message"
-                    ]
-                },
-                "db": {
-                    "name": "DB Library",
-                    "src": "docs/JSpringBotDBLibrary.html",
-                    "quick-filter": [
-                        "Should",
-                        "Should Not",
-                        "Should Be",
-                        "Get",
-                        "Set",
-                        "Projected",
-                        "Record"
-                    ]
-                },
-                "ssh": {
-                    "name": "SSH Library",
-                    "src": "docs/JSpringBotSSHLibrary.html"
-                },
-                "csv": {
-                    "name": "CSV Library",
-                    "src": "docs/JSpringBotCSVLibrary.html",
-                    "quick-filter": [
-                        "Should",
-                        "Should Not",
-                        "Should Be",
-                        "Get",
-                        "Set",
-                        "Parse",
-                        "Restriction"
-                    ]
-                },
-                "date": {
-                    "name": "Date Library",
-                    "src": "docs/JSpringBotDateLibrary.html"
-                },
-                "test-data": {
-                    "name": "Test Data Library",
-                    "src": "docs/JSpringBotTestDataLibrary.html"
-                },
-                "config": {
-                    "name": "Config Library",
-                    "src": "docs/JSpringBotConfigLibrary.html"
-                },
-                "office": {
-                  "name": "Office Library",
-                  "src": "docs/JSpringBotOfficeLibrary.html"
-                }
-            }
+        "string": {
+          "name": "String Library",
+          "src": "docs/String.html",
+          "quick-filter": [
+            "Should",
+            "Should Not",
+            "Should Be",
+            "Get",
+            "Replace",
+            "Fetch",
+            "Split"
+          ],
+          "featured": [
+            "Generate Random String",
+            "Get Lines Matching Regexp",
+            "Replace String Using Regexp"
+          ]
         },
-      {
-        "name": "jSpringBot Functions",
-        "version": "1.0-SNAPSHOT",
-        "include": false,
-        "libraries": {
-          "function-string": {
-            "name": "Default and String Functions"
-          },
-          "function-parser": {
-            "name": "Parser Functions"
-          },
-          "function-collection": {
-            "name": "Array and Collection Functions"
-          },
-          "function-math": {
-            "name": "Math Functions"
-          },
-          "function-escape": {
-            "name": "Escape Functions"
-          },
-          "function-date": {
-            "name": "Date Functions"
-          },
-          "function-xml": {
-            "name": "XML Functions"
-          },
-          "function-json": {
-            "name": "JSON Functions"
-          },
-		  "function-faker": {
-            "name": "Faker Functions"
-          }
+        "os": {
+          "name": "Operating System Library",
+          "src": "docs/OperatingSystem.html",
+          "quick-filter": [
+            "Run",
+            "Directory",
+            "File",
+            "Path",
+            "Should",
+            "Should Not",
+            "Should Be",
+            "Get",
+            "Count",
+            "Copy",
+            "Split"
+          ]
+        },
+        "collection": {
+          "name": "Collections Library",
+          "src": "docs/Collections.html",
+          "quick-filter": [
+            "Create",
+            "List",
+            "Dictionary",
+            "Should",
+            "Should Not",
+            "Should Contain",
+            "Log",
+            "Get",
+            "Remove"
+          ],
+          "featured": [
+            "Append To List",
+            "Insert Into List",
+            "Get From List",
+            "Remove From List",
+            "Create Dictionary",
+            "Set To Dictionary",
+            "Get From Dictionary",
+            "Remove From Dictionary"
+          ]
+        },
+        "dialogs": {
+          "name": "Dialogs Library",
+          "src": "docs/Dialogs.html"
+        },
+        "screenshot": {
+          "name": "Screenshot Library",
+          "src": "docs/Screenshot.html"
+        },
+        "telnet": {
+          "name": "Telnet Library",
+          "src": "docs/Telnet.html"
         }
       }
-    ]
+    },
+    {
+      "name": "jSpringBot Libraries",
+      "version": "1.3",
+      "include": true,
+      "libraries": {
+        "general": {
+          "name": "General Library",
+          "src": "docs/JSpringBotGeneralLibrary.html"
+        },
+        "expression": {
+          "name": "Expression Library",
+          "src": "docs/JSpringBotExpressionLibrary.html"
+        },
+        "selenium": {
+          "name": "Selenium Library",
+          "src": "docs/JSpringBotSeleniumLibrary.html",
+          "quick-filter": [
+            "Element",
+            "List",
+            "Page",
+            "Checkbox",
+            "Cookie",
+            "Click",
+            "Mouse",
+            "Class",
+            "Visible",
+            "Should",
+            "Should Not",
+            "Should Be"
+          ],
+          "featured": [
+            "Navigate To",
+            "Capture Screenshot",
+            "Execute Javascript",
+            "Maximize Window",
+            "Submit Form",
+            "Wait Till Element Found",
+            "Wait Till Element Visible"
+          ]
+        },
+        "http": {
+          "name": "HTTP Library",
+          "src": "docs/JSpringBotHttpLibrary.html",
+          "quick-filter": [
+            "Should",
+            "Should Be",
+            "Request",
+            "Response",
+            "Cookie"
+          ]
+        },
+        "xml": {
+          "name": "XML Library",
+          "src": "docs/JSpringBotXMLLibrary.html"
+        },
+        "json": {
+          "name": "JSON Library",
+          "src": "docs/JSpringBotJSONLibrary.html",
+          "quick-filter": [
+            "Should",
+            "Should Not",
+            "Should Be",
+            "Get"
+          ],
+          "featured": [
+            "Set JSON String",
+            "Get JSON Value",
+            "Get JSON Value For",
+            "Get JSON Values",
+            "Get Created JSON String"
+          ]
+        },
+        "i18n": {
+          "name": "i18n Library",
+          "src": "docs/JSpringBoti18nLibrary.html",
+          "quick-filter": [
+            "Locale",
+            "Language",
+            "Country"
+          ],
+          "featured": [
+            "Create I18n Object",
+            "Set I18n Locale",
+            "Get I18n Message"
+          ]
+        },
+        "db": {
+          "name": "DB Library",
+          "src": "docs/JSpringBotDBLibrary.html",
+          "quick-filter": [
+            "Should",
+            "Should Not",
+            "Should Be",
+            "Get",
+            "Set",
+            "Projected",
+            "Record"
+          ]
+        },
+        "ssh": {
+          "name": "SSH Library",
+          "src": "docs/JSpringBotSSHLibrary.html"
+        },
+        "csv": {
+          "name": "CSV Library",
+          "src": "docs/JSpringBotCSVLibrary.html",
+          "quick-filter": [
+            "Should",
+            "Should Not",
+            "Should Be",
+            "Get",
+            "Set",
+            "Parse",
+            "Restriction"
+          ]
+        },
+        "date": {
+          "name": "Date Library",
+          "src": "docs/JSpringBotDateLibrary.html"
+        },
+        "test-data": {
+          "name": "Test Data Library",
+          "src": "docs/JSpringBotTestDataLibrary.html"
+        },
+        "config": {
+          "name": "Config Library",
+          "src": "docs/JSpringBotConfigLibrary.html"
+        },
+        "office": {
+          "name": "Office Library",
+          "src": "docs/JSpringBotOfficeLibrary.html"
+        }
+      }
+    },
+    {
+      "name": "jSpringBot Functions",
+      "version": "1.0-SNAPSHOT",
+      "include": false,
+      "libraries": {
+        "function-string": {
+          "name": "Default and String Functions"
+        },
+        "function-parser": {
+          "name": "Parser Functions"
+        },
+        "function-collection": {
+          "name": "Array and Collection Functions"
+        },
+        "function-math": {
+          "name": "Math Functions"
+        },
+        "function-escape": {
+          "name": "Escape Functions"
+        },
+        "function-date": {
+          "name": "Date Functions"
+        },
+        "function-xml": {
+          "name": "XML Functions"
+        },
+        "function-json": {
+          "name": "JSON Functions"
+        },
+        "function-faker": {
+          "name": "Faker Functions"
+        }
+      }
+    }
+  ]
 }

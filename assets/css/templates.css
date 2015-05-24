@@ -671,7 +671,8 @@ ul.unstyled, ol.unstyled {
 }
 
 .label-copy {
-    color: #D55360;
+  color: #D55360;
+  cursor: pointer;
 }
 
 .nav-header.quick-link {
@@ -746,3 +747,4 @@ table.table td pre, #robot-library-docs pre, #robot-library-docs code, #robot-li
 #robot-featured-keywords {
     margin-top: 10px;
 }
+

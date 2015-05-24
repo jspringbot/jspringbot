@@ -147,12 +147,8 @@ $(function() {
     var _prettyPrint = function() {
       $docs.html(RobotUtils.jSpringBotMarkup(data.doc));
 
-      $("pre").each(function(index, el) {
-        $(el).addClass("prettyprint");
-      });
-
-      $docs.find("pre").each(function(index, el) {
-        $(el).addClass("linenums lang-clj");
+      $("div#robot-library-docs pre").each(function(index, el) {
+        $(el).addClass("prettyprint linenums");
       });
 
       window.prettyPrint && prettyPrint();
@@ -265,7 +261,12 @@ $(function() {
           buf.push('</div>');
           buf.push('<div id="collapse-' + ctr + '" class="accordion-body collapse">');
           buf.push('<div class="accordion-inner">');
+          buf.push('<div class="pull-right"><button title="Click to copy keyword to clipboard." data-clipboard-text="');
+          buf.push(keyword.name);
+          buf.push('" class="btn-copy btn btn-small"><i class="icon-copy"></i></button></div>');
+          buf.push('<div class="clearfix">');
           buf.push(RobotUtils.jSpringBotMarkup(keyword.doc));
+          buf.push('</div>');
           buf.push('</div>');
           buf.push('</div>');
           buf.push('</div>');
@@ -292,6 +293,8 @@ $(function() {
       var $accordion = $("#accordion-keywords");
       $accordion.collapse();
       $accordion.removeAttr("style");
+
+      new ZeroClipboard($(".btn-copy"));
     };
 
     var _filterSubmit = function(event) {
