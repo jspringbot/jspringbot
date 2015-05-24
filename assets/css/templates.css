@@ -748,3 +748,6 @@ table.table td pre, #robot-library-docs pre, #robot-library-docs code, #robot-li
     margin-top: 10px;
 }
 
+pre code {
+  text-decoration: underline;
+}
