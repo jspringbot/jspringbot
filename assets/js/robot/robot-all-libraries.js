@@ -146,7 +146,7 @@ $(function() {
             buf.push('</div>');
             buf.push('<div id="collapse-' + ctr + '" class="accordion-body collapse">');
             buf.push('<div class="accordion-inner">');
-            buf.push('<div class="pull-right"><button title="Click to copy keyword to clipboard." data-clipboard-text="');
+            buf.push('<div class="pull-right"><button title="Copy keyword to clipboard." data-clipboard-text="');
             buf.push(keyword.name);
             buf.push('" class="btn-copy btn btn-small"><i class="icon-copy"></i></button></div>');
             buf.push('<div class="clearfix">');
@@ -180,7 +180,15 @@ $(function() {
       $accordion.collapse();
       $accordion.removeAttr("style");
 
-      new ZeroClipboard($(".btn-copy"));
+      var $copyBtn = $(".btn-copy");
+
+      $copyBtn.tooltip({content: 'Copied!', placement: 'left', container: true});
+      $copyBtn.click(function(evt) {
+        var $target = $(evt.target);
+        $target.attr('data-original-title', 'Copied!');
+        $target.tooltip('show');
+      });
+      new ZeroClipboard($copyBtn);
     };
 
     var _filterSubmit = function(event) {
