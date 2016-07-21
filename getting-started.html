@@ -46,7 +46,7 @@
     <div class="navbar-inner">
         <div class="container">
             <h1><a class="brand" href="./index.html">jSpringBot</a></h1>
-            <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.3</p>
+            <p class="pull-left navbar-text muted"><span class="hidden-phone">Version</span> 1.4</p>
             <div id="main-menu" class="nav-collapse collapse"></div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                         <i class="icon-calendar"></i> May 8, 2015
                     </li>
                     <li>
-                        <i class="icon-tag"></i> Version <span id="robot-library-version">1.3</span>
+                        <i class="icon-tag"></i> Version <span id="robot-library-version">1.4</span>
                     </li>
                 </ul>
 
@@ -141,7 +141,6 @@
                     <li>Contains support to access values in properties file using <a href="./library-config.html">Config Library</a>.</li>
                     <li>Enables support to access and execute command on a remote machine over an SSH connection using <a href="./library-ssh.html">SSHLibrary</a>.</li>
                     <li>Contains support to parse and query a CSV string or resource using <a href="./library-csv.html">CSV Library</a>.</li>
-                    <li>Create and modify microsoft word documents, using <a href="./library-office.html">Office Library</a>.</li>
                     <li>Support for internationalization, using <a href="./library-i18n.html">i18n Library</a>.</li>
                     <li>Also comes with advance support for expressions across all libraries with <a href="./library-expression.html">Expression Library</a>.</li>
                     <li>And other utility libraries, like <a href="./library-date.html">Date Library</a>, <a href="./library-test-data.html">Test Data Library</a>.</li>
@@ -155,18 +154,18 @@
                 <p><span class="label label-info">1</span> You can download the sample project by using git. You can also download using the Download ZIP button on each of the sample projects.</p>
 
                                                 <pre>
-  git clone https://github.com/jspringbot/sample-office.git</pre>
+  git clone https://github.com/jspringbot/sample-http.git</pre>
 
                 <p><span class="label label-success">2</span> After downloading you can execute using following maven command.</p>
 
                                                                 <pre>
-  sample-office$ mvn clean integration-test</pre>
+  sample-http$ mvn clean integration-test</pre>
 
                 <p><span class="label label-warning">3</span> After which, you can check the generated logs and reports.</p>
 
                                                                                 <pre>
-Log:     --/sample-office/target/robotframework-reports/log.html
-Report:  --/sample-office/target/robotframework-reports/report.html
+Log:     --/sample-http/target/robotframework-reports/log.html
+Report:  --/sample-http/target/robotframework-reports/report.html
 </pre>
 
 
@@ -197,7 +196,7 @@ test-project/
     pom.xml - contains the dependencies, here you identify what jspringbot libraries you want to use.
     jspringbot.properties - identify jsprintbot library properties. This can change the library behavior.
     jspringbot-global.xml - all jspringbot libraries spring configuration will be imported in this file.
-    robotframework - this contains our robotframework test suites and resources.
+    robotframework - this folder contains our robotframework test suites and resources.
 </pre>
 
                 <h2>pom.xml</h2>
@@ -211,7 +210,7 @@ test-project/
   &lt;parent>
     &lt;groupId>org.jspringbot&lt;/groupId>
     &lt;artifactId>jspringbot-base&lt;/artifactId>
-    &lt;version>1.3&lt;/version>
+    &lt;version>1.4&lt;/version>
   &lt;/parent></pre>
 
                 <p><span class="label label-success">2</span> The code below ensures that the project runs under <code>mvn integration-test</code> phase.</p>
