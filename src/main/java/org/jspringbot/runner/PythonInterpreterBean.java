@@ -2,7 +2,7 @@ package org.jspringbot.runner;
 
 import org.python.util.PythonInterpreter;
 
-public class PythonInterpreterBean {
+public class PythonInterpreterBean implements AutoCloseable {
 
     private PythonInterpreter interpreter;
 
@@ -12,5 +12,9 @@ public class PythonInterpreterBean {
 
     public void setRecursionLimit(int recursionLimit) {
         interpreter.getSystemState().setrecursionlimit(recursionLimit);
+    }
+
+    public void close() throws Exception {
+        interpreter.cleanup();
     }
 }

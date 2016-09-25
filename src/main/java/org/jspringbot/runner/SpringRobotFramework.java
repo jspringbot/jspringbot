@@ -2,7 +2,7 @@ package org.jspringbot.runner;
 
 
 import org.jspringbot.MainContextHolder;
-import org.robotframework.RobotRunner;
+import org.robotframework.RobotPythonRunner;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringRobotFramework {
@@ -15,9 +15,13 @@ public class SpringRobotFramework {
         try {
             ClassPathXmlApplicationContext context = MainContextHolder.create();
 
-            RobotRunner runner = context.getBean(RobotRunner.class);
+            RobotPythonRunner runner = context.getBean(RobotPythonRunner.class);
 
             return runner.run(args);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+
+            throw e;
         } finally {
             MainContextHolder.remove();
         }
