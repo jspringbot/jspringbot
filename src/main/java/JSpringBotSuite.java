@@ -13,6 +13,7 @@ public class JSpringBotSuite extends SpringRobotLibrary {
      * Create new SpringRobotLibrary object using the given configuration.
      *
      * @param springConfigPath String configuration path
+     * @throws Exception on error
      */
     public JSpringBotSuite(String springConfigPath) throws Exception {
         super(springConfigPath);

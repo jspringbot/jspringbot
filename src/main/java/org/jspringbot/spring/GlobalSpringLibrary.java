@@ -29,6 +29,7 @@ public class GlobalSpringLibrary extends SpringRobotLibrary {
      * Create new SpringRobotLibrary object using the given configuration.
      *
      * @param springConfigPath String configuration path
+     * @throws Exception on error
      */
     public GlobalSpringLibrary(String springConfigPath) throws Exception {
         super(springConfigPath);

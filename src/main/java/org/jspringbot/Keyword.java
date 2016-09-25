@@ -30,6 +30,7 @@ public interface Keyword {
      *
      * @param params keyword arguments; Robot Framework passes empty array (not null) when no arguments are passed.
      * @return result of the keyword execution.
+     * @throws Exception on error
      */
     Object execute(Object[] params) throws Exception;
 }

@@ -13,6 +13,7 @@ public class JSpringBotGlobal extends SpringRobotLibrary {
      * Create new SpringRobotLibrary object using the given configuration.
      *
      * @param springConfigPath String configuration path
+     * @throws Exception on error
      */
     public JSpringBotGlobal(String springConfigPath) throws Exception {
         super(springConfigPath);
