@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 2.8.7 (Python 2.7.3 on linux2)" name="Generator">
+<meta content="Robot Framework 3.0 (Python 2.7.6 on linux2)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAEAAAAAAAAAAAAAAAJEBoACtnfgA5cYYAERsiAEx2lAAbKkQAcazBACZCVwAcM1cAK0ucAAMDBQAnQncASG+FABkoVQAyWmgA6f8SgvH/Ij99+GLyIinyJfn/Yi//KSLzUy9iZogpIld3/4JVVTkid7vyUjNVNVJEAGOZ6Z7pXwAABpmZkRiLAAAGiJZpmGAAAEEt3SXdxAAATC7o/u3EAAC8MRZpjasAAAY1VVVTYAAABKqqqqpAAAAADKqq4AAAAAAAv4sAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADAADgAwAA4AcAAOAHAADgBwAAwAcAAOAHAADgDwAA8A8AAPg/AAD+fwAA">
 <style media="all" type="text/css">
 body {
@@ -32,49 +32,60 @@ a:hover, a:active {
     text-decoration: underline;
     color: black;
 }
-div.shortcuts {
+a:hover {
+    text-decoration: underline !important;
+}
+.shortcuts {
     margin: 1em 0;
     font-size: 0.9em;
 }
-div.shortcuts a {
+.shortcuts a {
     display: inline-block;
     text-decoration: none;
     white-space: nowrap;
     color: black;
 }
-div.shortcuts a::first-letter {
+.shortcuts a::first-letter {
     font-weight: bold;
-    font-size: 1.05em;
     letter-spacing: 0.1em;
 }
-div.shortcuts a:hover {
-    text-decoration: underline;
+.normal-first-letter::first-letter {
+    font-weight: normal !important;
+    letter-spacing: 0 !important;
 }
-table.keywords {
-    border: 2px solid black;
+.keywords {
+    border: 1px solid #ccc;
     border-collapse: collapse;
     empty-cells: show;
     margin: 0.3em 0;
     width: 100%;
 }
-table.keywords th, table.keywords td {
-    border: 2px solid black;
+.keywords th, .keywords td {
+    border: 1px solid #ccc;
     padding: 0.2em;
     vertical-align: top;
 }
-table.keywords th {
-    background: #bbb;
+.keywords th {
+    background: #ddd;
     color: black;
 }
-table.keywords td.kw {
+.kw, .args, .tags {
     min-width: 100px;
     max-width: 20%;
+}
+td.kw a {
+    color: inherit;
+    text-decoration: none;
     font-weight: bold;
 }
-table.keywords td.args {
-    min-width: 100px;
-    max-width: 20%;
+.args span {
     font-style: italic;
+    padding: 0 0.1em;
+}
+.tags a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
 }
 .footer {
     font-size: 0.9em;
@@ -93,11 +104,11 @@ table.keywords td.args {
     z-index: 1000;
 }
 #search {
-    width:30em;
+    width: 30em;
     display: none;
 }
 #open-search {
-    border: 2px solid black;
+    border: 2px solid #ccc;
     border-radius: 4px;
     width: 40px;
     height: 40px;
@@ -109,16 +120,16 @@ table.keywords td.args {
     background-size: 24px 24px;
 }
 #open-search:hover {
-    background-color: yellow;
+    background-color: #ccc;
 }
 fieldset {
     background: white;
-    border: 2px solid black;
+    border: 2px solid #ccc;
     border-radius: 4px;
     padding: 6px 8px;
 }
 fieldset fieldset {
-    border: 1px solid black;
+    border: 1px solid #ccc;
     margin: 4px 0;
 }
 #search-title {
@@ -164,9 +175,9 @@ a {
     width: 600px;
     margin: 100px auto 0 auto;
     padding: 20px;
-    color: #2A2A2E;
-    border: 1px solid #9A9A9E;
-    background: #FAFAFF;
+    color: black;
+    border: 1px solid #ccc;
+    background: #eee;
 }
 #javascript-disabled h1 {
     width: 100%;
@@ -194,14 +205,14 @@ a {
     margin-top: 0.1em;
 }
 .doc table {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
     background: transparent;
     border-collapse: collapse;
     empty-cells: show;
     font-size: 0.9em;
 }
 .doc table th, .doc table td {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
     background: transparent;
     padding: 0.1em 0.3em;
     height: 1.2em;
@@ -213,22 +224,22 @@ a {
 .doc pre {
     font-size: 1.1em;
     letter-spacing: 0.05em;
-    background: #F4F4FF;
+    background: #eee;
 }
 .doc code {
     padding: 0 0.2em;
     letter-spacing: 0.05em;
-    background: #F4F4FF;
+    background: #eee;
 }
 .doc li {
     list-style-position: inside;
     list-style-type: square;
 }
 .doc img {
-    border: 1px solid gray;
+    border: 1px solid #ccc;
 }
 .doc hr {
-    background: gray;
+    background: #ccc;
     height: 1px;
     border: 0;
 }
@@ -457,7 +468,7 @@ window.util = function () {
 jQuery.extend({highlight:function(e,t,n,r){if(e.nodeType===3){var i=e.data.match(t);if(i){var s=document.createElement(n||"span");s.className=r||"highlight";var o=e.splitText(i.index);o.splitText(i[0].length);var u=o.cloneNode(true);s.appendChild(u);o.parentNode.replaceChild(s,o);return 1}}else if(e.nodeType===1&&e.childNodes&&!/(script|style)/i.test(e.tagName)&&!(e.tagName===n.toUpperCase()&&e.className===r)){for(var a=0;a<e.childNodes.length;a++){a+=jQuery.highlight(e.childNodes[a],t,n,r)}}return 0}});jQuery.fn.unhighlight=function(e){var t={className:"highlight",element:"span"};jQuery.extend(t,e);return this.find(t.element+"."+t.className).each(function(){var e=this.parentNode;e.replaceChild(this.firstChild,this);e.normalize()}).end()};jQuery.fn.highlight=function(e,t){var n={className:"highlight",element:"span",caseSensitive:false,wordsOnly:false};jQuery.extend(n,t);if(e.constructor===String){e=[e]}e=jQuery.grep(e,function(e,t){return e!=""});e=jQuery.map(e,function(e,t){return e.replace(/[-[\]{}()*+?.,\\^$|#\s]/g,"\\$&")});if(e.length==0){return this}var r=n.caseSensitive?"":"i";var i="("+e.join("|")+")";if(n.wordsOnly){i="\\b"+i+"\\b"}var s=new RegExp(i,r);return this.each(function(){jQuery.highlight(this,s,n.element,n.className)})}
 </script>
 <script type="text/javascript">
-libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c/p>\n<p><span class=\"name\">String\x3c/span> is Robot Framework's standard library for manipulating strings (e.g. <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a>, <a href=\"#Split%20To%20Lines\" class=\"name\">Split To Lines\x3c/a>) and verifying their contents (e.g. <a href=\"#Should%20Be%20String\" class=\"name\">Should Be String\x3c/a>).\x3c/p>\n<p>Following keywords from <span class=\"name\">BuiltIn\x3c/span> library can also be used with strings:\x3c/p>\n<ul>\n<li><span class=\"name\">Catenate\x3c/span>\x3c/li>\n<li><span class=\"name\">Get Length\x3c/span>\x3c/li>\n<li><span class=\"name\">Length Should Be\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Be Empty\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Be Equal (As Strings/Integers/Numbers)\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Match (Regexp)\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Contain\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Start With\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) End With\x3c/span>\x3c/li>\n<li><span class=\"name\">Convert To String\x3c/span>\x3c/li>\n<li><span class=\"name\">Convert To Bytes\x3c/span>\x3c/li>\n\x3c/ul>","generated":"2015-01-16 11:27:31","inits":[],"keywords":[{"args":"string","doc":"<p>Converts string to lowercase.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str1} =\x3c/td>\n<td>Convert To Lowercase\x3c/td>\n<td>ABC\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str2} =\x3c/td>\n<td>Convert To Lowercase\x3c/td>\n<td>1A2c3D\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str1}\x3c/td>\n<td>abc\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str2}\x3c/td>\n<td>1a2c3d\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.8.6.\x3c/p>","name":"Convert To Lowercase","shortdoc":"Converts string to lowercase."},{"args":"string","doc":"<p>Converts string to uppercase.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str1} =\x3c/td>\n<td>Convert To Uppercase\x3c/td>\n<td>abc\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str2} =\x3c/td>\n<td>Convert To Uppercase\x3c/td>\n<td>1a2C3d\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str1}\x3c/td>\n<td>ABC\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str2}\x3c/td>\n<td>1A2C3D\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.8.6.\x3c/p>","name":"Convert To Uppercase","shortdoc":"Converts string to uppercase."},{"args":"bytes, encoding, errors=strict","doc":"<p>Decodes the given <span class=\"name\">bytes\x3c/span> to a Unicode string using the given <span class=\"name\">encoding\x3c/span>.\x3c/p>\n<p><span class=\"name\">errors\x3c/span> argument controls what to do if decoding some bytes fails. All values accepted by <span class=\"name\">decode\x3c/span> method in Python are valid, but in practice the following values are most useful:\x3c/p>\n<ul>\n<li><span class=\"name\">strict\x3c/span>: fail if characters cannot be decoded (default)\x3c/li>\n<li><span class=\"name\">ignore\x3c/span>: ignore characters that cannot be decoded\x3c/li>\n<li><span class=\"name\">replace\x3c/span>: replace characters that cannot be decoded with a replacement character\x3c/li>\n\x3c/ul>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${string} =\x3c/td>\n<td>Decode Bytes To String\x3c/td>\n<td>${bytes}\x3c/td>\n<td>UTF-8\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${string} =\x3c/td>\n<td>Decode Bytes To String\x3c/td>\n<td>${bytes}\x3c/td>\n<td>ASCII\x3c/td>\n<td>errors=ignore\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Use <a href=\"#Encode%20String%20To%20Bytes\" class=\"name\">Encode String To Bytes\x3c/a> if you need to convert Unicode strings to byte strings, and <span class=\"name\">Convert To String\x3c/span> in <span class=\"name\">BuiltIn\x3c/span> if you need to convert arbitrary objects to Unicode strings.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","name":"Decode Bytes To String","shortdoc":"Decodes the given `bytes` to a Unicode string using the given `encoding`."},{"args":"string, encoding, errors=strict","doc":"<p>Encodes the given Unicode <span class=\"name\">string\x3c/span> to bytes using the given <span class=\"name\">encoding\x3c/span>.\x3c/p>\n<p><span class=\"name\">errors\x3c/span> argument controls what to do if encoding some characters fails. All values accepted by <span class=\"name\">encode\x3c/span> method in Python are valid, but in practice the following values are most useful:\x3c/p>\n<ul>\n<li><span class=\"name\">strict\x3c/span>: fail if characters cannot be encoded (default)\x3c/li>\n<li><span class=\"name\">ignore\x3c/span>: ignore characters that cannot be encoded\x3c/li>\n<li><span class=\"name\">replace\x3c/span>: replace characters that cannot be encoded with a replacement character\x3c/li>\n\x3c/ul>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${bytes} =\x3c/td>\n<td>Encode String To Bytes\x3c/td>\n<td>${string}\x3c/td>\n<td>UTF-8\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${bytes} =\x3c/td>\n<td>Encode String To Bytes\x3c/td>\n<td>${string}\x3c/td>\n<td>ASCII\x3c/td>\n<td>errors=ignore\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Use <span class=\"name\">Convert To Bytes\x3c/span> in <span class=\"name\">BuiltIn\x3c/span> if you want to create bytes based on character or integer sequences. Use <a href=\"#Decode%20Bytes%20To%20String\" class=\"name\">Decode Bytes To String\x3c/a> if you need to convert byte strings to Unicode strings and <span class=\"name\">Convert To String\x3c/span> in <span class=\"name\">BuiltIn\x3c/span> if you need to convert arbitrary objects to Unicode.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","name":"Encode String To Bytes","shortdoc":"Encodes the given Unicode `string` to bytes using the given `encoding`."},{"args":"string, marker","doc":"<p>Returns contents of the <span class=\"name\">string\x3c/span> before the first occurrence of <span class=\"name\">marker\x3c/span>.\x3c/p>\n<p>If the <span class=\"name\">marker\x3c/span> is not found, whole string is returned.\x3c/p>\n<p>See also <a href=\"#Fetch%20From%20Right\" class=\"name\">Fetch From Right\x3c/a>, <a href=\"#Split%20String\" class=\"name\">Split String\x3c/a> and <a href=\"#Split%20String%20From%20Right\" class=\"name\">Split String From Right\x3c/a>.\x3c/p>","name":"Fetch From Left","shortdoc":"Returns contents of the `string` before the first occurrence of `marker`."},{"args":"string, marker","doc":"<p>Returns contents of the <span class=\"name\">string\x3c/span> after the last occurrence of <span class=\"name\">marker\x3c/span>.\x3c/p>\n<p>If the <span class=\"name\">marker\x3c/span> is not found, whole string is returned.\x3c/p>\n<p>See also <a href=\"#Fetch%20From%20Left\" class=\"name\">Fetch From Left\x3c/a>, <a href=\"#Split%20String\" class=\"name\">Split String\x3c/a> and <a href=\"#Split%20String%20From%20Right\" class=\"name\">Split String From Right\x3c/a>.\x3c/p>","name":"Fetch From Right","shortdoc":"Returns contents of the `string` after the last occurrence of `marker`."},{"args":"length=8, chars=[LETTERS][NUMBERS]","doc":"<p>Generates a string with a desired <span class=\"name\">length\x3c/span> from the given <span class=\"name\">chars\x3c/span>.\x3c/p>\n<p>The population sequence <span class=\"name\">chars\x3c/span> contains the characters to use when generating the random string. It can contain any characters, and it is possible to use special markers explained in the table below:\x3c/p>\n<table border=\"1\">\n<tr>\n<th>Marker\x3c/th>\n<th>Explanation\x3c/th>\n\x3c/tr>\n<tr>\n<td><i>[LOWER]\x3c/i>\x3c/td>\n<td>Lowercase ASCII characters from 'a' to 'z'.\x3c/td>\n\x3c/tr>\n<tr>\n<td><i>[UPPER]\x3c/i>\x3c/td>\n<td>Uppercase ASCII characters from 'A' to 'Z'.\x3c/td>\n\x3c/tr>\n<tr>\n<td><i>[LETTERS]\x3c/i>\x3c/td>\n<td>Lowercase and uppercase ASCII characters.\x3c/td>\n\x3c/tr>\n<tr>\n<td><i>[NUMBERS]\x3c/i>\x3c/td>\n<td>Numbers from 0 to 9.\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${ret} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${low} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>12\x3c/td>\n<td>[LOWER]\x3c/td>\n\x3c/tr>\n<tr>\n<td>${bin} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>8\x3c/td>\n<td>01\x3c/td>\n\x3c/tr>\n<tr>\n<td>${hex} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>4\x3c/td>\n<td>[NUMBERS]abcdef\x3c/td>\n\x3c/tr>\n\x3c/table>","name":"Generate Random String","shortdoc":"Generates a string with a desired `length` from the given `chars`."},{"args":"string, line_number","doc":"<p>Returns the specified line from the given <span class=\"name\">string\x3c/span>.\x3c/p>\n<p>Line numbering starts from 0 and it is possible to use negative indices to refer to lines from the end. The line is returned without the newline character.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${first} =\x3c/td>\n<td>Get Line\x3c/td>\n<td>${string}\x3c/td>\n<td>0\x3c/td>\n\x3c/tr>\n<tr>\n<td>${2nd last} =\x3c/td>\n<td>Get Line\x3c/td>\n<td>${string}\x3c/td>\n<td>-2\x3c/td>\n\x3c/tr>\n\x3c/table>","name":"Get Line","shortdoc":"Returns the specified line from the given `string`."},{"args":"string","doc":"<p>Returns and logs the number of lines in the given <span class=\"name\">string\x3c/span>.\x3c/p>","name":"Get Line Count","shortdoc":"Returns and logs the number of lines in the given `string`."},{"args":"string, pattern, case_insensitive=False","doc":"<p>Returns lines of the given <span class=\"name\">string\x3c/span> that contain the <span class=\"name\">pattern\x3c/span>.\x3c/p>\n<p>The <span class=\"name\">pattern\x3c/span> is always considered to be a normal string and a line matches if the <span class=\"name\">pattern\x3c/span> is found anywhere in it. By default the match is case-sensitive, but setting <span class=\"name\">case_insensitive\x3c/span> to any value makes it case-insensitive.\x3c/p>\n<p>Lines are returned as one string catenated back together with newlines. Possible trailing newline is never returned. The number of matching lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${lines} =\x3c/td>\n<td>Get Lines Containing String\x3c/td>\n<td>${result}\x3c/td>\n<td>An example\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ret} =\x3c/td>\n<td>Get Lines Containing String\x3c/td>\n<td>${ret}\x3c/td>\n<td>FAIL\x3c/td>\n<td>case-insensitive\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Get%20Lines%20Matching%20Pattern\" class=\"name\">Get Lines Matching Pattern\x3c/a> and <a href=\"#Get%20Lines%20Matching%20Regexp\" class=\"name\">Get Lines Matching Regexp\x3c/a> if you need more complex pattern matching.\x3c/p>","name":"Get Lines Containing String","shortdoc":"Returns lines of the given `string` that contain the `pattern`."},{"args":"string, pattern, case_insensitive=False","doc":"<p>Returns lines of the given <span class=\"name\">string\x3c/span> that match the <span class=\"name\">pattern\x3c/span>.\x3c/p>\n<p>The <span class=\"name\">pattern\x3c/span> is a <i>glob pattern\x3c/i> where:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>*\x3c/td>\n<td>matches everything\x3c/td>\n\x3c/tr>\n<tr>\n<td>?\x3c/td>\n<td>matches any single character\x3c/td>\n\x3c/tr>\n<tr>\n<td>[chars]\x3c/td>\n<td>matches any character inside square brackets (e.g. '[abc]' matches either 'a', 'b' or 'c')\x3c/td>\n\x3c/tr>\n<tr>\n<td>[!chars]\x3c/td>\n<td>matches any character not inside square brackets\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>A line matches only if it matches the <span class=\"name\">pattern\x3c/span> fully.  By default the match is case-sensitive, but setting <span class=\"name\">case_insensitive\x3c/span> to any value makes it case-insensitive.\x3c/p>\n<p>Lines are returned as one string catenated back together with newlines. Possible trailing newline is never returned. The number of matching lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${lines} =\x3c/td>\n<td>Get Lines Matching Pattern\x3c/td>\n<td>${result}\x3c/td>\n<td>Wild???? example\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ret} =\x3c/td>\n<td>Get Lines Matching Pattern\x3c/td>\n<td>${ret}\x3c/td>\n<td>FAIL: *\x3c/td>\n<td>case-insensitive\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Get%20Lines%20Matching%20Regexp\" class=\"name\">Get Lines Matching Regexp\x3c/a> if you need more complex patterns and <a href=\"#Get%20Lines%20Containing%20String\" class=\"name\">Get Lines Containing String\x3c/a> if searching literal strings is enough.\x3c/p>","name":"Get Lines Matching Pattern","shortdoc":"Returns lines of the given `string` that match the `pattern`."},{"args":"string, pattern","doc":"<p>Returns lines of the given <span class=\"name\">string\x3c/span> that match the regexp <span class=\"name\">pattern\x3c/span>.\x3c/p>\n<p>See <span class=\"name\">BuiltIn.Should Match Regexp\x3c/span> for more information about Python regular expression syntax in general and how to use it in Robot Framework test data in particular. A line matches only if it matches the <span class=\"name\">pattern\x3c/span> fully. Notice that to make the match case-insensitive, you need to embed case-insensitive flag into the pattern.\x3c/p>\n<p>Lines are returned as one string catenated back together with newlines. Possible trailing newline is never returned. The number of matching lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${lines} =\x3c/td>\n<td>Get Lines Matching Regexp\x3c/td>\n<td>${result}\x3c/td>\n<td>Reg\\\\w{3} example\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ret} =\x3c/td>\n<td>Get Lines Matching Regexp\x3c/td>\n<td>${ret}\x3c/td>\n<td>(?i)FAIL: .*\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Get%20Lines%20Matching%20Pattern\" class=\"name\">Get Lines Matching Pattern\x3c/a> and <a href=\"#Get%20Lines%20Containing%20String\" class=\"name\">Get Lines Containing String\x3c/a> if you do not need full regular expression powers (and complexity).\x3c/p>","name":"Get Lines Matching Regexp","shortdoc":"Returns lines of the given `string` that match the regexp `pattern`."},{"args":"string, start, end=None","doc":"<p>Returns a substring from <span class=\"name\">start\x3c/span> index to <span class=\"name\">end\x3c/span> index.\x3c/p>\n<p>The <span class=\"name\">start\x3c/span> index is inclusive and <span class=\"name\">end\x3c/span> is exclusive. Indexing starts from 0, and it is possible to use negative indices to refer to characters from the end.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${ignore first} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>1\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ignore last} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>\x3c/td>\n<td>-1\x3c/td>\n\x3c/tr>\n<tr>\n<td>${5th to 10th} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>4\x3c/td>\n<td>10\x3c/td>\n\x3c/tr>\n<tr>\n<td>${first two} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n<tr>\n<td>${last two} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>-2\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>","name":"Get Substring","shortdoc":"Returns a substring from `start` index to `end` index."},{"args":"string, *removables","doc":"<p>Removes all <span class=\"name\">removables\x3c/span> from the given <span class=\"name\">string\x3c/span>.\x3c/p>\n<p><span class=\"name\">removables\x3c/span> are used as literal strings. Each removable will be matched to a temporary string from which preceding removables have been already removed. See second example below.\x3c/p>\n<p>Use <a href=\"#Remove%20String%20Using%20Regexp\" class=\"name\">Remove String Using Regexp\x3c/a> if more powerful pattern matching is needed. If only a certain number of matches should be removed, <a href=\"#Replace%20String\" class=\"name\">Replace String\x3c/a> or <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a> can be used.\x3c/p>\n<p>A modified version of the string is returned and the original string is not altered.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str} =\x3c/td>\n<td>Remove String\x3c/td>\n<td>Robot Framework\x3c/td>\n<td>work\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>Robot Frame\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str} =\x3c/td>\n<td>Remove String\x3c/td>\n<td>Robot Framework\x3c/td>\n<td>o\x3c/td>\n<td>bt\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>R Framewrk\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.8.2.\x3c/p>","name":"Remove String","shortdoc":"Removes all `removables` from the given `string`."},{"args":"string, *patterns","doc":"<p>Removes <span class=\"name\">patterns\x3c/span> from the given <span class=\"name\">string\x3c/span>.\x3c/p>\n<p>This keyword is otherwise identical to <a href=\"#Remove%20String\" class=\"name\">Remove String\x3c/a>, but the <span class=\"name\">patterns\x3c/span> to search for are considered to be a regular expression. See <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a> for more information about the regular expression syntax. That keyword can also be used if there is a need to remove only a certain number of occurrences.\x3c/p>\n<p>New in Robot Framework 2.8.2.\x3c/p>","name":"Remove String Using Regexp","shortdoc":"Removes `patterns` from the given `string`."},{"args":"string, search_for, replace_with, count=-1","doc":"<p>Replaces <span class=\"name\">search_for\x3c/span> in the given <span class=\"name\">string\x3c/span> with <span class=\"name\">replace_with\x3c/span>.\x3c/p>\n<p><span class=\"name\">search_for\x3c/span> is used as a literal string. See <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a> if more powerful pattern matching is needed. If you need to just remove a string see <a href=\"#Remove%20String\" class=\"name\">Remove String\x3c/a>.\x3c/p>\n<p>If the optional argument <span class=\"name\">count\x3c/span> is given, only that many occurrences from left are replaced. Negative <span class=\"name\">count\x3c/span> means that all occurrences are replaced (default behaviour) and zero means that nothing is done.\x3c/p>\n<p>A modified version of the string is returned and the original string is not altered.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String\x3c/td>\n<td>Hello, world!\x3c/td>\n<td>world\x3c/td>\n<td>tellus\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>Hello, tellus!\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String\x3c/td>\n<td>Hello, world!\x3c/td>\n<td>l\x3c/td>\n<td>${EMPTY}\x3c/td>\n<td>count=1\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>Helo, world!\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>","name":"Replace String","shortdoc":"Replaces `search_for` in the given `string` with `replace_with`."},{"args":"string, pattern, replace_with, count=-1","doc":"<p>Replaces <span class=\"name\">pattern\x3c/span> in the given <span class=\"name\">string\x3c/span> with <span class=\"name\">replace_with\x3c/span>.\x3c/p>\n<p>This keyword is otherwise identical to <a href=\"#Replace%20String\" class=\"name\">Replace String\x3c/a>, but the <span class=\"name\">pattern\x3c/span> to search for is considered to be a regular expression.  See <span class=\"name\">BuiltIn.Should Match Regexp\x3c/span> for more information about Python regular expression syntax in general and how to use it in Robot Framework test data in particular.\x3c/p>\n<p>If you need to just remove a string see <a href=\"#Remove%20String%20Using%20Regexp\" class=\"name\">Remove String Using Regexp\x3c/a>.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String Using Regexp\x3c/td>\n<td>${str}\x3c/td>\n<td>20\\\\d\\\\d-\\\\d\\\\d-\\\\d\\\\d\x3c/td>\n<td>&lt;DATE&gt;\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String Using Regexp\x3c/td>\n<td>${str}\x3c/td>\n<td>(Hello|Hi)\x3c/td>\n<td>${EMPTY}\x3c/td>\n<td>count=1\x3c/td>\n\x3c/tr>\n\x3c/table>","name":"Replace String Using Regexp","shortdoc":"Replaces `pattern` in the given `string` with `replace_with`."},{"args":"item, msg=None","doc":"<p>Fails if the given <span class=\"name\">item\x3c/span> is not a byte string.\x3c/p>\n<p>Use <a href=\"#Should%20Be%20Unicode%20String\" class=\"name\">Should Be Unicode String\x3c/a> if you want to verify the <span class=\"name\">item\x3c/span> is a Unicode string, or <a href=\"#Should%20Be%20String\" class=\"name\">Should Be String\x3c/a> if both Unicode and byte strings are fine.\x3c/p>\n<p>The default error message can be overridden with the optional <span class=\"name\">msg\x3c/span> argument.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","name":"Should Be Byte String","shortdoc":"Fails if the given `item` is not a byte string."},{"args":"string, msg=None","doc":"<p>Fails if the given <span class=\"name\">string\x3c/span> is not in lowercase.\x3c/p>\n<p>For example 'string' and 'with specials!' would pass, and 'String', '' and ' ' would fail.\x3c/p>\n<p>The default error message can be overridden with the optional <span class=\"name\">msg\x3c/span> argument.\x3c/p>\n<p>See also <a href=\"#Should%20Be%20Uppercase\" class=\"name\">Should Be Uppercase\x3c/a> and <a href=\"#Should%20Be%20Titlecase\" class=\"name\">Should Be Titlecase\x3c/a>. All these keywords were added in Robot Framework 2.1.2.\x3c/p>","name":"Should Be Lowercase","shortdoc":"Fails if the given `string` is not in lowercase."},{"args":"item, msg=None","doc":"<p>Fails if the given <span class=\"name\">item\x3c/span> is not a string.\x3c/p>\n<p>This keyword passes regardless is the <span class=\"name\">item\x3c/span> is a Unicode string or a byte string. Use <a href=\"#Should%20Be%20Unicode%20String\" class=\"name\">Should Be Unicode String\x3c/a> or <a href=\"#Should%20Be%20Byte%20String\" class=\"name\">Should Be Byte String\x3c/a> if you want to restrict the string type.\x3c/p>\n<p>The default error message can be overridden with the optional <span class=\"name\">msg\x3c/span> argument.\x3c/p>","name":"Should Be String","shortdoc":"Fails if the given `item` is not a string."},{"args":"string, msg=None","doc":"<p>Fails if given <span class=\"name\">string\x3c/span> is not title.\x3c/p>\n<p><span class=\"name\">string\x3c/span> is a titlecased string if there is at least one character in it, uppercase characters only follow uncased characters and lowercase characters only cased ones.\x3c/p>\n<p>For example 'This Is Title' would pass, and 'Word In UPPER', 'Word In lower', '' and ' ' would fail.\x3c/p>\n<p>The default error message can be overridden with the optional <span class=\"name\">msg\x3c/span> argument.\x3c/p>\n<p>See also <a href=\"#Should%20Be%20Uppercase\" class=\"name\">Should Be Uppercase\x3c/a> and <a href=\"#Should%20Be%20Lowercase\" class=\"name\">Should Be Lowercase\x3c/a>. All theses keyword were added in Robot Framework 2.1.2.\x3c/p>","name":"Should Be Titlecase","shortdoc":"Fails if given `string` is not title."},{"args":"item, msg=None","doc":"<p>Fails if the given <span class=\"name\">item\x3c/span> is not a Unicode string.\x3c/p>\n<p>Use <a href=\"#Should%20Be%20Byte%20String\" class=\"name\">Should Be Byte String\x3c/a> if you want to verify the <span class=\"name\">item\x3c/span> is a byte string, or <a href=\"#Should%20Be%20String\" class=\"name\">Should Be String\x3c/a> if both Unicode and byte strings are fine.\x3c/p>\n<p>The default error message can be overridden with the optional <span class=\"name\">msg\x3c/span> argument.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","name":"Should Be Unicode String","shortdoc":"Fails if the given `item` is not a Unicode string."},{"args":"string, msg=None","doc":"<p>Fails if the given <span class=\"name\">string\x3c/span> is not in uppercase.\x3c/p>\n<p>For example 'STRING' and 'WITH SPECIALS!' would pass, and 'String', '' and ' ' would fail.\x3c/p>\n<p>The default error message can be overridden with the optional <span class=\"name\">msg\x3c/span> argument.\x3c/p>\n<p>See also <a href=\"#Should%20Be%20Titlecase\" class=\"name\">Should Be Titlecase\x3c/a> and <a href=\"#Should%20Be%20Lowercase\" class=\"name\">Should Be Lowercase\x3c/a>. All these keywords were added in Robot Framework 2.1.2.\x3c/p>","name":"Should Be Uppercase","shortdoc":"Fails if the given `string` is not in uppercase."},{"args":"item, msg=None","doc":"<p>Fails if the given <span class=\"name\">item\x3c/span> is a string.\x3c/p>\n<p>The default error message can be overridden with the optional <span class=\"name\">msg\x3c/span> argument.\x3c/p>","name":"Should Not Be String","shortdoc":"Fails if the given `item` is a string."},{"args":"string, separator=None, max_split=-1","doc":"<p>Splits the <span class=\"name\">string\x3c/span> using <span class=\"name\">separator\x3c/span> as a delimiter string.\x3c/p>\n<p>If a <span class=\"name\">separator\x3c/span> is not given, any whitespace string is a separator. In that case also possible consecutive whitespace as well as leading and trailing whitespace is ignored.\x3c/p>\n<p>Split words are returned as a list. If the optional <span class=\"name\">max_split\x3c/span> is given, at most <span class=\"name\">max_split\x3c/span> splits are done, and the returned list will have maximum <span class=\"name\">max_split + 1\x3c/span> elements.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>@{words} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{words} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>,${SPACE}\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${pre}\x3c/td>\n<td>${post} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>::\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Split%20String%20From%20Right\" class=\"name\">Split String From Right\x3c/a> if you want to start splitting from right, and <a href=\"#Fetch%20From%20Left\" class=\"name\">Fetch From Left\x3c/a> and <a href=\"#Fetch%20From%20Right\" class=\"name\">Fetch From Right\x3c/a> if you only want to get first/last part of the string.\x3c/p>","name":"Split String","shortdoc":"Splits the `string` using `separator` as a delimiter string."},{"args":"string, separator=None, max_split=-1","doc":"<p>Splits the <span class=\"name\">string\x3c/span> using <span class=\"name\">separator\x3c/span> starting from right.\x3c/p>\n<p>Same as <a href=\"#Split%20String\" class=\"name\">Split String\x3c/a>, but splitting is started from right. This has an effect only when <span class=\"name\">max_split\x3c/span> is given.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${first}\x3c/td>\n<td>${rest} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>-\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n<tr>\n<td>${rest}\x3c/td>\n<td>${last} =\x3c/td>\n<td>Split String From Right\x3c/td>\n<td>${string}\x3c/td>\n<td>-\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n\x3c/table>","name":"Split String From Right","shortdoc":"Splits the `string` using `separator` starting from right."},{"args":"string","doc":"<p>Splits the given <span class=\"name\">string\x3c/span> to characters.\x3c/p>\n<p>Example:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>@{characters} =\x3c/td>\n<td>Split String To Characters\x3c/td>\n<td>${string}\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.7.\x3c/p>","name":"Split String To Characters","shortdoc":"Splits the given `string` to characters."},{"args":"string, start=0, end=None","doc":"<p>Converts the <span class=\"name\">string\x3c/span> into a list of lines.\x3c/p>\n<p>It is possible to get only a selection of lines from <span class=\"name\">start\x3c/span> to <span class=\"name\">end\x3c/span> so that <span class=\"name\">start\x3c/span> index is inclusive and <span class=\"name\">end\x3c/span> is exclusive. Line numbering starts from 0, and it is possible to use negative indices to refer to lines from the end.\x3c/p>\n<p>Lines are returned without the newlines. The number of returned lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>@{lines} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{ignore first} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>1\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{ignore last} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>\x3c/td>\n<td>-1\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{5th to 10th} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>4\x3c/td>\n<td>10\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{first two} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{last two} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>-2\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Use <a href=\"#Get%20Line\" class=\"name\">Get Line\x3c/a> if you only need to get a single line.\x3c/p>","name":"Split To Lines","shortdoc":"Converts the `string` into a list of lines."}],"name":"String","named_args":true,"scope":"global","version":"2.8.7"};
+libdoc = {"all_tags":[],"contains_tags":false,"doc":"<p>A test library for string manipulation and verification.\x3c/p>\n<p><code>String\x3c/code> is Robot Framework's standard library for manipulating strings (e.g. <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a>, <a href=\"#Split%20To%20Lines\" class=\"name\">Split To Lines\x3c/a>) and verifying their contents (e.g. <a href=\"#Should%20Be%20String\" class=\"name\">Should Be String\x3c/a>).\x3c/p>\n<p>Following keywords from <code>BuiltIn\x3c/code> library can also be used with strings:\x3c/p>\n<ul>\n<li><span class=\"name\">Catenate\x3c/span>\x3c/li>\n<li><span class=\"name\">Get Length\x3c/span>\x3c/li>\n<li><span class=\"name\">Length Should Be\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Be Empty\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Be Equal (As Strings/Integers/Numbers)\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Match (Regexp)\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Contain\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) Start With\x3c/span>\x3c/li>\n<li><span class=\"name\">Should (Not) End With\x3c/span>\x3c/li>\n<li><span class=\"name\">Convert To String\x3c/span>\x3c/li>\n<li><span class=\"name\">Convert To Bytes\x3c/span>\x3c/li>\n\x3c/ul>","generated":"2015-12-31 13:10:05","inits":[],"keywords":[{"args":["string"],"doc":"<p>Converts string to lowercase.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str1} =\x3c/td>\n<td>Convert To Lowercase\x3c/td>\n<td>ABC\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str2} =\x3c/td>\n<td>Convert To Lowercase\x3c/td>\n<td>1A2c3D\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str1}\x3c/td>\n<td>abc\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str2}\x3c/td>\n<td>1a2c3d\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.8.6.\x3c/p>","matched":true,"name":"Convert To Lowercase","shortdoc":"Converts string to lowercase.","tags":[]},{"args":["string"],"doc":"<p>Converts string to uppercase.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str1} =\x3c/td>\n<td>Convert To Uppercase\x3c/td>\n<td>abc\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str2} =\x3c/td>\n<td>Convert To Uppercase\x3c/td>\n<td>1a2C3d\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str1}\x3c/td>\n<td>ABC\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str2}\x3c/td>\n<td>1A2C3D\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.8.6.\x3c/p>","matched":true,"name":"Convert To Uppercase","shortdoc":"Converts string to uppercase.","tags":[]},{"args":["bytes","encoding","errors=strict"],"doc":"<p>Decodes the given <code>bytes\x3c/code> to a Unicode string using the given <code>encoding\x3c/code>.\x3c/p>\n<p><code>errors\x3c/code> argument controls what to do if decoding some bytes fails. All values accepted by <code>decode\x3c/code> method in Python are valid, but in practice the following values are most useful:\x3c/p>\n<ul>\n<li><code>strict\x3c/code>: fail if characters cannot be decoded (default)\x3c/li>\n<li><code>ignore\x3c/code>: ignore characters that cannot be decoded\x3c/li>\n<li><code>replace\x3c/code>: replace characters that cannot be decoded with a replacement character\x3c/li>\n\x3c/ul>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${string} =\x3c/td>\n<td>Decode Bytes To String\x3c/td>\n<td>${bytes}\x3c/td>\n<td>UTF-8\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${string} =\x3c/td>\n<td>Decode Bytes To String\x3c/td>\n<td>${bytes}\x3c/td>\n<td>ASCII\x3c/td>\n<td>errors=ignore\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Use <a href=\"#Encode%20String%20To%20Bytes\" class=\"name\">Encode String To Bytes\x3c/a> if you need to convert Unicode strings to byte strings, and <span class=\"name\">Convert To String\x3c/span> in <code>BuiltIn\x3c/code> if you need to convert arbitrary objects to Unicode strings.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","matched":true,"name":"Decode Bytes To String","shortdoc":"Decodes the given ``bytes`` to a Unicode string using the given ``encoding``.","tags":[]},{"args":["string","encoding","errors=strict"],"doc":"<p>Encodes the given Unicode <code>string\x3c/code> to bytes using the given <code>encoding\x3c/code>.\x3c/p>\n<p><code>errors\x3c/code> argument controls what to do if encoding some characters fails. All values accepted by <code>encode\x3c/code> method in Python are valid, but in practice the following values are most useful:\x3c/p>\n<ul>\n<li><code>strict\x3c/code>: fail if characters cannot be encoded (default)\x3c/li>\n<li><code>ignore\x3c/code>: ignore characters that cannot be encoded\x3c/li>\n<li><code>replace\x3c/code>: replace characters that cannot be encoded with a replacement character\x3c/li>\n\x3c/ul>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${bytes} =\x3c/td>\n<td>Encode String To Bytes\x3c/td>\n<td>${string}\x3c/td>\n<td>UTF-8\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${bytes} =\x3c/td>\n<td>Encode String To Bytes\x3c/td>\n<td>${string}\x3c/td>\n<td>ASCII\x3c/td>\n<td>errors=ignore\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Use <span class=\"name\">Convert To Bytes\x3c/span> in <code>BuiltIn\x3c/code> if you want to create bytes based on character or integer sequences. Use <a href=\"#Decode%20Bytes%20To%20String\" class=\"name\">Decode Bytes To String\x3c/a> if you need to convert byte strings to Unicode strings and <span class=\"name\">Convert To String\x3c/span> in <code>BuiltIn\x3c/code> if you need to convert arbitrary objects to Unicode.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","matched":true,"name":"Encode String To Bytes","shortdoc":"Encodes the given Unicode ``string`` to bytes using the given ``encoding``.","tags":[]},{"args":["string","marker"],"doc":"<p>Returns contents of the <code>string\x3c/code> before the first occurrence of <code>marker\x3c/code>.\x3c/p>\n<p>If the <code>marker\x3c/code> is not found, whole string is returned.\x3c/p>\n<p>See also <a href=\"#Fetch%20From%20Right\" class=\"name\">Fetch From Right\x3c/a>, <a href=\"#Split%20String\" class=\"name\">Split String\x3c/a> and <a href=\"#Split%20String%20From%20Right\" class=\"name\">Split String From Right\x3c/a>.\x3c/p>","matched":true,"name":"Fetch From Left","shortdoc":"Returns contents of the ``string`` before the first occurrence of ``marker``.","tags":[]},{"args":["string","marker"],"doc":"<p>Returns contents of the <code>string\x3c/code> after the last occurrence of <code>marker\x3c/code>.\x3c/p>\n<p>If the <code>marker\x3c/code> is not found, whole string is returned.\x3c/p>\n<p>See also <a href=\"#Fetch%20From%20Left\" class=\"name\">Fetch From Left\x3c/a>, <a href=\"#Split%20String\" class=\"name\">Split String\x3c/a> and <a href=\"#Split%20String%20From%20Right\" class=\"name\">Split String From Right\x3c/a>.\x3c/p>","matched":true,"name":"Fetch From Right","shortdoc":"Returns contents of the ``string`` after the last occurrence of ``marker``.","tags":[]},{"args":["length=8","chars=[LETTERS][NUMBERS]"],"doc":"<p>Generates a string with a desired <code>length\x3c/code> from the given <code>chars\x3c/code>.\x3c/p>\n<p>The population sequence <code>chars\x3c/code> contains the characters to use when generating the random string. It can contain any characters, and it is possible to use special markers explained in the table below:\x3c/p>\n<table border=\"1\">\n<tr>\n<th>Marker\x3c/th>\n<th>Explanation\x3c/th>\n\x3c/tr>\n<tr>\n<td><code>[LOWER]\x3c/code>\x3c/td>\n<td>Lowercase ASCII characters from <code>a\x3c/code> to <code>z\x3c/code>.\x3c/td>\n\x3c/tr>\n<tr>\n<td><code>[UPPER]\x3c/code>\x3c/td>\n<td>Uppercase ASCII characters from <code>A\x3c/code> to <code>Z\x3c/code>.\x3c/td>\n\x3c/tr>\n<tr>\n<td><code>[LETTERS]\x3c/code>\x3c/td>\n<td>Lowercase and uppercase ASCII characters.\x3c/td>\n\x3c/tr>\n<tr>\n<td><code>[NUMBERS]\x3c/code>\x3c/td>\n<td>Numbers from 0 to 9.\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${ret} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${low} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>12\x3c/td>\n<td>[LOWER]\x3c/td>\n\x3c/tr>\n<tr>\n<td>${bin} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>8\x3c/td>\n<td>01\x3c/td>\n\x3c/tr>\n<tr>\n<td>${hex} =\x3c/td>\n<td>Generate Random String\x3c/td>\n<td>4\x3c/td>\n<td>[NUMBERS]abcdef\x3c/td>\n\x3c/tr>\n\x3c/table>","matched":true,"name":"Generate Random String","shortdoc":"Generates a string with a desired ``length`` from the given ``chars``.","tags":[]},{"args":["string","line_number"],"doc":"<p>Returns the specified line from the given <code>string\x3c/code>.\x3c/p>\n<p>Line numbering starts from 0 and it is possible to use negative indices to refer to lines from the end. The line is returned without the newline character.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${first} =\x3c/td>\n<td>Get Line\x3c/td>\n<td>${string}\x3c/td>\n<td>0\x3c/td>\n\x3c/tr>\n<tr>\n<td>${2nd last} =\x3c/td>\n<td>Get Line\x3c/td>\n<td>${string}\x3c/td>\n<td>-2\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Use <a href=\"#Split%20To%20Lines\" class=\"name\">Split To Lines\x3c/a> if all lines are needed.\x3c/p>","matched":true,"name":"Get Line","shortdoc":"Returns the specified line from the given ``string``.","tags":[]},{"args":["string"],"doc":"<p>Returns and logs the number of lines in the given string.\x3c/p>","matched":true,"name":"Get Line Count","shortdoc":"Returns and logs the number of lines in the given string.","tags":[]},{"args":["string","pattern","case_insensitive=False"],"doc":"<p>Returns lines of the given <code>string\x3c/code> that contain the <code>pattern\x3c/code>.\x3c/p>\n<p>The <code>pattern\x3c/code> is always considered to be a normal string, not a glob or regexp pattern. A line matches if the <code>pattern\x3c/code> is found anywhere on it.\x3c/p>\n<p>The match is case-sensitive by default, but giving <code>case_insensitive\x3c/code> a true value makes it case-insensitive. The value is considered true if it is a non-empty string that is not equal to <code>false\x3c/code> or <code>no\x3c/code>. If the value is not a string, its truth value is got directly in Python.\x3c/p>\n<p>Lines are returned as one string catenated back together with newlines. Possible trailing newline is never returned. The number of matching lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${lines} =\x3c/td>\n<td>Get Lines Containing String\x3c/td>\n<td>${result}\x3c/td>\n<td>An example\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ret} =\x3c/td>\n<td>Get Lines Containing String\x3c/td>\n<td>${ret}\x3c/td>\n<td>FAIL\x3c/td>\n<td>case-insensitive\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Get%20Lines%20Matching%20Pattern\" class=\"name\">Get Lines Matching Pattern\x3c/a> and <a href=\"#Get%20Lines%20Matching%20Regexp\" class=\"name\">Get Lines Matching Regexp\x3c/a> if you need more complex pattern matching.\x3c/p>","matched":true,"name":"Get Lines Containing String","shortdoc":"Returns lines of the given ``string`` that contain the ``pattern``.","tags":[]},{"args":["string","pattern","case_insensitive=False"],"doc":"<p>Returns lines of the given <code>string\x3c/code> that match the <code>pattern\x3c/code>.\x3c/p>\n<p>The <code>pattern\x3c/code> is a <i>glob pattern\x3c/i> where:\x3c/p>\n<table border=\"1\">\n<tr>\n<td><code>*\x3c/code>\x3c/td>\n<td>matches everything\x3c/td>\n\x3c/tr>\n<tr>\n<td><code>?\x3c/code>\x3c/td>\n<td>matches any single character\x3c/td>\n\x3c/tr>\n<tr>\n<td><code>[chars]\x3c/code>\x3c/td>\n<td>matches any character inside square brackets (e.g. <code>[abc]\x3c/code> matches either <code>a\x3c/code>, <code>b\x3c/code> or <code>c\x3c/code>)\x3c/td>\n\x3c/tr>\n<tr>\n<td><code>[!chars]\x3c/code>\x3c/td>\n<td>matches any character not inside square brackets\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>A line matches only if it matches the <code>pattern\x3c/code> fully.\x3c/p>\n<p>The match is case-sensitive by default, but giving <code>case_insensitive\x3c/code> a true value makes it case-insensitive. The value is considered true if it is a non-empty string that is not equal to <code>false\x3c/code> or <code>no\x3c/code>. If the value is not a string, its truth value is got directly in Python.\x3c/p>\n<p>Lines are returned as one string catenated back together with newlines. Possible trailing newline is never returned. The number of matching lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${lines} =\x3c/td>\n<td>Get Lines Matching Pattern\x3c/td>\n<td>${result}\x3c/td>\n<td>Wild???? example\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ret} =\x3c/td>\n<td>Get Lines Matching Pattern\x3c/td>\n<td>${ret}\x3c/td>\n<td>FAIL: *\x3c/td>\n<td>case_insensitive=true\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Get%20Lines%20Matching%20Regexp\" class=\"name\">Get Lines Matching Regexp\x3c/a> if you need more complex patterns and <a href=\"#Get%20Lines%20Containing%20String\" class=\"name\">Get Lines Containing String\x3c/a> if searching literal strings is enough.\x3c/p>","matched":true,"name":"Get Lines Matching Pattern","shortdoc":"Returns lines of the given ``string`` that match the ``pattern``.","tags":[]},{"args":["string","pattern","partial_match=False"],"doc":"<p>Returns lines of the given <code>string\x3c/code> that match the regexp <code>pattern\x3c/code>.\x3c/p>\n<p>See <span class=\"name\">BuiltIn.Should Match Regexp\x3c/span> for more information about Python regular expression syntax in general and how to use it in Robot Framework test data in particular.\x3c/p>\n<p>By default lines match only if they match the pattern fully, but partial matching can be enabled by giving the <code>partial_match\x3c/code> argument a true value. The value is considered true if it is a non-empty string that is not equal to <code>false\x3c/code> or <code>no\x3c/code>. If the value is not a string, its truth value is got directly in Python.\x3c/p>\n<p>If the pattern is empty, it matches only empty lines by default. When partial matching is enabled, empty pattern matches all lines.\x3c/p>\n<p>Notice that to make the match case-insensitive, you need to prefix the pattern with case-insensitive flag <code>(?i)\x3c/code>.\x3c/p>\n<p>Lines are returned as one string concatenated back together with newlines. Possible trailing newline is never returned. The number of matching lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${lines} =\x3c/td>\n<td>Get Lines Matching Regexp\x3c/td>\n<td>${result}\x3c/td>\n<td>Reg\\\\w{3} example\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${lines} =\x3c/td>\n<td>Get Lines Matching Regexp\x3c/td>\n<td>${result}\x3c/td>\n<td>Reg\\\\w{3} example\x3c/td>\n<td>partial_match=true\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ret} =\x3c/td>\n<td>Get Lines Matching Regexp\x3c/td>\n<td>${ret}\x3c/td>\n<td>(?i)FAIL: .*\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Get%20Lines%20Matching%20Pattern\" class=\"name\">Get Lines Matching Pattern\x3c/a> and <a href=\"#Get%20Lines%20Containing%20String\" class=\"name\">Get Lines Containing String\x3c/a> if you do not need full regular expression powers (and complexity).\x3c/p>\n<p><code>partial_match\x3c/code> argument is new in Robot Framework 2.9. In earlier versions exact match was always required.\x3c/p>","matched":true,"name":"Get Lines Matching Regexp","shortdoc":"Returns lines of the given ``string`` that match the regexp ``pattern``.","tags":[]},{"args":["string","pattern","*groups"],"doc":"<p>Returns a list of all non-overlapping matches in the given string.\x3c/p>\n<p><code>string\x3c/code> is the string to find matches from and <code>pattern\x3c/code> is the regular expression. See <span class=\"name\">BuiltIn.Should Match Regexp\x3c/span> for more information about Python regular expression syntax in general and how to use it in Robot Framework test data in particular.\x3c/p>\n<p>If no groups are used, the returned list contains full matches. If one group is used, the list contains only contents of that group. If multiple groups are used, the list contains tuples that contain individual group contents. All groups can be given as indexes (starting from 1) and named groups also as names.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${no match} =\x3c/td>\n<td>Get Regexp Matches\x3c/td>\n<td>the string\x3c/td>\n<td>xxx\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${matches} =\x3c/td>\n<td>Get Regexp Matches\x3c/td>\n<td>the string\x3c/td>\n<td>t..\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${one group} =\x3c/td>\n<td>Get Regexp Matches\x3c/td>\n<td>the string\x3c/td>\n<td>t(..)\x3c/td>\n<td>1\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${named group} =\x3c/td>\n<td>Get Regexp Matches\x3c/td>\n<td>the string\x3c/td>\n<td>t(?P&lt;name&gt;..)\x3c/td>\n<td>name\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${two groups} =\x3c/td>\n<td>Get Regexp Matches\x3c/td>\n<td>the string\x3c/td>\n<td>t(.)(.)\x3c/td>\n<td>1\x3c/td>\n<td>2\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>=&gt;\x3c/p>\n<pre>\n${no match} = []\n${matches} = ['the', 'tri']\n${one group} = ['he', 'ri']\n${named group} = ['he', 'ri']\n${two groups} = [('h', 'e'), ('r', 'i')]\n\x3c/pre>\n<p>New in Robot Framework 2.9.\x3c/p>","matched":true,"name":"Get Regexp Matches","shortdoc":"Returns a list of all non-overlapping matches in the given string.","tags":[]},{"args":["string","start","end=None"],"doc":"<p>Returns a substring from <code>start\x3c/code> index to <code>end\x3c/code> index.\x3c/p>\n<p>The <code>start\x3c/code> index is inclusive and <code>end\x3c/code> is exclusive. Indexing starts from 0, and it is possible to use negative indices to refer to characters from the end.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${ignore first} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>1\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${ignore last} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>\x3c/td>\n<td>-1\x3c/td>\n\x3c/tr>\n<tr>\n<td>${5th to 10th} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>4\x3c/td>\n<td>10\x3c/td>\n\x3c/tr>\n<tr>\n<td>${first two} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n<tr>\n<td>${last two} =\x3c/td>\n<td>Get Substring\x3c/td>\n<td>${string}\x3c/td>\n<td>-2\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>","matched":true,"name":"Get Substring","shortdoc":"Returns a substring from ``start`` index to ``end`` index.","tags":[]},{"args":["string","*removables"],"doc":"<p>Removes all <code>removables\x3c/code> from the given <code>string\x3c/code>.\x3c/p>\n<p><code>removables\x3c/code> are used as literal strings. Each removable will be matched to a temporary string from which preceding removables have been already removed. See second example below.\x3c/p>\n<p>Use <a href=\"#Remove%20String%20Using%20Regexp\" class=\"name\">Remove String Using Regexp\x3c/a> if more powerful pattern matching is needed. If only a certain number of matches should be removed, <a href=\"#Replace%20String\" class=\"name\">Replace String\x3c/a> or <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a> can be used.\x3c/p>\n<p>A modified version of the string is returned and the original string is not altered.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str} =\x3c/td>\n<td>Remove String\x3c/td>\n<td>Robot Framework\x3c/td>\n<td>work\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>Robot Frame\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str} =\x3c/td>\n<td>Remove String\x3c/td>\n<td>Robot Framework\x3c/td>\n<td>o\x3c/td>\n<td>bt\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>R Framewrk\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.8.2.\x3c/p>","matched":true,"name":"Remove String","shortdoc":"Removes all ``removables`` from the given ``string``.","tags":[]},{"args":["string","*patterns"],"doc":"<p>Removes <code>patterns\x3c/code> from the given <code>string\x3c/code>.\x3c/p>\n<p>This keyword is otherwise identical to <a href=\"#Remove%20String\" class=\"name\">Remove String\x3c/a>, but the <code>patterns\x3c/code> to search for are considered to be a regular expression. See <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a> for more information about the regular expression syntax. That keyword can also be used if there is a need to remove only a certain number of occurrences.\x3c/p>\n<p>New in Robot Framework 2.8.2.\x3c/p>","matched":true,"name":"Remove String Using Regexp","shortdoc":"Removes ``patterns`` from the given ``string``.","tags":[]},{"args":["string","search_for","replace_with","count=-1"],"doc":"<p>Replaces <code>search_for\x3c/code> in the given <code>string\x3c/code> with <code>replace_with\x3c/code>.\x3c/p>\n<p><code>search_for\x3c/code> is used as a literal string. See <a href=\"#Replace%20String%20Using%20Regexp\" class=\"name\">Replace String Using Regexp\x3c/a> if more powerful pattern matching is needed. If you need to just remove a string see <a href=\"#Remove%20String\" class=\"name\">Remove String\x3c/a>.\x3c/p>\n<p>If the optional argument <code>count\x3c/code> is given, only that many occurrences from left are replaced. Negative <code>count\x3c/code> means that all occurrences are replaced (default behaviour) and zero means that nothing is done.\x3c/p>\n<p>A modified version of the string is returned and the original string is not altered.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String\x3c/td>\n<td>Hello, world!\x3c/td>\n<td>world\x3c/td>\n<td>tellus\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>Hello, tellus!\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String\x3c/td>\n<td>Hello, world!\x3c/td>\n<td>l\x3c/td>\n<td>${EMPTY}\x3c/td>\n<td>count=1\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${str}\x3c/td>\n<td>Helo, world!\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>","matched":true,"name":"Replace String","shortdoc":"Replaces ``search_for`` in the given ``string`` with ``replace_with``.","tags":[]},{"args":["string","pattern","replace_with","count=-1"],"doc":"<p>Replaces <code>pattern\x3c/code> in the given <code>string\x3c/code> with <code>replace_with\x3c/code>.\x3c/p>\n<p>This keyword is otherwise identical to <a href=\"#Replace%20String\" class=\"name\">Replace String\x3c/a>, but the <code>pattern\x3c/code> to search for is considered to be a regular expression.  See <span class=\"name\">BuiltIn.Should Match Regexp\x3c/span> for more information about Python regular expression syntax in general and how to use it in Robot Framework test data in particular.\x3c/p>\n<p>If you need to just remove a string see <a href=\"#Remove%20String%20Using%20Regexp\" class=\"name\">Remove String Using Regexp\x3c/a>.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String Using Regexp\x3c/td>\n<td>${str}\x3c/td>\n<td>20\\\\d\\\\d-\\\\d\\\\d-\\\\d\\\\d\x3c/td>\n<td>&lt;DATE&gt;\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${str} =\x3c/td>\n<td>Replace String Using Regexp\x3c/td>\n<td>${str}\x3c/td>\n<td>(Hello|Hi)\x3c/td>\n<td>${EMPTY}\x3c/td>\n<td>count=1\x3c/td>\n\x3c/tr>\n\x3c/table>","matched":true,"name":"Replace String Using Regexp","shortdoc":"Replaces ``pattern`` in the given ``string`` with ``replace_with``.","tags":[]},{"args":["item","msg=None"],"doc":"<p>Fails if the given <code>item\x3c/code> is not a byte string.\x3c/p>\n<p>Use <a href=\"#Should%20Be%20Unicode%20String\" class=\"name\">Should Be Unicode String\x3c/a> if you want to verify the <code>item\x3c/code> is a Unicode string, or <a href=\"#Should%20Be%20String\" class=\"name\">Should Be String\x3c/a> if both Unicode and byte strings are fine.\x3c/p>\n<p>The default error message can be overridden with the optional <code>msg\x3c/code> argument.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","matched":true,"name":"Should Be Byte String","shortdoc":"Fails if the given ``item`` is not a byte string.","tags":[]},{"args":["string","msg=None"],"doc":"<p>Fails if the given <code>string\x3c/code> is not in lowercase.\x3c/p>\n<p>For example, <code>'string'\x3c/code> and <code>'with specials!'\x3c/code> would pass, and <code>'String'\x3c/code>, <code>''\x3c/code> and <code>' '\x3c/code> would fail.\x3c/p>\n<p>The default error message can be overridden with the optional <code>msg\x3c/code> argument.\x3c/p>\n<p>See also <a href=\"#Should%20Be%20Uppercase\" class=\"name\">Should Be Uppercase\x3c/a> and <a href=\"#Should%20Be%20Titlecase\" class=\"name\">Should Be Titlecase\x3c/a>.\x3c/p>","matched":true,"name":"Should Be Lowercase","shortdoc":"Fails if the given ``string`` is not in lowercase.","tags":[]},{"args":["item","msg=None"],"doc":"<p>Fails if the given <code>item\x3c/code> is not a string.\x3c/p>\n<p>This keyword passes regardless is the <code>item\x3c/code> is a Unicode string or a byte string. Use <a href=\"#Should%20Be%20Unicode%20String\" class=\"name\">Should Be Unicode String\x3c/a> or <a href=\"#Should%20Be%20Byte%20String\" class=\"name\">Should Be Byte String\x3c/a> if you want to restrict the string type.\x3c/p>\n<p>The default error message can be overridden with the optional <code>msg\x3c/code> argument.\x3c/p>","matched":true,"name":"Should Be String","shortdoc":"Fails if the given ``item`` is not a string.","tags":[]},{"args":["string","msg=None"],"doc":"<p>Fails if given <code>string\x3c/code> is not title.\x3c/p>\n<p><code>string\x3c/code> is a titlecased string if there is at least one character in it, uppercase characters only follow uncased characters and lowercase characters only cased ones.\x3c/p>\n<p>For example, <code>'This Is Title'\x3c/code> would pass, and <code>'Word In UPPER'\x3c/code>, <code>'Word In lower'\x3c/code>, <code>''\x3c/code> and <code>' '\x3c/code> would fail.\x3c/p>\n<p>The default error message can be overridden with the optional <code>msg\x3c/code> argument.\x3c/p>\n<p>See also <a href=\"#Should%20Be%20Uppercase\" class=\"name\">Should Be Uppercase\x3c/a> and <a href=\"#Should%20Be%20Lowercase\" class=\"name\">Should Be Lowercase\x3c/a>.\x3c/p>","matched":true,"name":"Should Be Titlecase","shortdoc":"Fails if given ``string`` is not title.","tags":[]},{"args":["item","msg=None"],"doc":"<p>Fails if the given <code>item\x3c/code> is not a Unicode string.\x3c/p>\n<p>Use <a href=\"#Should%20Be%20Byte%20String\" class=\"name\">Should Be Byte String\x3c/a> if you want to verify the <code>item\x3c/code> is a byte string, or <a href=\"#Should%20Be%20String\" class=\"name\">Should Be String\x3c/a> if both Unicode and byte strings are fine.\x3c/p>\n<p>The default error message can be overridden with the optional <code>msg\x3c/code> argument.\x3c/p>\n<p>New in Robot Framework 2.7.7.\x3c/p>","matched":true,"name":"Should Be Unicode String","shortdoc":"Fails if the given ``item`` is not a Unicode string.","tags":[]},{"args":["string","msg=None"],"doc":"<p>Fails if the given <code>string\x3c/code> is not in uppercase.\x3c/p>\n<p>For example, <code>'STRING'\x3c/code> and <code>'WITH SPECIALS!'\x3c/code> would pass, and <code>'String'\x3c/code>, <code>''\x3c/code> and <code>' '\x3c/code> would fail.\x3c/p>\n<p>The default error message can be overridden with the optional <code>msg\x3c/code> argument.\x3c/p>\n<p>See also <a href=\"#Should%20Be%20Titlecase\" class=\"name\">Should Be Titlecase\x3c/a> and <a href=\"#Should%20Be%20Lowercase\" class=\"name\">Should Be Lowercase\x3c/a>.\x3c/p>","matched":true,"name":"Should Be Uppercase","shortdoc":"Fails if the given ``string`` is not in uppercase.","tags":[]},{"args":["item","msg=None"],"doc":"<p>Fails if the given <code>item\x3c/code> is a string.\x3c/p>\n<p>The default error message can be overridden with the optional <code>msg\x3c/code> argument.\x3c/p>","matched":true,"name":"Should Not Be String","shortdoc":"Fails if the given ``item`` is a string.","tags":[]},{"args":["string","separator=None","max_split=-1"],"doc":"<p>Splits the <code>string\x3c/code> using <code>separator\x3c/code> as a delimiter string.\x3c/p>\n<p>If a <code>separator\x3c/code> is not given, any whitespace string is a separator. In that case also possible consecutive whitespace as well as leading and trailing whitespace is ignored.\x3c/p>\n<p>Split words are returned as a list. If the optional <code>max_split\x3c/code> is given, at most <code>max_split\x3c/code> splits are done, and the returned list will have maximum <code>max_split + 1\x3c/code> elements.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>@{words} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{words} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>,${SPACE}\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${pre}\x3c/td>\n<td>${post} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>::\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>See <a href=\"#Split%20String%20From%20Right\" class=\"name\">Split String From Right\x3c/a> if you want to start splitting from right, and <a href=\"#Fetch%20From%20Left\" class=\"name\">Fetch From Left\x3c/a> and <a href=\"#Fetch%20From%20Right\" class=\"name\">Fetch From Right\x3c/a> if you only want to get first/last part of the string.\x3c/p>","matched":true,"name":"Split String","shortdoc":"Splits the ``string`` using ``separator`` as a delimiter string.","tags":[]},{"args":["string","separator=None","max_split=-1"],"doc":"<p>Splits the <code>string\x3c/code> using <code>separator\x3c/code> starting from right.\x3c/p>\n<p>Same as <a href=\"#Split%20String\" class=\"name\">Split String\x3c/a>, but splitting is started from right. This has an effect only when <code>max_split\x3c/code> is given.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${first}\x3c/td>\n<td>${rest} =\x3c/td>\n<td>Split String\x3c/td>\n<td>${string}\x3c/td>\n<td>-\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n<tr>\n<td>${rest}\x3c/td>\n<td>${last} =\x3c/td>\n<td>Split String From Right\x3c/td>\n<td>${string}\x3c/td>\n<td>-\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n\x3c/table>","matched":true,"name":"Split String From Right","shortdoc":"Splits the ``string`` using ``separator`` starting from right.","tags":[]},{"args":["string"],"doc":"<p>Splits the given <code>string\x3c/code> to characters.\x3c/p>\n<p>Example:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>@{characters} =\x3c/td>\n<td>Split String To Characters\x3c/td>\n<td>${string}\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 2.7.\x3c/p>","matched":true,"name":"Split String To Characters","shortdoc":"Splits the given ``string`` to characters.","tags":[]},{"args":["string","start=0","end=None"],"doc":"<p>Splits the given string to lines.\x3c/p>\n<p>It is possible to get only a selection of lines from <code>start\x3c/code> to <code>end\x3c/code> so that <code>start\x3c/code> index is inclusive and <code>end\x3c/code> is exclusive. Line numbering starts from 0, and it is possible to use negative indices to refer to lines from the end.\x3c/p>\n<p>Lines are returned without the newlines. The number of returned lines is automatically logged.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>@{lines} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{ignore first} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>1\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{ignore last} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>\x3c/td>\n<td>-1\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{5th to 10th} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>4\x3c/td>\n<td>10\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{first two} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>\x3c/td>\n<td>1\x3c/td>\n\x3c/tr>\n<tr>\n<td>@{last two} =\x3c/td>\n<td>Split To Lines\x3c/td>\n<td>${manylines}\x3c/td>\n<td>-2\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>Use <a href=\"#Get%20Line\" class=\"name\">Get Line\x3c/a> if you only need to get a single line.\x3c/p>","matched":true,"name":"Split To Lines","shortdoc":"Splits the given string to lines.","tags":[]},{"args":["string","mode=both","characters=None"],"doc":"<p>Remove leading and/or trailing whitespaces from the given string.\x3c/p>\n<p><code>mode\x3c/code> is either <code>left\x3c/code> to remove leading characters, <code>right\x3c/code> to remove trailing characters, <code>both\x3c/code> (default) to remove the characters from both sides of the string or <code>none\x3c/code> to return the unmodified string.\x3c/p>\n<p>If the optional <code>characters\x3c/code> is given, it must be a string and the characters in the string will be stripped in the string. Please note, that this is not a substring to be removed but a list of characters, see the example below.\x3c/p>\n<p>Examples:\x3c/p>\n<table border=\"1\">\n<tr>\n<td>${stripped}=\x3c/td>\n<td>Strip String\x3c/td>\n<td>${SPACE}Hello${SPACE}\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${stripped}\x3c/td>\n<td>Hello\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${stripped}=\x3c/td>\n<td>Strip String\x3c/td>\n<td>${SPACE}Hello${SPACE}\x3c/td>\n<td>mode=left\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${stripped}\x3c/td>\n<td>Hello${SPACE}\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n<tr>\n<td>${stripped}=\x3c/td>\n<td>Strip String\x3c/td>\n<td>aabaHelloeee\x3c/td>\n<td>characters=abe\x3c/td>\n\x3c/tr>\n<tr>\n<td>Should Be Equal\x3c/td>\n<td>${stripped}\x3c/td>\n<td>Hello\x3c/td>\n<td>\x3c/td>\n\x3c/tr>\n\x3c/table>\n<p>New in Robot Framework 3.0.\x3c/p>","matched":true,"name":"Strip String","shortdoc":"Remove leading and/or trailing whitespaces from the given string.","tags":[]}],"name":"String","named_args":true,"scope":"global","version":"3.0"};
 </script>
 <title></title>
 </head>
@@ -482,10 +493,13 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
         parseTemplates();
         document.title = libdoc.name;
         renderTemplate('base', libdoc, $('body'));
-        if (libdoc.inits.length > 0) {
+        if (libdoc.inits.length) {
             renderTemplate('importing', libdoc);
         }
         renderTemplate('shortcuts', libdoc);
+        if (libdoc.contains_tags) {
+            renderTemplate('tags', libdoc);
+        }
         renderTemplate('keywords', libdoc);
         renderTemplate('footer', libdoc);
         scrollToHash();
@@ -525,6 +539,13 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
         }
     }
 
+    function tagSearch(tag) {
+        var include = {tags: true, tagsExact: true};
+        markMatches(tag, include);
+        highlightMatches(tag, include);
+        $('#keywords-container').find('.kw-row').addClass('hide-unmatched');
+    }
+
     function doSearch() {
         var string = $('#search-string').val();
         var include = getIncludesAndDisableIfOnlyOneLeft();
@@ -541,38 +562,52 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
         var name = $('#include-name');
         var args = $('#include-args');
         var doc = $('#include-doc');
+        var tags = $('#include-tags');
         var include = {name: name.prop('checked'),
                        args: args.prop('checked'),
-                       doc: doc.prop('checked')};
-        if ((!include.name) && (!include.args)) {
+                       doc: doc.prop('checked'),
+                       tags: !!tags.prop('checked')};
+        if ((!include.name) && (!include.args) && (!include.doc)) {
+            tags.prop('disabled', true);
+        } else if ((!include.name) && (!include.args) && (!include.tags)) {
             doc.prop('disabled', true);
-        } else if ((!include.name) && (!include.doc)) {
+        } else if ((!include.name) && (!include.doc) && (!include.tags)) {
             args.prop('disabled', true);
-        } else if ((!include.args) && (!include.doc)) {
+        } else if ((!include.args) && (!include.doc) && (!include.tags)) {
             name.prop('disabled', true);
         } else {
             name.prop('disabled', false);
             args.prop('disabled', false);
             doc.prop('disabled', false);
+            tags.prop('disabled', false);
         }
         return include;
     }
 
-    function markMatches(string, include) {
-        var regexp = new RegExp(util.regexpEscape(string), 'i');
-        var result = {};
+    function markMatches(pattern, include) {
+        pattern = util.regexpEscape(pattern);
+        if (include.tagsExact) {
+            pattern = '^' + pattern + '$';
+        }
+        var regexp = new RegExp(pattern, 'i');
+        var test = regexp.test.bind(regexp);
+        var result = {contains_tags: libdoc.contains_tags};
         var matchCount = 0;
         result.keywords = util.map(libdoc.keywords, function (kw) {
             kw = $.extend({}, kw);
-            kw.matched = (include.name && regexp.test(kw.name) ||
-                          include.args && regexp.test(kw.args) ||
-                          include.doc && regexp.test($(kw.doc).text()));
+            kw.matched = (include.name && test(kw.name) ||
+                          include.args && test(kw.args) ||
+                          include.doc && test($(kw.doc).text()) ||
+                          include.tags && util.any(util.map(kw.tags, test)));
             if (kw.matched)
                 matchCount++;
             return kw
         });
         renderTemplate('shortcuts', result);
         renderTemplate('keywords', result);
+        if (libdoc.contains_tags) {
+            renderTemplate('tags', libdoc);
+        }
         var ending = matchCount != 1 ? 's.' : '.';
         $('#match-count').show().text(matchCount + ' matched keyword' + ending);
         $('#altogether-count').hide();
@@ -592,6 +627,16 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
         }
         if (include.doc) {
             keywords.find('.doc').highlight(string);
+        }
+        if (include.tags) {
+            var matches = keywords.find('.tags').find('a').add(
+                    $('#tags-container').find('a'));
+            if (include.tagsExact) {
+                matches = matches.filter(function (index, tag) {
+                    return $(tag).text().toUpperCase() == string.toUpperCase();
+                });
+            }
+            matches.highlight(string);
         }
     }
 
@@ -619,6 +664,9 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
     function resetKeywords() {
         renderTemplate('shortcuts', libdoc);
         renderTemplate('keywords', libdoc);
+        if (libdoc.contains_tags) {
+            renderTemplate('tags', libdoc);
+        }
         $('#match-count').hide();
         $('#altogether-count').show();
     }
@@ -653,6 +701,7 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
     </div>
     <div id="importing-container"></div>
     <div id="shortcuts-container"></div>
+    <div id="tags-container"></div>
     <div id="keywords-container"></div>
     <div id="footer-container"></div>
     <form id="search" action="javascript:void(0)">
@@ -667,6 +716,10 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
                 <label for="include-args">Arguments</label>
                 <input type="checkbox" id="include-doc" onclick="doSearch()" checked>
                 <label for="include-doc">Documentation</label>
+                {{if libdoc.contains_tags}}
+                <input type="checkbox" id="include-tags" onclick="doSearch()" checked>
+                <label for="include-tags">Tags</label>
+                {{/if}}
             </fieldset>
             <input type="checkbox" id="hide-unmatched" onclick="setMatchVisibility()" checked>
             <label for="hide-unmatched">Hide unmatched keywords</label>
@@ -690,7 +743,11 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
         </tr>
         {{each inits}}
         <tr class="kw-row">
-            <td class="args">${$value.args}</td>
+            <td class="args">
+            {{each args}}
+              <span>${$value}</span>{{if $index < args.length-1}}, {{/if}}
+            {{/each}}
+            </td>
             <td class="doc">{{html $value.doc}}</td>
         </tr>
         {{/each}}
@@ -709,23 +766,58 @@ libdoc = {"doc":"<p>A test library for string manipulation and verification.\x3c
     </div>
 </script>
 
+<script type="text/x-jquery-tmpl" id="tags-template">
+    <h2 id="Tags">Tags</h2>
+    <div class='shortcuts'>
+        {{each all_tags}}
+        <a href="javascript:tagSearch('${$value}')"
+           title="Show tests with this tag">${$value}</a> &middot;
+        {{/each}}
+        <a href="javascript:resetKeywords()" class="normal-first-letter"
+           title="Show all tests">[Reset]</a>
+    </div>
+</script>
+
 <script type="text/x-jquery-tmpl" id="keywords-template">
     <h2 id="Keywords">Keywords</h2>
     <table border="1" class="keywords">
         <tr>
             <th class="kw">Keyword</th>
             <th class="args">Arguments</th>
+            {{if libdoc.contains_tags}}
+            <th class="tags">Tags</th>
+            {{/if}}
             <th class="doc">Documentation</th>
         </tr>
         {{each keywords}}
-        <tr class="kw-row {{if $value.matched === false}}no-{{/if}}match">
-            <td class="kw"><a name="${encodeURIComponent($value.name)}"></a>${$value.name}</td>
-            <td class="args">${$value.args}</td>
-            <td class="doc">{{html $value.doc}}</td>
-        </tr>
+            {{tmpl($value) 'keyword-template'}}
         {{/each}}
     </table>
 </script>
+
+<script type="text/x-jquery-tmpl" id="keyword-template">
+    <tr class="kw-row {{if matched === false}}no-{{/if}}match">
+        <td class="kw">
+            <a name="${name}" href="#${encodeURIComponent(name)}"
+               title="Link to this keyword">${name}</a>
+        </td>
+        <td class="args">
+            {{each args}}
+            <span>${$value}</span>{{if $index < args.length-1}}, {{/if}}
+            {{/each}}
+        </td>
+        {{if libdoc.contains_tags}}
+        <td class="tags">
+            {{each tags}}
+            <a href="javascript:tagSearch('${$value}')"
+               title="Show tests with this tag">${$value}</a>{{if $index < tags.length-1}}, {{/if}}
+            {{/each}}
+        </td>
+        {{/if}}
+        <td class="doc">{{html doc}}</td>
+    </tr>
+</script>
+
 
 <script type="text/x-jquery-tmpl" id="footer-template">
     <p class="footer">
