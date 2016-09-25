@@ -1,8 +1,9 @@
 package org.jspringbot.runner;
 
 import org.python.util.PythonInterpreter;
+import org.springframework.beans.factory.DisposableBean;
 
-public class PythonInterpreterBean implements AutoCloseable {
+public class PythonInterpreterBean implements AutoCloseable, DisposableBean {
 
     private PythonInterpreter interpreter;
 
@@ -15,6 +16,10 @@ public class PythonInterpreterBean implements AutoCloseable {
     }
 
     public void close() throws Exception {
-        interpreter.cleanup();
+        interpreter.close();
+    }
+
+    public void destroy() throws Exception {
+        close();
     }
 }
