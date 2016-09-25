@@ -72,7 +72,7 @@
   </developers>
 
   <properties>
-    <spring.version>3.1.0.RELEASE</spring.version>
+    <spring.version>4.3.2.RELEASE</spring.version>
     <hibernate.version>3.3.2.GA</hibernate.version>
     <junit.version>4.8.1</junit.version>
   </properties>
