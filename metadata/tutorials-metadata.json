@@ -4,7 +4,8 @@
             "name": "Installation",
             "tutorials": {
                 "installation-java": "Java",
-                "installation-maven": "Maven"
+                "installation-maven": "Maven",
+                "installation-intellij-ce": "IntelliJ"
             }
         }
     ]
