@@ -65,23 +65,23 @@
                         <i class="icon-user"></i> <a class="url fn" href="http://www.linkedin.com/in/shielabuitizon">Shiela Buitizon</a>
                     </li>
                     <li>
-                        <i class="icon-calendar"></i> May 15, 2013
+                        <i class="icon-calendar"></i> September 26, 2016
                     </li>
                 </ul>
 
                 <h1 id="SetupandInstallation-InstallJDK">Install JDK</h1>
                 <p>A Java Development Kit (JDK) is a program development environment for writing  java applications. It consists of a Java Runtime Environment (JRE) as well as the tools and programming that developers need to write, compile, debug, and run applications written in the Java language like JSpringBot library that we will be using.</p>
-                <p><span class="label label-info">1</span> Download and install JDK 1.6. You may need to create an oracle account to register the product and complete jdk installation.</p>
+                <p><span class="label label-info">1</span> Download and install JDK 1.8. You may need to create an oracle account to register the product and complete jdk installation.</p>
                 <pre>http://www.oracle.com/technetwork/java/javase/downloads/index.html</pre>
 
                 <p><span class="label label-success">2</span> Set Java in Path</p>
-                <p>We setup PATH environment variable so we can conveniently run various executable from any directory without having to type the full path of the command. If you do not set the PATH variable, you need to specify the full path to the executable every time you run it, such as: C:\Program Files\Java\jdk1.6.0_43\javac MyClass.java</p>
+                <p>We setup PATH environment variable so we can conveniently run various executable from any directory without having to type the full path of the command. If you do not set the PATH variable, you need to specify the full path to the executable every time you run it, such as: C:\Program Files\Java\jdk1.8.0_102\javac MyClass.java</p>
 
                 <p><strong>For Windows:</strong></p>
                 <p>Launch System Properties for setting up JAVA_HOME</p>
                 <p>Open Explorer > Right Click Computer > Properties > Advanced system settings > Environment Variables > System variables > New</p>
                 <pre>Variable Name: JAVA_HOME
-Variable Value:  ex. C:\Program Files\Java\jdk1.6.0_43</pre>
+Variable Value:  ex. C:\Program Files\Java\jdk1.8.0_102</pre>
                 <p>Note: The variable value depends on where you extracted the jdk. The above is as on my system.</p>
                 <p>Update Windows Path</p>
                 <pre>Open Explorer -> Right Click Computer -> Properties -> Advanced -> Environment Variables -> System Variables</pre>
@@ -90,7 +90,7 @@ Variable Value:  ex. C:\Program Files\Java\jdk1.6.0_43</pre>
 
                 <p><strong>For Mac:</strong></p>
                 <p>Open ~/.bash_profile and set JAVA_HOME in PATH</p>
-                <pre>JAVA_HOME=/usr/java/jdk1.6.0_43
+                <pre>JAVA_HOME=/usr/java/jdk1.8.0_102
 export JAVA_HOME
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:$JAVA_HOME/bin
