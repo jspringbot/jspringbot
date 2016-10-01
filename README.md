@@ -1,4 +1,4 @@
-jSpringBot [![Build Status](https://travis-ci.org/jspringbot/jspringbot.svg?branch=master)](https://travis-ci.org/jspringbot/jspringbot)
+jSpringBot [![Build Status](https://travis-ci.org/jspringbot/jspringbot-selenium.svg?branch=master)](https://travis-ci.org/jspringbot/jspringbot-selenium)
 =======
 
 ### Introduction
