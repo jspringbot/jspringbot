@@ -1,4 +1,7 @@
-jSpringBot [![Build Status](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot/badge/icon)](https://buildhive.cloudbees.com/job/jspringbot/job/jspringbot/)
+jSpringBot 
+
+[![Build Status](https://travis-ci.org/jspringbot/jspringbot.svg?branch=master)](https://travis-ci.org/jspringbot/jspringbot)
+
 =======
 
 ### Introduction
