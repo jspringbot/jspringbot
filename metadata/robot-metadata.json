@@ -137,7 +137,7 @@
         "selenium": {
           "name": "Selenium Library",
           "src": "docs/JSpringBotSeleniumLibrary.html",
-          "version": "1.5.2",
+          "version": "1.5.3",
           "quick-filter": [
             "Element",
             "List",
