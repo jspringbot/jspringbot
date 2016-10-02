@@ -137,6 +137,7 @@
         "selenium": {
           "name": "Selenium Library",
           "src": "docs/JSpringBotSeleniumLibrary.html",
+          "version": "1.5.2b",
           "quick-filter": [
             "Element",
             "List",
@@ -164,6 +165,7 @@
         "http": {
           "name": "HTTP Library",
           "src": "docs/JSpringBotHttpLibrary.html",
+          "version": "1.5.1",
           "quick-filter": [
             "Should",
             "Should Be",
