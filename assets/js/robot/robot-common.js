@@ -1,4 +1,8 @@
-window.ROBOT_ASYNC = false;
+
+if(!window.ROBOT_ASYNC) {
+  // set when not set.
+  window.ROBOT_ASYNC = false;
+}
 
 (function() {
   var _log = function(msg) {
