@@ -128,15 +128,18 @@
       "libraries": {
         "general": {
           "name": "General Library",
-          "src": "docs/JSpringBotGeneralLibrary.html"
+          "src": "docs/JSpringBotGeneralLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-general/issues"
         },
         "expression": {
           "name": "Expression Library",
-          "src": "docs/JSpringBotExpressionLibrary.html"
+          "src": "docs/JSpringBotExpressionLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-expression/issues"
         },
         "selenium": {
           "name": "Selenium Library",
           "src": "docs/JSpringBotSeleniumLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-selenium/issues",
           "version": "1.5.3",
           "quick-filter": [
             "Element",
@@ -165,6 +168,7 @@
         "http": {
           "name": "HTTP Library",
           "src": "docs/JSpringBotHttpLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-http/issues",
           "version": "1.5.1",
           "quick-filter": [
             "Should",
@@ -176,11 +180,13 @@
         },
         "xml": {
           "name": "XML Library",
-          "src": "docs/JSpringBotXMLLibrary.html"
+          "src": "docs/JSpringBotXMLLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-xml/issues"
         },
         "json": {
           "name": "JSON Library",
           "src": "docs/JSpringBotJSONLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-json/issues",
           "quick-filter": [
             "Should",
             "Should Not",
@@ -198,6 +204,7 @@
         "i18n": {
           "name": "i18n Library",
           "src": "docs/JSpringBoti18nLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-i18n/issues",
           "quick-filter": [
             "Locale",
             "Language",
@@ -212,6 +219,7 @@
         "db": {
           "name": "DB Library",
           "src": "docs/JSpringBotDBLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-db/issues",
           "quick-filter": [
             "Should",
             "Should Not",
@@ -224,11 +232,13 @@
         },
         "ssh": {
           "name": "SSH Library",
-          "src": "docs/JSpringBotSSHLibrary.html"
+          "src": "docs/JSpringBotSSHLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-ssh/issues"
         },
         "csv": {
           "name": "CSV Library",
           "src": "docs/JSpringBotCSVLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-csv/issues",
           "quick-filter": [
             "Should",
             "Should Not",
@@ -241,23 +251,28 @@
         },
         "date": {
           "name": "Date Library",
-          "src": "docs/JSpringBotDateLibrary.html"
+          "src": "docs/JSpringBotDateLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-date/issues"
         },
         "test-data": {
           "name": "Test Data Library",
-          "src": "docs/JSpringBotTestDataLibrary.html"
+          "src": "docs/JSpringBotTestDataLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-test-data/issues"
         },
         "config": {
           "name": "Config Library",
-          "src": "docs/JSpringBotConfigLibrary.html"
+          "src": "docs/JSpringBotConfigLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-config/issues"
         },
         "utils": {
           "name": "Utils Library",
-          "src": "docs/JSpringBotUtilsLibrary.html"
+          "src": "docs/JSpringBotUtilsLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-utils/issues"
         },
         "office": {
           "name": "Office Library",
-          "src": "docs/JSpringBotOfficeLibrary.html"
+          "src": "docs/JSpringBotOfficeLibrary.html",
+          "issue": "https://github.com/jspringbot/jspringbot-office/issues"
         }
       }
     },
