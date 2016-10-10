@@ -12,8 +12,8 @@
 
       for(var shortname in libSets.libraries) {
         var library = libSets.libraries[shortname];
-        $link.append("<li><a href='" + library.issue + "'>" + library.name + "</a></li>");
-        $tbody.append("<tr><td>" + library.name + "</td><td><a href='" + library.issue + "'>" + library.issue + "</a></td></tr>");
+        $link.append("<li><a target='_blank' href='" + library.issue + "'>" + library.name + "</a></li>");
+        $tbody.append("<tr><td>" + library.name + "</td><td><a target='_blank' href='" + library.issue + "'>" + library.issue + "</a></td></tr>");
       }
     }
   });
