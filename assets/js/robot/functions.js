@@ -28,7 +28,7 @@
       contentType: 'application/json',
       method: 'get',
       dataType: 'json',
-      async: false,
+      async: window.ROBOT_ASYNC,
       success: function (data) {
         metadata = data;
 

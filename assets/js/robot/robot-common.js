@@ -1,3 +1,5 @@
+window.ROBOT_ASYNC = false;
+
 (function() {
   var _log = function(msg) {
     if(window.console && console.log) {
@@ -114,7 +116,7 @@
 
     return {
       init: function() {
-        $.ajax({"url": url, cache: false, async: false}).done(_initializeLibrary);
+        $.ajax({"url": url, cache: false, async: window.ROBOT_ASYNC}).done(_initializeLibrary);
       }
     };
   };
@@ -134,7 +136,7 @@
       contentType: 'application/json',
       method: 'get',
       dataType: 'json',
-      async: false,
+      async: window.ROBOT_ASYNC,
       success: function (data) {
         metadata = data;
         var libSets = data['library-set'];
