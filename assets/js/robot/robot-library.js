@@ -339,7 +339,7 @@ $(function() {
       }
 
       var $input = $filter.find("input");
-      $input.typeahead({"source": keywordNames, "showOffsetHeight": -100, "updater": function(val) {
+      $input.typeahead({"source": keywordNames, "updater": function(val) {
         $input.val(val).change();
         _filterSubmit();
         return val;
