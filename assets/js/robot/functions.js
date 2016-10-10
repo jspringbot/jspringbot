@@ -8,55 +8,7 @@
   var FunctionUtils = function() {
     var FUNCTION_CLASSES = $(document.body).attr("function-classes").split(",");
 
-    var metadata;
-    var ready = false;
-    var functions = [];
-    var fns = [];
-
-    $.getJSON('docs/functions.json', function(data) {
-      metadata = data;
-
-      var i = 0;
-      for(i = 0; i < data.length;i++) {
-        if(isFunctionClass(data[i].functionClass)) {
-          var regex = /([a-z\.\[\]]+)\s+([a-z0-9$_]+)\s*\(\s*(([a-z0-9$_\[\]\._$]+(\s*,\s*)?)+)\)/gi;
-          var matches = regex.exec(data[i].functionSignature);
-
-          data[i].name = matches[2];
-
-          if(data[i].prefix != null) {
-            data[i].longName = data[i].prefix + ":" + data[i].name;
-          } else {
-            data[i].longName = data[i].name;
-          }
-
-          if(matches.length > 2) {
-            data[i].params = matches[3];
-          }
-
-          functions.push(data[i]);
-        }
-      }
-
-      functions.sort(function(a,b){
-        if(a.name.toLowerCase() > b.name.toLowerCase()) {
-          return 1;
-        } else if (a.name.toLowerCase() == b.name.toLowerCase()) {
-          return 0;
-        } else {
-          return -1;
-        }
-      });
-
-      ready = true;
-      for(i = 0; i < fns.length; i++) {
-        if(fns[i]) {
-          fns[i]();
-        }
-      }
-    });
-
-    var isFunctionClass = function(functionClass) {
+    var _isFunctionClass = function(functionClass) {
       for(var i = 0; i < FUNCTION_CLASSES.length; i++) {
         if(FUNCTION_CLASSES[i] == functionClass) {
           return true;
@@ -65,6 +17,62 @@
 
       return false;
     };
+
+    var metadata;
+    var ready = false;
+    var functions = [];
+    var fns = [];
+
+    $.ajax({
+      url: 'docs/functions.json',
+      contentType: 'application/json',
+      method: 'get',
+      dataType: 'json',
+      async: false,
+      success: function (data) {
+        metadata = data;
+
+        var i;
+        for(i = 0; i < data.length;i++) {
+          if(_isFunctionClass(data[i].functionClass)) {
+            var regex = /([a-z\.\[\]]+)\s+([a-z0-9$_]+)\s*\(\s*(([a-z0-9$_\[\]\._$]+(\s*,\s*)?)+)\)/gi;
+            var matches = regex.exec(data[i].functionSignature);
+
+            data[i].name = matches[2];
+
+            if(data[i].prefix != null) {
+              data[i].longName = data[i].prefix + ":" + data[i].name;
+            } else {
+              data[i].longName = data[i].name;
+            }
+
+            if(matches.length > 2) {
+              data[i].params = matches[3];
+            }
+
+            functions.push(data[i]);
+          }
+        }
+
+        functions.sort(function(a,b){
+          if(a.name.toLowerCase() > b.name.toLowerCase()) {
+            return 1;
+          } else if (a.name.toLowerCase() == b.name.toLowerCase()) {
+            return 0;
+          } else {
+            return -1;
+          }
+        });
+
+        ready = true;
+        for(i = 0; i < fns.length; i++) {
+          if(fns[i]) {
+            fns[i]();
+          }
+        }
+      }
+    });
+
 
     return {
       onReady: function(fn) {

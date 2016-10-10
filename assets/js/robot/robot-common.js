@@ -120,7 +120,6 @@
   };
 
   window.RobotUtils = function() {
-
     var total = 0;
     var metadata;
     var metaDataCache = {};
@@ -130,33 +129,40 @@
     var ready = false;
     var fns = [];
 
-    $.getJSON('metadata/robot-metadata.json', function(data) {
-      metadata = data;
-      var libSets = data['library-set'];
+    $.ajax({
+      url: 'metadata/robot-metadata.json',
+      contentType: 'application/json',
+      method: 'get',
+      dataType: 'json',
+      async: false,
+      success: function (data) {
+        metadata = data;
+        var libSets = data['library-set'];
 
-      total = 0;
-      var i = 0;
+        total = 0;
+        var i = 0;
 
-      for(i = 0; i < libSets.length; i++) {
-        var libSet = libSets[i];
-        var libs = libSet['libraries'];
+        for(i = 0; i < libSets.length; i++) {
+          var libSet = libSets[i];
+          var libs = libSet['libraries'];
 
-        if(libSet['include']) {
-          for(var shortname in libs) {
-            shortnames.push(shortname);
-            if(!libs[shortname].version) {
-              libs[shortname].version = libSet.version;
+          if(libSet['include']) {
+            for(var shortname in libs) {
+              shortnames.push(shortname);
+              if(!libs[shortname].version) {
+                libs[shortname].version = libSet.version;
+              }
+              metaDataCache[shortname] = libs[shortname];
+              total += 1;
             }
-            metaDataCache[shortname] = libs[shortname];
-            total += 1;
           }
         }
-      }
 
-      ready = true;
-      for(i = 0; i < fns.length; i++) {
-        if(fns[i]) {
-          fns[i]();
+        ready = true;
+        for(i = 0; i < fns.length; i++) {
+          if(fns[i]) {
+            fns[i]();
+          }
         }
       }
     });
