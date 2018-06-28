@@ -23,7 +23,7 @@
 
   <groupId>org.jspringbot</groupId>
   <artifactId>jspringbot</artifactId>
-  <version>1.7-SNAPSHOT</version>
+  <version>1.8-SNAPSHOT</version>
 
   <packaging>jar</packaging>
   <name>jspringbot</name>
@@ -45,7 +45,7 @@
     <connection>scm:git:https://github.com/jspringbot/jspringbot.git</connection>
     <developerConnection>scm:git:https://github.com/jspringbot/jspringbot.git</developerConnection>
     <url>https://github.com/jspringbot/jspringbot</url>
-    <tag>jspringbot-1.6</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <!-- For releasing jspringbot to Sonatype Nexus Repository -->
