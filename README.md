@@ -55,7 +55,7 @@ Code licensed under [Apache License v2.0](http://www.apache.org/licenses/LICENSE
 
 [3] jspringbot-libraries (update jspringbot to latest release version)
 
-[4] jspringbot-seleniu, jspringbot-http, jspringbot-xml, etc (update jspringbot to latest release version)
+[4] jspringbot-selenium, jspringbot-http, jspringbot-xml, etc (update jspringbot to latest release version)
 
 [5] jsprintbot-base (update jspringbot and libraries to latest release version)  
 
@@ -79,3 +79,15 @@ Code licensed under [Apache License v2.0](http://www.apache.org/licenses/LICENSE
 [5] mvn clean deploy
 
 * Check release version of file is deployed in https://oss.sonatype.org/content/groups/public
+
+[6] Change <version>1.6</version> <version>1.7-SNAPSHOT</version>
+
+[7] mvn clean deploy
+
+* Check release version of file is deployed in https://oss.sonatype.org/content/groups/public
+
+[8] Commit pom
+
+#### Deleting wrong tags
+git tag
+ie git tag -d jspringbot-1.7
