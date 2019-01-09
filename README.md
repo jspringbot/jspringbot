@@ -25,16 +25,18 @@ Code licensed under [Apache License v2.0](http://www.apache.org/licenses/LICENSE
 
 #### Releasing Pre-requisite
 
-1. GPG 
+1. GPG for Releasing to Nexus Sonatype
    
     https://central.sonatype.org/pages/working-with-pgp-signatures.html
     
-    A. Download "Installer for GnuPG"    
-    B. Generate a Key Pair "gpg --gen-key"    
+    A. Download "Installer for GnuPG"
+    B. Generate a Key Pair "gpg --gen-key"
+        B.1. Real name:
+        B.2. Email address:
         B.1. Leave passphrase blank    
         B.2. Yes protection is not needed   
         B.3. List key >> <code>"gpg2 --list-secret-keys"</code>  
-        B.4. <code>"gpg2 --keyserver keyserver.ubuntu.com --send-keys 42BBA46A8CB315CE987D093ECD594803614716ED"</code>  
+        B.4. <code>"gpg2 --keyserver keyserver.ubuntu.com --send-keys <get the 40 char key from B.3>"</code>
     C. Check "git config --list" to make sure github credentials are for jspringbot
    
 2. Pom Setup
@@ -45,7 +47,7 @@ Code licensed under [Apache License v2.0](http://www.apache.org/licenses/LICENSE
 
     https://central.sonatype.org/pages/apache-maven.html
 
-4. Git User to use for releasing to Nexus 
+4. Git User to use for releasing to Nexus Sonatype
 
 #### Releasing Sequence
 
